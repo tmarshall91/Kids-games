@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Create art by placing fun stamps and stickers!">
+    <title>Stamp Art</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>✨ Stamp Art</h1>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area">
+            <canvas id="stampCanvas"></canvas>
+        </main>
+
+        <!-- Stamp Selection Panel -->
+        <div class="stamp-panel">
+            <div class="stamp-section">
+                <label>Emoji Stamps:</label>
+                <div class="stamp-grid" id="emojiStamps">
+                    <button class="stamp-btn active" data-stamp="😀">😀</button>
+                    <button class="stamp-btn" data-stamp="😂">😂</button>
+                    <button class="stamp-btn" data-stamp="😍">😍</button>
+                    <button class="stamp-btn" data-stamp="🥳">🥳</button>
+                    <button class="stamp-btn" data-stamp="😎">😎</button>
+                    <button class="stamp-btn" data-stamp="🤩">🤩</button>
+                    <button class="stamp-btn" data-stamp="🐶">🐶</button>
+                    <button class="stamp-btn" data-stamp="🐱">🐱</button>
+                    <button class="stamp-btn" data-stamp="🦁">🦁</button>
+                    <button class="stamp-btn" data-stamp="🐼">🐼</button>
+                    <button class="stamp-btn" data-stamp="🦋">🦋</button>
+                    <button class="stamp-btn" data-stamp="🌸">🌸</button>
+                    <button class="stamp-btn" data-stamp="🌟">🌟</button>
+                    <button class="stamp-btn" data-stamp="⭐">⭐</button>
+                    <button class="stamp-btn" data-stamp="🌈">🌈</button>
+                    <button class="stamp-btn" data-stamp="❤️">❤️</button>
+                    <button class="stamp-btn" data-stamp="💕">💕</button>
+                    <button class="stamp-btn" data-stamp="🎨">🎨</button>
+                    <button class="stamp-btn" data-stamp="🎭">🎭</button>
+                    <button class="stamp-btn" data-stamp="🎪">🎪</button>
+                </div>
+            </div>
+
+            <div class="stamp-section">
+                <label>Size:</label>
+                <div class="size-controls">
+                    <button class="size-btn" data-size="small">Small</button>
+                    <button class="size-btn active" data-size="medium">Medium</button>
+                    <button class="size-btn" data-size="large">Large</button>
+                </div>
+            </div>
+
+            <div class="stamp-section">
+                <button id="clearBtn" class="tool-btn danger">🗑️ Clear All</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

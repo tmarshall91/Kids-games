@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Create beautiful symmetrical patterns!">
+    <title>Pattern Designer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>🎭 Pattern Designer</h1>
+        </header>
+
+        <main class="game-area">
+            <canvas id="patternCanvas"></canvas>
+        </main>
+
+        <footer class="game-controls">
+            <div class="control-row">
+                <label>Symmetry:</label>
+                <select id="symmetrySelect" class="select-control">
+                    <option value="2">2-Way Mirror</option>
+                    <option value="4" selected>4-Way</option>
+                    <option value="6">6-Way</option>
+                    <option value="8">8-Way Mandala</option>
+                </select>
+            </div>
+            <div class="control-row">
+                <label>Color:</label>
+                <div class="color-grid">
+                    <button class="color-btn active" data-color="#FF0000" style="background: #FF0000;"></button>
+                    <button class="color-btn" data-color="#FF6B00" style="background: #FF6B00;"></button>
+                    <button class="color-btn" data-color="#FFD700" style="background: #FFD700;"></button>
+                    <button class="color-btn" data-color="#00FF00" style="background: #00FF00;"></button>
+                    <button class="color-btn" data-color="#0099FF" style="background: #0099FF;"></button>
+                    <button class="color-btn" data-color="#9933FF" style="background: #9933FF;"></button>
+                </div>
+            </div>
+            <div class="control-row">
+                <button id="clearBtn" class="btn-clear">🗑️ Clear</button>
+            </div>
+        </footer>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
