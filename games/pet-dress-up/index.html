@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Dress up your pet with fun accessories and colors">
+    <title>Pet Dress-Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🐕 Pet Dress-Up 🐈</h1>
+            <p class="subtitle">Make your pet look amazing!</p>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Pet Display -->
+            <div class="pet-display">
+                <div class="pet-container" id="petContainer">
+                    <div class="pet-base" id="petBase">🐕</div>
+                    <div class="pet-hat" id="petHat"></div>
+                    <div class="pet-accessory" id="petAccessory"></div>
+                    <div class="pet-background" id="petBackground"></div>
+                </div>
+            </div>
+
+            <!-- Customization Options -->
+            <div class="options-container">
+                <div class="option-category">
+                    <h3>Choose Pet</h3>
+                    <div class="option-buttons" id="petOptions"></div>
+                </div>
+
+                <div class="option-category">
+                    <h3>Hat</h3>
+                    <div class="option-buttons" id="hatOptions"></div>
+                </div>
+
+                <div class="option-category">
+                    <h3>Accessory</h3>
+                    <div class="option-buttons" id="accessoryOptions"></div>
+                </div>
+
+                <div class="option-category">
+                    <h3>Background</h3>
+                    <div class="option-buttons" id="backgroundOptions"></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="clearBtn" class="btn btn-secondary">Clear All</button>
+            <button id="randomBtn" class="btn btn-primary">Random!</button>
+        </footer>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
