@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Build CVC words by selecting consonant-vowel-consonant patterns - A fun phonics game for early readers">
+    <title>CVC Word Builder - Learn Phonics</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>CVC Word Builder</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Round:</span>
+                    <span id="round" class="stat-value">1/10</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Welcome Message -->
+            <div class="game-message" id="gameMessage">
+                <h2>Build CVC Words!</h2>
+                <p>Pick letters to make words</p>
+                <div class="example">
+                    <span class="example-emoji">🐱</span>
+                    <div class="example-word">
+                        <span class="example-letter c">C</span>
+                        <span class="example-letter v">A</span>
+                        <span class="example-letter c">T</span>
+                    </div>
+                    <span class="example-text">Cat = <strong>C</strong> + <strong>A</strong> + <strong>T</strong></span>
+                </div>
+            </div>
+
+            <!-- Game Content (Hidden Initially) -->
+            <div class="game-content" id="gameContent" style="display: none;">
+                <!-- Picture Clue -->
+                <div class="clue-container">
+                    <div class="clue-emoji" id="clueEmoji">🐱</div>
+                    <div class="clue-text">What word is this?</div>
+                </div>
+
+                <!-- CVC Word Slots -->
+                <div class="word-builder">
+                    <div class="word-slot" data-position="0">
+                        <div class="slot-label">Consonant</div>
+                        <div class="slot-letter" id="slot0">?</div>
+                    </div>
+                    <div class="word-slot" data-position="1">
+                        <div class="slot-label">Vowel</div>
+                        <div class="slot-letter" id="slot1">?</div>
+                    </div>
+                    <div class="word-slot" data-position="2">
+                        <div class="slot-label">Consonant</div>
+                        <div class="slot-letter" id="slot2">?</div>
+                    </div>
+                </div>
+
+                <!-- Letter Options -->
+                <div class="options-container">
+                    <div class="options-label" id="optionsLabel">Pick the first letter:</div>
+                    <div class="letter-options" id="letterOptions">
+                        <!-- Letter buttons will be dynamically added here -->
+                    </div>
+                </div>
+
+                <!-- Feedback Message -->
+                <div class="feedback-message" id="feedbackMessage"></div>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+            <button id="checkBtn" class="btn btn-secondary" style="display: none;">Check Word</button>
+            <button id="nextBtn" class="btn btn-secondary" style="display: none;">Next Word</button>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Amazing Work!</h2>
+            <p class="final-score">You got <span id="finalScore">0</span> out of 10 correct!</p>
+            <div class="performance-message" id="performanceMessage"></div>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

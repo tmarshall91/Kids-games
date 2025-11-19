@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Unscramble letters to form words! A fun word game for kids.">
+    <title>Letter Scramble - Kids Games</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>Letter Scramble</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Round:</span>
+                    <span id="round" class="stat-value">1/10</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Scrambled Letters Display -->
+            <div class="scrambled-container">
+                <h2 class="instruction">Unscramble the letters!</h2>
+                <div class="scrambled-letters" id="scrambledLetters"></div>
+            </div>
+
+            <!-- Answer Area -->
+            <div class="answer-container">
+                <h3 class="answer-label">Your Answer:</h3>
+                <div class="answer-boxes" id="answerBoxes"></div>
+            </div>
+
+            <!-- Letter Tiles Selection Area -->
+            <div class="tiles-container" id="tilesContainer"></div>
+
+            <!-- Welcome Message -->
+            <div class="game-message" id="gameMessage">
+                <h2>Ready to Unscramble?</h2>
+                <p>Tap the letters to build words!</p>
+                <p>Can you solve all 10 words?</p>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+            <button id="checkBtn" class="btn btn-check" style="display: none;">Check Answer</button>
+            <button id="clearBtn" class="btn btn-secondary" style="display: none;">Clear</button>
+            <button id="nextBtn" class="btn btn-primary" style="display: none;">Next Word</button>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Amazing Work!</h2>
+            <p class="final-score">Final Score: <span id="finalScore">0</span>/10</p>
+            <p class="performance-message" id="performanceMessage"></p>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

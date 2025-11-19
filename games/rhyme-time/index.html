@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Find words that rhyme! A fun game for kids learning rhyming words.">
+    <title>Rhyme Time - Kids Games</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>Rhyme Time</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Round:</span>
+                    <span id="round" class="stat-value">1/10</span>
+                </span>
+            </div>
+        </header>
+
+        <main class="game-area" id="gameArea">
+            <div class="target-word-container">
+                <p class="instruction">Find a word that rhymes with:</p>
+                <div class="target-word" id="targetWord">CAT</div>
+            </div>
+
+            <div class="choices-container" id="choicesContainer">
+                <!-- Choice buttons will be dynamically added here -->
+            </div>
+
+            <div class="feedback" id="feedback"></div>
+
+            <div class="game-message" id="gameMessage">
+                <h2>Ready to Rhyme?</h2>
+                <p>Find words that rhyme with the target word!</p>
+                <p>Choose the correct rhyming word from the options</p>
+            </div>
+        </main>
+
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+            <button id="nextBtn" class="btn btn-primary" style="display: none;">Next Word</button>
+        </footer>
+    </div>
+
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Fantastic Rhyming!</h2>
+            <p class="final-score">Final Score: <span id="finalScore">0</span>/10</p>
+            <div class="star-rating" id="starRating"></div>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Guess the word letter by letter before running out of tries!">
+    <title>Hangman - Kids Games</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>Hangman</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Tries Left:</span>
+                    <span id="lives" class="stat-value">6</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Hangman Drawing -->
+            <div class="hangman-container">
+                <svg class="hangman-svg" viewBox="0 0 200 250">
+                    <!-- Gallows -->
+                    <line x1="10" y1="230" x2="150" y2="230" stroke="#333" stroke-width="4"/>
+                    <line x1="50" y1="230" x2="50" y2="20" stroke="#333" stroke-width="4"/>
+                    <line x1="50" y1="20" x2="130" y2="20" stroke="#333" stroke-width="4"/>
+                    <line x1="130" y1="20" x2="130" y2="50" stroke="#333" stroke-width="4"/>
+
+                    <!-- Body parts (hidden initially) -->
+                    <circle id="head" cx="130" cy="70" r="20" stroke="#e74c3c" stroke-width="4" fill="none" style="display:none"/>
+                    <line id="body" x1="130" y1="90" x2="130" y2="150" stroke="#e74c3c" stroke-width="4" style="display:none"/>
+                    <line id="leftArm" x1="130" y1="110" x2="100" y2="130" stroke="#e74c3c" stroke-width="4" style="display:none"/>
+                    <line id="rightArm" x1="130" y1="110" x2="160" y2="130" stroke="#e74c3c" stroke-width="4" style="display:none"/>
+                    <line id="leftLeg" x1="130" y1="150" x2="110" y2="190" stroke="#e74c3c" stroke-width="4" style="display:none"/>
+                    <line id="rightLeg" x1="130" y1="150" x2="150" y2="190" stroke="#e74c3c" stroke-width="4" style="display:none"/>
+                </svg>
+            </div>
+
+            <!-- Word Display -->
+            <div class="word-display" id="wordDisplay"></div>
+
+            <!-- Category Hint -->
+            <div class="category" id="category">Category: Animals</div>
+
+            <!-- Keyboard -->
+            <div class="keyboard" id="keyboard"></div>
+
+            <!-- Start message -->
+            <div class="game-message" id="gameMessage">
+                <h2>Ready to Play?</h2>
+                <p>Guess the word letter by letter!</p>
+                <p>You have 6 tries before game over</p>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+            <button id="restartBtn" class="btn btn-secondary" style="display: none;">New Word</button>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2 id="resultTitle">Game Over!</h2>
+            <p class="final-score">The word was: <span id="finalWord"></span></p>
+            <p class="final-score">Score: <span id="finalScore">0</span></p>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
