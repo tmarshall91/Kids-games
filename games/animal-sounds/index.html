@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Animal sounds game for kids to learn animal noises">
+    <title>Animal Sounds - Kids Learning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>Animal Sounds!</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <main class="game-area" id="gameArea">
+            <div class="game-message" id="gameMessage">
+                <h2>🐾 Meet the Animals!</h2>
+                <p>Tap animals to hear their sounds</p>
+                <button id="startBtn" class="btn btn-primary">Start!</button>
+            </div>
+
+            <div id="gameContent" class="game-content" style="display: none;">
+                <div id="animalGrid" class="animal-grid"></div>
+                <div id="soundDisplay" class="sound-display"></div>
+            </div>
+
+            <div id="quizMode" class="quiz-mode" style="display: none;">
+                <div class="quiz-question">
+                    <h2>Which animal says:</h2>
+                    <p id="soundQuestion" class="sound-text">Moo!</p>
+                </div>
+                <div id="quizAnimals" class="quiz-animals"></div>
+            </div>
+        </main>
+
+        <footer class="game-controls">
+            <button id="exploreBtn" class="btn btn-secondary" style="display: none;">Explore</button>
+            <button id="quizBtn" class="btn btn-success" style="display: none;">Quiz Me!</button>
+        </footer>
+    </div>
+
+    <div id="feedbackOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2 id="feedbackTitle">Correct!</h2>
+            <div id="feedbackAnimal" class="feedback-animal"></div>
+            <p id="feedbackMessage" class="feedback-message"></p>
+            <button id="continueBtn" class="btn btn-primary">Next</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

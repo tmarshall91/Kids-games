@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Color learning game for kids to learn colors">
+    <title>Color Learning - Kids Learning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>Learn Colors!</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <main class="game-area" id="gameArea">
+            <div class="game-message" id="gameMessage">
+                <h2>🎨 Color Time!</h2>
+                <p>Match colors and learn their names</p>
+                <button id="startBtn" class="btn btn-primary">Start Learning!</button>
+            </div>
+
+            <div id="gameContent" class="game-content" style="display: none;">
+                <div class="question-display">
+                    <p id="questionText" class="question-text">Find the RED color!</p>
+                </div>
+
+                <div id="colorsContainer" class="colors-container"></div>
+            </div>
+        </main>
+
+        <footer class="game-controls">
+            <button id="backBtn" class="btn btn-secondary" style="display: none;">Back</button>
+        </footer>
+    </div>
+
+    <div id="feedbackOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2 id="feedbackTitle">Excellent!</h2>
+            <div id="feedbackColor" class="feedback-color"></div>
+            <p id="feedbackMessage" class="feedback-message"></p>
+            <button id="continueBtn" class="btn btn-primary">Continue</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
