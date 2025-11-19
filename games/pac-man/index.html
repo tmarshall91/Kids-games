@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Classic Pac-Man maze game - Navigate the maze, collect dots, and avoid ghosts!">
+    <title>Pac-Man - Kids Games</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>PAC-MAN</h1>
+            <div class="game-info">
+                <div class="info-item">
+                    <span class="label">Score:</span>
+                    <span id="score" class="value">0</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">High Score:</span>
+                    <span id="highScore" class="value">0</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Lives:</span>
+                    <span id="lives" class="value">3</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="canvas-wrapper">
+            <canvas id="gameCanvas"></canvas>
+            <div id="gameOverlay" class="overlay hidden">
+                <div class="overlay-content">
+                    <h2 id="overlayTitle">Game Over</h2>
+                    <p id="overlayMessage">Your score: <span id="finalScore">0</span></p>
+                    <button id="restartBtn" class="btn">Play Again</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="dpad">
+                <button class="dpad-btn dpad-up" id="btnUp" aria-label="Move Up">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+                    </svg>
+                </button>
+                <button class="dpad-btn dpad-left" id="btnLeft" aria-label="Move Left">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/>
+                    </svg>
+                </button>
+                <button class="dpad-btn dpad-center"></button>
+                <button class="dpad-btn dpad-right" id="btnRight" aria-label="Move Right">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
+                    </svg>
+                </button>
+                <button class="dpad-btn dpad-down" id="btnDown" aria-label="Move Down">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3>How to Play</h3>
+            <ul>
+                <li>Use arrow keys or on-screen buttons to move Pac-Man</li>
+                <li>Collect all dots to win</li>
+                <li>Avoid the ghosts or you'll lose a life</li>
+                <li>Get the highest score you can!</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
