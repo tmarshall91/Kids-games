@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Connect the dots to reveal pictures!">
+    <title>Dot-to-Dot Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🔢 Dot-to-Dot</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Connected:</span>
+                    <span id="progress" class="stat-value">0/0</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area">
+            <canvas id="gameCanvas"></canvas>
+            <div id="successMessage" class="success-message">
+                <h2>🎉 Amazing!</h2>
+                <p>You connected all the dots!</p>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <div class="control-row">
+                <button id="newGameBtn" class="btn btn-primary">New Picture</button>
+                <button id="hintBtn" class="btn btn-secondary">💡 Show Hint</button>
+            </div>
+            <div class="control-row">
+                <label for="difficultySelect">Difficulty:</label>
+                <select id="difficultySelect" class="difficulty-select">
+                    <option value="easy">Easy (10 dots)</option>
+                    <option value="medium" selected>Medium (20 dots)</option>
+                    <option value="hard">Hard (30 dots)</option>
+                </select>
+            </div>
+        </footer>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

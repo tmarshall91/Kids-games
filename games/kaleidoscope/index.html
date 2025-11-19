@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Create mesmerizing kaleidoscope patterns!">
+    <title>Kaleidoscope Creator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>🔮 Kaleidoscope</h1>
+        </header>
+
+        <main class="game-area">
+            <canvas id="kaleidoCanvas"></canvas>
+        </main>
+
+        <footer class="game-controls">
+            <div class="control-row">
+                <label>Segments:</label>
+                <select id="segmentSelect" class="select-control">
+                    <option value="4">4 Segments</option>
+                    <option value="6">6 Segments</option>
+                    <option value="8" selected>8 Segments</option>
+                    <option value="12">12 Segments</option>
+                    <option value="16">16 Segments</option>
+                </select>
+            </div>
+            <div class="control-row">
+                <label>Mode:</label>
+                <div class="mode-buttons">
+                    <button id="drawMode" class="mode-btn active">🖌️ Draw</button>
+                    <button id="animateMode" class="mode-btn">✨ Animate</button>
+                </div>
+            </div>
+            <div class="control-row">
+                <button id="clearBtn" class="btn-action">🗑️ Clear</button>
+            </div>
+        </footer>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

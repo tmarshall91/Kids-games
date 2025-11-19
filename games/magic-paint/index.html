@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Reveal hidden pictures with magic paint!">
+    <title>Magic Paint</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>✨ Magic Paint</h1>
+            <div class="progress-bar">
+                <div id="revealProgress" class="progress-fill"></div>
+            </div>
+            <p class="progress-text"><span id="percentRevealed">0</span>% Revealed!</p>
+        </header>
+
+        <main class="game-area">
+            <canvas id="hiddenCanvas" class="hidden-layer"></canvas>
+            <canvas id="scratchCanvas" class="scratch-layer"></canvas>
+        </main>
+
+        <footer class="game-controls">
+            <div class="control-row">
+                <button id="newPictureBtn" class="btn-primary">🎨 New Picture</button>
+                <button id="revealBtn" class="btn-secondary">👁️ Reveal All</button>
+            </div>
+            <div class="hint-text">
+                💡 Paint over the gray area to reveal the hidden picture!
+            </div>
+        </footer>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

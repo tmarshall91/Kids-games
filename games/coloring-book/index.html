@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Fill outlined images with colors!">
+    <title>Coloring Book</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>🎨 Coloring Book</h1>
+        </header>
+
+        <main class="game-area">
+            <canvas id="coloringCanvas"></canvas>
+        </main>
+
+        <footer class="game-controls">
+            <div class="control-row">
+                <label>Picture:</label>
+                <select id="pictureSelect" class="select-control">
+                    <option value="flower">🌸 Flower</option>
+                    <option value="star">⭐ Star</option>
+                    <option value="heart">❤️ Heart</option>
+                    <option value="sun">☀️ Sun</option>
+                    <option value="butterfly">🦋 Butterfly</option>
+                </select>
+            </div>
+            <div class="control-row">
+                <label>Colors:</label>
+                <div class="color-grid">
+                    <button class="color-btn active" data-color="#FF0000" style="background: #FF0000;"></button>
+                    <button class="color-btn" data-color="#FF6B00" style="background: #FF6B00;"></button>
+                    <button class="color-btn" data-color="#FFD700" style="background: #FFD700;"></button>
+                    <button class="color-btn" data-color="#00FF00" style="background: #00FF00;"></button>
+                    <button class="color-btn" data-color="#0099FF" style="background: #0099FF;"></button>
+                    <button class="color-btn" data-color="#9933FF" style="background: #9933FF;"></button>
+                    <button class="color-btn" data-color="#FF1493" style="background: #FF1493;"></button>
+                    <button class="color-btn" data-color="#8B4513" style="background: #8B4513;"></button>
+                </div>
+            </div>
+            <div class="control-row">
+                <button id="clearBtn" class="btn-action">🔄 Reset</button>
+            </div>
+        </footer>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

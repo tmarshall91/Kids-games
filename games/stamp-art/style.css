@@ -1,0 +1,213 @@
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    overflow: hidden;
+}
+
+/* === Layout === */
+.game-container {
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    max-height: 95vh;
+}
+
+/* === Header === */
+.game-header {
+    background: linear-gradient(135deg, #FF6B9D 0%, #C06C84 100%);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.game-header h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* === Game Area === */
+.game-area {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background: #f5f5f5;
+    overflow: hidden;
+}
+
+#stampCanvas {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    touch-action: none;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* === Stamp Panel === */
+.stamp-panel {
+    background: white;
+    padding: 15px;
+    border-top: 2px solid #e0e0e0;
+    overflow-y: auto;
+    max-height: 280px;
+}
+
+.stamp-section {
+    margin-bottom: 15px;
+}
+
+.stamp-section:last-child {
+    margin-bottom: 0;
+}
+
+.stamp-section label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+/* === Stamp Grid === */
+.stamp-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+}
+
+.stamp-btn {
+    background: white;
+    border: 3px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 1.8rem;
+    padding: 8px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stamp-btn:active {
+    transform: scale(0.95);
+}
+
+.stamp-btn.active {
+    border-color: #FF6B9D;
+    background: #fff0f5;
+    box-shadow: 0 0 0 3px rgba(255, 107, 157, 0.2);
+}
+
+/* === Size Controls === */
+.size-controls {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.size-btn {
+    padding: 12px;
+    border: 3px solid #ddd;
+    border-radius: 10px;
+    background: white;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    min-height: 48px;
+}
+
+.size-btn:active {
+    transform: scale(0.98);
+}
+
+.size-btn.active {
+    background: #FF6B9D;
+    color: white;
+    border-color: #FF6B9D;
+}
+
+/* === Tool Button === */
+.tool-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    min-height: 48px;
+}
+
+.tool-btn:active {
+    transform: scale(0.98);
+}
+
+.tool-btn.danger {
+    background: #ff4757;
+    color: white;
+}
+
+.tool-btn.danger:active {
+    background: #ff3838;
+}
+
+/* === Responsive === */
+@media (min-width: 768px) {
+    .game-header h1 {
+        font-size: 2.2rem;
+    }
+
+    .stamp-panel {
+        max-height: 320px;
+    }
+
+    .stamp-grid {
+        grid-template-columns: repeat(10, 1fr);
+    }
+}
+
+@media (max-height: 600px) {
+    .game-container {
+        max-height: 98vh;
+    }
+
+    .stamp-panel {
+        max-height: 200px;
+    }
+
+    .game-header {
+        padding: 10px;
+    }
+
+    .game-header h1 {
+        font-size: 1.5rem;
+    }
+}

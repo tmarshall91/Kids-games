@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Draw with magical rainbow trails!">
+    <title>Rainbow Drawing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🌈 Rainbow Drawing</h1>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area">
+            <canvas id="rainbowCanvas"></canvas>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <div class="control-row">
+                <label>Rainbow Style:</label>
+                <select id="styleSelect" class="style-select">
+                    <option value="rainbow">🌈 Rainbow</option>
+                    <option value="fire">🔥 Fire</option>
+                    <option value="ocean">🌊 Ocean</option>
+                    <option value="sunset">🌅 Sunset</option>
+                    <option value="neon">✨ Neon</option>
+                </select>
+            </div>
+            <div class="control-row">
+                <label>Trail Size:</label>
+                <div class="size-buttons">
+                    <button class="size-btn" data-size="5">Thin</button>
+                    <button class="size-btn active" data-size="10">Medium</button>
+                    <button class="size-btn" data-size="20">Thick</button>
+                </div>
+            </div>
+            <div class="control-row">
+                <button id="clearBtn" class="btn-clear">🗑️ Clear</button>
+            </div>
+        </footer>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
