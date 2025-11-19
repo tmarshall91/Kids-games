@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="A collection of fun, mobile-friendly games for kids">
+    <title>Kids Games Collection</title>
+    <style>
+        /* === Reset & Base Styles === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* === Container === */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* === Header === */
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 20px;
+            opacity: 0.9;
+        }
+
+        .header .emoji {
+            font-size: 64px;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        /* === Search & Filter === */
+        .controls {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            font-family: 'Comic Sans MS', 'Arial', sans-serif;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Comic Sans MS', 'Arial', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        /* === Game Grid === */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        /* === Game Card === */
+        .game-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .game-card h3 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .game-description {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .game-category {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 15px;
+        }
+
+        .game-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            background: #f0f0f0;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .play-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .play-button:hover {
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.5);
+            transform: scale(1.02);
+        }
+
+        /* === Empty State === */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .empty-state h2 {
+            font-size: 32px;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .empty-state p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        /* === Footer === */
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* === Responsive === */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .header p {
+                font-size: 16px;
+            }
+
+            .game-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-buttons {
+                flex-direction: column;
+            }
+
+            .filter-btn {
+                width: 100%;
+            }
+        }
+
+        /* === Coming Soon Badge === */
+        .coming-soon {
+            background: #ffeaa7;
+            color: #d63031;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <span class="emoji">🎮</span>
+            <h1>Kids Games Collection</h1>
+            <p>Fun, mobile-friendly games for kids!</p>
+        </header>
+
+        <!-- Search & Filter Controls -->
+        <div class="controls">
+            <input
+                type="text"
+                class="search-box"
+                id="searchBox"
+                placeholder="Search for a game...">
+
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Games</button>
+                <button class="filter-btn" data-filter="action">Action</button>
+                <button class="filter-btn" data-filter="puzzle">Puzzle</button>
+                <button class="filter-btn" data-filter="educational">Educational</button>
+                <button class="filter-btn" data-filter="simple">Simple</button>
+                <button class="filter-btn" data-filter="medium">Medium</button>
+                <button class="filter-btn" data-filter="complex">Complex</button>
+            </div>
+        </div>
+
+        <!-- Game Grid -->
+        <div class="game-grid" id="gameGrid">
+            <!-- Games will be dynamically displayed here -->
+            <!--
+            Example game card structure (for developers):
+
+            <div class="game-card" data-tags="action simple">
+                <h3>Game Name</h3>
+                <p class="game-description">Brief description of the game</p>
+                <p class="game-category">Category: Action | Complexity: Simple</p>
+                <div class="game-tags">
+                    <span class="tag">action</span>
+                    <span class="tag">simple</span>
+                </div>
+                <a href="games/game-name/index.html" class="play-button">Play Now</a>
+            </div>
+            -->
+
+            <!-- Example: Template Game (for demonstration) -->
+            <div class="game-card" data-tags="template simple">
+                <h3>Game Template <span class="coming-soon">TEMPLATE</span></h3>
+                <p class="game-description">A template for creating new games. Copy this to start building your own game!</p>
+                <p class="game-category">Category: Template | Complexity: Simple</p>
+                <div class="game-tags">
+                    <span class="tag">template</span>
+                    <span class="tag">simple</span>
+                </div>
+                <a href="template/index.html" class="play-button">View Template</a>
+            </div>
+
+            <!--
+            ============================================
+            ADD NEW GAMES BELOW THIS LINE
+            ============================================
+
+            When you create a new game:
+            1. Copy the game card structure above
+            2. Update the title, description, and category
+            3. Add appropriate tags (action, puzzle, educational, etc.)
+            4. Update the href to point to your game
+            5. Remove the "coming-soon" badge
+
+            Example:
+
+            <div class="game-card" data-tags="action simple">
+                <h3>Whack-a-Mole</h3>
+                <p class="game-description">Tap the moles before they disappear! Test your reflexes in this classic arcade game.</p>
+                <p class="game-category">Category: Action | Complexity: Simple</p>
+                <div class="game-tags">
+                    <span class="tag">action</span>
+                    <span class="tag">simple</span>
+                    <span class="tag">arcade</span>
+                </div>
+                <a href="games/whack-a-mole/index.html" class="play-button">Play Now</a>
+            </div>
+            -->
+
+        </div>
+
+        <!-- Empty State (shown when no games match search) -->
+        <div class="empty-state" id="emptyState" style="display: none;">
+            <h2>No games found</h2>
+            <p>Try a different search or filter</p>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>🎮 Kids Games Collection</p>
+            <p>Want to add a game? Check out the <a href="CONTRIBUTING.md">Contributing Guide</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // ==========================================
+        // GAME CATALOG FUNCTIONALITY
+        // ==========================================
+
+        const searchBox = document.getElementById('searchBox');
+        const gameGrid = document.getElementById('gameGrid');
+        const emptyState = document.getElementById('emptyState');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+
+        let currentFilter = 'all';
+
+        // Search functionality
+        searchBox.addEventListener('input', filterGames);
+
+        // Filter buttons
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Update filter and refresh display
+                currentFilter = btn.dataset.filter;
+                filterGames();
+            });
+        });
+
+        function filterGames() {
+            const searchTerm = searchBox.value.toLowerCase();
+            const gameCards = gameGrid.querySelectorAll('.game-card');
+            let visibleCount = 0;
+
+            gameCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('.game-description').textContent.toLowerCase();
+                const tags = card.dataset.tags || '';
+
+                // Check search match
+                const matchesSearch = title.includes(searchTerm) ||
+                                     description.includes(searchTerm) ||
+                                     tags.includes(searchTerm);
+
+                // Check filter match
+                const matchesFilter = currentFilter === 'all' ||
+                                     tags.includes(currentFilter);
+
+                // Show/hide card
+                if (matchesSearch && matchesFilter) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Show/hide empty state
+            if (visibleCount === 0) {
+                gameGrid.style.display = 'none';
+                emptyState.style.display = 'block';
+            } else {
+                gameGrid.style.display = 'grid';
+                emptyState.style.display = 'none';
+            }
+        }
+
+        // Count and display total games on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const totalGames = gameGrid.querySelectorAll('.game-card').length - 1; // Exclude template
+            console.log(`Total games available: ${totalGames}`);
+        });
+    </script>
+</body>
+</html>
