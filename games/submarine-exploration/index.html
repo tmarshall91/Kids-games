@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Explore the ocean depths and discover amazing sea creatures">
+    <title>Submarine Exploration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🔱 Submarine Explorer</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Depth:</span>
+                    <span id="depth" class="stat-value">0</span>
+                    <span class="stat-label">m</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Discoveries:</span>
+                    <span id="discoveries" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Oxygen:</span>
+                    <span id="oxygen" class="stat-value">100</span>
+                    <span class="stat-label">%</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Ocean Background -->
+            <div class="ocean-background">
+                <!-- Bubbles -->
+                <div class="bubble" style="left: 10%; animation-delay: 0s;"></div>
+                <div class="bubble" style="left: 30%; animation-delay: 1s;"></div>
+                <div class="bubble" style="left: 50%; animation-delay: 2s;"></div>
+                <div class="bubble" style="left: 70%; animation-delay: 1.5s;"></div>
+                <div class="bubble" style="left: 90%; animation-delay: 0.5s;"></div>
+            </div>
+
+            <!-- Submarine -->
+            <div class="submarine" id="submarine">🔱</div>
+
+            <!-- Sea creatures and obstacles will be added dynamically -->
+
+            <!-- Discovery Message -->
+            <div class="discovery-message" id="discoveryMessage"></div>
+
+            <!-- Welcome Message -->
+            <div class="game-message" id="gameMessage">
+                <h2>Ready to Explore!</h2>
+                <p>🐟 Collect sea creatures for points</p>
+                <p>⚠️ Avoid dangerous obstacles</p>
+                <p>💨 Watch your oxygen level!</p>
+                <p>Use touch/arrows to move</p>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <div class="control-pad" id="controlPad" style="display: none;">
+                <button class="arrow-btn up" id="upBtn">▲</button>
+                <button class="arrow-btn down" id="downBtn">▼</button>
+                <button class="arrow-btn left" id="leftBtn">◄</button>
+                <button class="arrow-btn right" id="rightBtn">►</button>
+            </div>
+            <button id="startBtn" class="btn btn-primary">Start Exploration</button>
+            <button id="restartBtn" class="btn btn-secondary" style="display: none;">New Dive</button>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2 id="gameOverTitle">Dive Complete! 🌊</h2>
+            <p class="final-score">Maximum Depth: <span id="finalDepth">0</span> meters</p>
+            <p class="final-stat">Discoveries: <span id="finalDiscoveries">0</span></p>
+            <p id="explorerRank" class="explorer-rank"></p>
+            <button id="playAgainBtn" class="btn btn-primary">New Dive</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

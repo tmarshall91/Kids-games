@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Park your vehicle in the perfect spot">
+    <title>Parking Challenge</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🅿️ Parking Challenge</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Level:</span>
+                    <span id="level" class="stat-value">1</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Time:</span>
+                    <span id="timer" class="stat-value">30</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <div class="parking-lot" id="parkingLot">
+                <div class="car" id="car">🚗</div>
+                <div class="parking-spot" id="parkingSpot">
+                    <div class="spot-marker">🅿️</div>
+                </div>
+            </div>
+            <div class="game-message" id="gameMessage">
+                <h2>Park Your Car!</h2>
+                <p>Use arrow keys or buttons</p>
+            </div>
+        </main>
+
+        <!-- Mobile Controls -->
+        <div class="mobile-controls">
+            <div class="control-row">
+                <button class="control-btn" id="upBtn">↑</button>
+            </div>
+            <div class="control-row">
+                <button class="control-btn" id="leftBtn">←</button>
+                <button class="control-btn" id="downBtn">↓</button>
+                <button class="control-btn" id="rightBtn">→</button>
+            </div>
+        </div>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start</button>
+            <button id="restartBtn" class="btn btn-secondary" style="display: none;">Try Again</button>
+            <button id="nextBtn" class="btn btn-success" style="display: none;">Next Level</button>
+            <a href="../../index.html" class="btn btn-home">Home</a>
+        </footer>
+    </div>
+
+    <!-- Success Overlay -->
+    <div id="successOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>🎉 Perfect Park!</h2>
+            <p class="final-score">Level <span id="completedLevel">1</span> Complete</p>
+            <p class="final-score">Time: <span id="completedTime">0</span>s</p>
+            <button id="continueBtn" class="btn btn-primary">Next Level</button>
+        </div>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Time's Up!</h2>
+            <p class="final-score">Try again!</p>
+            <button id="retryBtn" class="btn btn-primary">Retry Level</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
