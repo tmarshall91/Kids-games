@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Classic Space Invaders arcade game - Defend Earth from alien invasion!">
+    <meta name="theme-color" content="#000000">
+    <title>Space Invaders - Defend Earth!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <h1>SPACE INVADERS</h1>
+            <div class="game-stats">
+                <div class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">High Score:</span>
+                    <span id="high-score" class="stat-value">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Lives:</span>
+                    <span id="lives" class="stat-value">3</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Level:</span>
+                    <span id="level" class="stat-value">1</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="canvas-wrapper">
+            <canvas id="game-canvas"></canvas>
+
+            <div id="game-overlay" class="game-overlay">
+                <div class="overlay-content">
+                    <h2 id="overlay-title">SPACE INVADERS</h2>
+                    <p id="overlay-message">Defend Earth from the alien invasion!</p>
+                    <button id="start-button" class="game-button">START GAME</button>
+                    <div class="instructions">
+                        <h3>How to Play:</h3>
+                        <ul>
+                            <li><strong>Move:</strong> Tap left or right side of screen</li>
+                            <li><strong>Shoot:</strong> Tap top area of screen</li>
+                            <li><strong>Desktop:</strong> Use arrow keys and spacebar</li>
+                        </ul>
+                        <p class="tip">Destroy all aliens before they reach Earth!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls-hint">
+            <div class="control-zone left-zone">
+                <span>◀ MOVE</span>
+            </div>
+            <div class="control-zone shoot-zone">
+                <span>🚀 SHOOT</span>
+            </div>
+            <div class="control-zone right-zone">
+                <span>MOVE ▶</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
