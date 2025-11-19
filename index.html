@@ -259,6 +259,7 @@
 
             <div class="filter-buttons">
                 <button class="filter-btn active" data-filter="all">All Games</button>
+                <button class="filter-btn" data-filter="food">Food</button>
                 <button class="filter-btn" data-filter="action">Action</button>
                 <button class="filter-btn" data-filter="puzzle">Puzzle</button>
                 <button class="filter-btn" data-filter="educational">Educational</button>
@@ -300,30 +301,148 @@
 
             <!--
             ============================================
-            ADD NEW GAMES BELOW THIS LINE
+            FOOD-THEMED GAMES
             ============================================
+            -->
 
-            When you create a new game:
-            1. Copy the game card structure above
-            2. Update the title, description, and category
-            3. Add appropriate tags (action, puzzle, educational, etc.)
-            4. Update the href to point to your game
-            5. Remove the "coming-soon" badge
+            <!-- Pizza Maker -->
+            <div class="game-card" data-tags="educational simple food creative">
+                <h3>🍕 Pizza Maker</h3>
+                <p class="game-description">Create custom pizzas with sauce, cheese, and your favorite toppings!</p>
+                <p class="game-category">Category: Educational | Complexity: Simple</p>
+                <div class="game-tags">
+                    <span class="tag">educational</span>
+                    <span class="tag">simple</span>
+                    <span class="tag">food</span>
+                    <span class="tag">creative</span>
+                </div>
+                <a href="games/pizza-maker/index.html" class="play-button">Play Now</a>
+            </div>
 
-            Example:
+            <!-- Ice Cream Builder -->
+            <div class="game-card" data-tags="educational simple food creative">
+                <h3>🍦 Ice Cream Builder</h3>
+                <p class="game-description">Build delicious ice cream cones with multiple flavors and toppings!</p>
+                <p class="game-category">Category: Educational | Complexity: Simple</p>
+                <div class="game-tags">
+                    <span class="tag">educational</span>
+                    <span class="tag">simple</span>
+                    <span class="tag">food</span>
+                    <span class="tag">creative</span>
+                </div>
+                <a href="games/ice-cream-builder/index.html" class="play-button">Play Now</a>
+            </div>
 
-            <div class="game-card" data-tags="action simple">
-                <h3>Whack-a-Mole</h3>
-                <p class="game-description">Tap the moles before they disappear! Test your reflexes in this classic arcade game.</p>
+            <!-- Cookie Decorator -->
+            <div class="game-card" data-tags="educational simple food creative">
+                <h3>🍪 Cookie Decorator</h3>
+                <p class="game-description">Decorate cookies with colorful frosting and fun decorations!</p>
+                <p class="game-category">Category: Educational | Complexity: Simple</p>
+                <div class="game-tags">
+                    <span class="tag">educational</span>
+                    <span class="tag">simple</span>
+                    <span class="tag">food</span>
+                    <span class="tag">creative</span>
+                </div>
+                <a href="games/cookie-decorator/index.html" class="play-button">Play Now</a>
+            </div>
+
+            <!-- Sandwich Stacker -->
+            <div class="game-card" data-tags="educational simple food creative">
+                <h3>🥪 Sandwich Stacker</h3>
+                <p class="game-description">Stack sandwich ingredients to build the perfect sandwich!</p>
+                <p class="game-category">Category: Educational | Complexity: Simple</p>
+                <div class="game-tags">
+                    <span class="tag">educational</span>
+                    <span class="tag">simple</span>
+                    <span class="tag">food</span>
+                    <span class="tag">creative</span>
+                </div>
+                <a href="games/sandwich-stacker/index.html" class="play-button">Play Now</a>
+            </div>
+
+            <!-- Fruit Slicer -->
+            <div class="game-card" data-tags="action simple food arcade">
+                <h3>🍎 Fruit Slicer</h3>
+                <p class="game-description">Slice fruits quickly before time runs out! Test your reflexes!</p>
                 <p class="game-category">Category: Action | Complexity: Simple</p>
                 <div class="game-tags">
                     <span class="tag">action</span>
                     <span class="tag">simple</span>
+                    <span class="tag">food</span>
                     <span class="tag">arcade</span>
                 </div>
-                <a href="games/whack-a-mole/index.html" class="play-button">Play Now</a>
+                <a href="games/fruit-slicer/index.html" class="play-button">Play Now</a>
             </div>
-            -->
+
+            <!-- Cupcake Baker -->
+            <div class="game-card" data-tags="educational simple food creative">
+                <h3>🧁 Cupcake Baker</h3>
+                <p class="game-description">Bake and decorate beautiful cupcakes with frosting and toppings!</p>
+                <p class="game-category">Category: Educational | Complexity: Simple</p>
+                <div class="game-tags">
+                    <span class="tag">educational</span>
+                    <span class="tag">simple</span>
+                    <span class="tag">food</span>
+                    <span class="tag">creative</span>
+                </div>
+                <a href="games/cupcake-baker/index.html" class="play-button">Play Now</a>
+            </div>
+
+            <!-- Smoothie Mixer -->
+            <div class="game-card" data-tags="educational simple food creative">
+                <h3>🥤 Smoothie Mixer</h3>
+                <p class="game-description">Blend delicious fruit smoothies with your favorite ingredients!</p>
+                <p class="game-category">Category: Educational | Complexity: Simple</p>
+                <div class="game-tags">
+                    <span class="tag">educational</span>
+                    <span class="tag">simple</span>
+                    <span class="tag">food</span>
+                    <span class="tag">creative</span>
+                </div>
+                <a href="games/smoothie-mixer/index.html" class="play-button">Play Now</a>
+            </div>
+
+            <!-- Hot Dog Stand -->
+            <div class="game-card" data-tags="puzzle medium food">
+                <h3>🌭 Hot Dog Stand</h3>
+                <p class="game-description">Make hot dogs to order and match customer requests correctly!</p>
+                <p class="game-category">Category: Puzzle | Complexity: Medium</p>
+                <div class="game-tags">
+                    <span class="tag">puzzle</span>
+                    <span class="tag">medium</span>
+                    <span class="tag">food</span>
+                </div>
+                <a href="games/hot-dog-stand/index.html" class="play-button">Play Now</a>
+            </div>
+
+            <!-- Restaurant Rush -->
+            <div class="game-card" data-tags="action medium food arcade">
+                <h3>🍽️ Restaurant Rush</h3>
+                <p class="game-description">Serve customers quickly in this fast-paced restaurant game!</p>
+                <p class="game-category">Category: Action | Complexity: Medium</p>
+                <div class="game-tags">
+                    <span class="tag">action</span>
+                    <span class="tag">medium</span>
+                    <span class="tag">food</span>
+                    <span class="tag">arcade</span>
+                </div>
+                <a href="games/restaurant-rush/index.html" class="play-button">Play Now</a>
+            </div>
+
+            <!-- Food Truck Manager -->
+            <div class="game-card" data-tags="puzzle complex food educational">
+                <h3>🚚 Food Truck Manager</h3>
+                <p class="game-description">Manage your food truck business - buy supplies and serve customers!</p>
+                <p class="game-category">Category: Puzzle | Complexity: Complex</p>
+                <div class="game-tags">
+                    <span class="tag">puzzle</span>
+                    <span class="tag">complex</span>
+                    <span class="tag">food</span>
+                    <span class="tag">educational</span>
+                </div>
+                <a href="games/food-truck-manager/index.html" class="play-button">Play Now</a>
+            </div>
 
         </div>
 

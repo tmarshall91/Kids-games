@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Bake and decorate cupcakes - A fun cupcake baking game for kids">
+    <title>Cupcake Baker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🧁 Cupcake Baker</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Cupcakes Baked:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Cupcake display -->
+            <div class="cupcake-container">
+                <div class="cupcake" id="cupcake">
+                    <div class="cupcake-wrapper"></div>
+                    <div class="cupcake-base"></div>
+                    <div class="frosting-layer" id="frostingLayer"></div>
+                    <div class="toppings-layer" id="toppingsLayer"></div>
+                </div>
+            </div>
+
+            <!-- Frosting selector -->
+            <div class="frosting-selector">
+                <h3>Choose Frosting:</h3>
+                <div class="frosting-buttons">
+                    <button class="frosting-btn" data-frosting="vanilla" data-color="#fff5e6">🤍 Vanilla</button>
+                    <button class="frosting-btn" data-frosting="chocolate" data-color="#8b4513">🤎 Chocolate</button>
+                    <button class="frosting-btn" data-frosting="strawberry" data-color="#ffb3d9">💗 Strawberry</button>
+                    <button class="frosting-btn" data-frosting="mint" data-color="#98ff98">💚 Mint</button>
+                </div>
+            </div>
+
+            <!-- Toppings selector -->
+            <div class="toppings-selector">
+                <h3>Add Toppings:</h3>
+                <div class="topping-buttons">
+                    <button class="topping-btn" data-topping="cherry">🍒 Cherry</button>
+                    <button class="topping-btn" data-topping="sprinkles">✨ Sprinkles</button>
+                    <button class="topping-btn" data-topping="stars">⭐ Stars</button>
+                    <button class="topping-btn" data-topping="hearts">💗 Hearts</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="clearBtn" class="btn btn-secondary">Start Over</button>
+            <button id="serveBtn" class="btn btn-primary">Serve Cupcake!</button>
+        </footer>
+    </div>
+
+    <!-- Success Overlay -->
+    <div id="successOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Sweet! 🧁</h2>
+            <p class="message">Beautiful cupcake baked!</p>
+            <button id="nextBtn" class="btn btn-primary">Bake Another</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
