@@ -1,0 +1,471 @@
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #87CEEB 0%, #98D8E8 50%, #228B22 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    overflow: hidden;
+    touch-action: none;
+}
+
+/* === Game Container === */
+.game-container {
+    width: 100%;
+    max-width: 500px;
+    background: linear-gradient(to bottom, #E8F5E9 0%, #F1F8E9 100%);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+/* === Header === */
+.game-header {
+    background: linear-gradient(135deg, #2E7D32 0%, #66BB6A 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.game-header h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-label {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.stat-value.pulse {
+    animation: pulse 0.3s ease;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* === Game Area === */
+.game-area {
+    position: relative;
+    min-height: 400px;
+    height: 60vh;
+    max-height: 600px;
+    background: linear-gradient(to bottom, #E8F5E9 0%, #F1F8E9 100%);
+    overflow: hidden;
+}
+
+/* === Game Message === */
+.game-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.game-message h2 {
+    color: #2E7D32;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.game-message p {
+    color: #666;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* === Golf Green === */
+.green {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: radial-gradient(ellipse at center, #90EE90 0%, #7FBF7F 50%, #66A066 100%);
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.1);
+}
+
+/* === Hole with Flag === */
+.hole-container {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.hole {
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, #1a1a1a 0%, #000000 100%);
+    border-radius: 50%;
+    border: 3px solid #333;
+    box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.8), 0 2px 5px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.flag {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 50px;
+    z-index: 3;
+    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.3));
+}
+
+/* === Golf Ball === */
+.golf-ball {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 40px;
+    cursor: grab;
+    user-select: none;
+    z-index: 5;
+    transition: none;
+    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.3));
+}
+
+.golf-ball.dragging {
+    cursor: grabbing;
+    transform: translateX(-50%) scale(1.15);
+    filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.4));
+}
+
+.golf-ball.putting {
+    cursor: default;
+}
+
+/* === Power Meter === */
+.power-meter-container {
+    position: absolute;
+    bottom: 150px;
+    left: 20px;
+    width: 35px;
+    z-index: 10;
+}
+
+.power-meter-label {
+    font-size: 12px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.power-meter-bar {
+    width: 35px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 3px solid #2E7D32;
+    border-radius: 17px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.power-meter-fill {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(to top, #4CAF50 0%, #8BC34A 50%, #FFC107 75%, #FF5722 100%);
+    transition: height 0.05s ease;
+}
+
+.power-indicator {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #2E7D32;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* === Hole Info Display === */
+.hole-info {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 8;
+    display: flex;
+    gap: 20px;
+}
+
+.distance-label,
+.par-label {
+    font-size: 14px;
+    color: #2E7D32;
+    font-weight: bold;
+}
+
+#distanceValue,
+#parValue {
+    color: #1B5E20;
+}
+
+/* === Controls === */
+.game-controls {
+    padding: 20px;
+    text-align: center;
+    background: white;
+}
+
+.btn {
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    transition: all 0.3s ease;
+    min-width: 150px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #2E7D32 0%, #66BB6A 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(46, 125, 50, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(46, 125, 50, 0.5);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+}
+
+/* === Overlay === */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.overlay-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    max-width: 400px;
+    width: 90%;
+}
+
+.overlay-content h2 {
+    color: #2E7D32;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.final-score,
+.total-putts {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.hole-score {
+    font-size: 28px;
+    color: #2E7D32;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.hole-putts {
+    font-size: 20px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.final-message {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* === Animations === */
+.score-popup {
+    position: absolute;
+    font-size: 32px;
+    font-weight: bold;
+    color: #2E7D32;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+    pointer-events: none;
+    z-index: 100;
+    animation: scoreFloat 1.5s ease-out forwards;
+}
+
+@keyframes scoreFloat {
+    0% {
+        transform: translate(-50%, 0) scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -80px) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Ball trail effect */
+.ball-trail {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+    animation: trailFade 0.5s ease-out forwards;
+}
+
+@keyframes trailFade {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+}
+
+/* Hole-in animation */
+@keyframes holeIn {
+    0% {
+        transform: translate(-50%, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, 0) scale(0.3);
+        opacity: 0;
+    }
+}
+
+.golf-ball.hole-in {
+    animation: holeIn 0.3s ease-in forwards;
+}
+
+/* === Responsive === */
+@media (max-width: 480px) {
+    .game-header h1 {
+        font-size: 24px;
+    }
+
+    .stat-value {
+        font-size: 20px;
+    }
+
+    .stat-label {
+        font-size: 12px;
+    }
+
+    .game-area {
+        min-height: 350px;
+    }
+
+    .hole-container {
+        top: 80px;
+    }
+
+    .hole {
+        width: 35px;
+        height: 35px;
+    }
+
+    .flag {
+        font-size: 42px;
+    }
+
+    .golf-ball {
+        font-size: 36px;
+    }
+
+    .hole-info {
+        font-size: 12px;
+        padding: 8px 15px;
+        gap: 15px;
+    }
+}
+
+@media (max-height: 600px) {
+    .game-area {
+        height: 50vh;
+    }
+
+    .hole-container {
+        top: 60px;
+    }
+
+    .golf-ball {
+        bottom: 60px;
+    }
+
+    .power-meter-container {
+        bottom: 120px;
+    }
+}

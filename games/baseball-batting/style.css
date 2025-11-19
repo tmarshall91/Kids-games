@@ -1,0 +1,359 @@
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #87CEEB 0%, #90EE90 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 500px;
+    background: linear-gradient(to bottom, #F0F8FF 0%, #FAFAFA 100%);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.game-header {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.game-header h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-label {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.stat-value.pulse {
+    animation: pulse 0.3s ease;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.game-area {
+    position: relative;
+    min-height: 400px;
+    height: 60vh;
+    max-height: 600px;
+    background: linear-gradient(to bottom, #87CEEB 0%, #90EE90 100%);
+    overflow: hidden;
+}
+
+.game-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.game-message h2 {
+    color: #dc3545;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.game-message p {
+    color: #666;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.field {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.pitcher {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 48px;
+    z-index: 2;
+}
+
+.baseball {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    opacity: 0;
+    z-index: 3;
+}
+
+.baseball.pitching {
+    animation: pitch 1.2s ease-in;
+}
+
+@keyframes pitch {
+    0% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(300px) scale(1.5);
+    }
+}
+
+.strike-zone {
+    position: absolute;
+    bottom: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 120px;
+    border: 3px dashed rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.batter {
+    position: absolute;
+    bottom: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 56px;
+    z-index: 4;
+    transition: transform 0.2s ease;
+}
+
+.batter.swinging {
+    animation: swing 0.3s ease;
+}
+
+@keyframes swing {
+    0% { transform: translateX(-50%) rotate(0deg); }
+    50% { transform: translateX(-50%) rotate(-45deg); }
+    100% { transform: translateX(-50%) rotate(0deg); }
+}
+
+.timing-bar-container {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 300px;
+}
+
+.timing-bar {
+    position: relative;
+    width: 100%;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.3);
+    border: 2px solid white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.timing-indicator {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 100%;
+    background: #dc3545;
+    border-radius: 8px;
+    animation: timingMove 1.2s linear;
+}
+
+@keyframes timingMove {
+    0% { left: 0; }
+    100% { left: calc(100% - 20px); }
+}
+
+.timing-perfect {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 100%;
+    background: rgba(255, 215, 0, 0.4);
+    border: 2px solid gold;
+}
+
+.game-controls {
+    padding: 20px;
+    text-align: center;
+    background: white;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    transition: all 0.3s ease;
+    min-width: 150px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(220, 53, 69, 0.5);
+}
+
+.btn-swing {
+    background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+    color: white;
+    font-size: 24px;
+    padding: 20px 50px;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
+}
+
+.btn-swing:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.5);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.overlay-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    max-width: 400px;
+    width: 90%;
+}
+
+.overlay-content h2 {
+    color: #dc3545;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.final-score, .final-hits {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.final-message {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.result-message {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    font-weight: bold;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    z-index: 100;
+    animation: resultFade 1.5s ease-out forwards;
+}
+
+.result-message.homerun { color: #ffd700; }
+.result-message.hit { color: #28a745; }
+.result-message.miss { color: #dc3545; }
+
+@keyframes resultFade {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    20% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-header h1 {
+        font-size: 24px;
+    }
+
+    .batter {
+        font-size: 48px;
+    }
+}

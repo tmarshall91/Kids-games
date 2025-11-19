@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Missing Piece - Find what's missing from the scene">
+    <title>Missing Piece</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🔍 Missing Piece</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Round:</span>
+                    <span id="round" class="stat-value">1</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Instructions -->
+        <div id="instructions" class="instructions">
+            <h2>How to Play</h2>
+            <p>Look at both scenes and find what's missing!</p>
+            <p>Tap the item that's in the first scene but not the second.</p>
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+        </div>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea" style="display: none;">
+            <div class="scenes-container">
+                <div class="scene-wrapper">
+                    <h3>Complete Scene</h3>
+                    <div id="completeScene" class="scene"></div>
+                </div>
+                <div class="scene-wrapper">
+                    <h3>Incomplete Scene</h3>
+                    <div id="incompleteScene" class="scene"></div>
+                </div>
+            </div>
+
+            <div class="question-text">What's missing from the second scene?</div>
+
+            <div id="choicesContainer" class="choices-container"></div>
+
+            <div id="feedback" class="feedback"></div>
+        </main>
+
+        <!-- Game Complete Message -->
+        <div class="game-message" id="gameComplete" style="display: none;">
+            <h2>🎉 Perfect!</h2>
+            <p>You found all the missing pieces!</p>
+            <p class="stats">Final Score: <span id="finalScore">0</span>/10</p>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+
+        <!-- Controls Section -->
+        <footer class="game-controls" id="controls" style="display: none;">
+            <button id="hintBtn" class="btn btn-secondary">💡 Hint</button>
+        </footer>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

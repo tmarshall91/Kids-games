@@ -1,0 +1,351 @@
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    touch-action: manipulation;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 428px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    max-height: 800px;
+}
+
+.game-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.game-header h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.game-stats {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-label {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.game-area {
+    flex: 1;
+    padding: 20px;
+    background: #f8f9fa;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-message {
+    text-align: center;
+    color: #333;
+}
+
+.game-message h2 {
+    font-size: 32px;
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.game-message p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.game-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.question-display {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.question-text {
+    font-size: 28px;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.shapes-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.shape-card {
+    aspect-ratio: 1;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 20px;
+    touch-action: manipulation;
+}
+
+.shape-card:active {
+    transform: scale(0.95);
+}
+
+.shape-card.correct {
+    background: #4caf50;
+    animation: celebrate 0.5s ease;
+}
+
+.shape-card.incorrect {
+    animation: shake 0.3s ease;
+}
+
+.shape {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+}
+
+.shape.circle {
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.shape.square {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.shape.triangle {
+    width: 0;
+    height: 0;
+    background: none;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 80px solid #4caf50;
+}
+
+.shape.rectangle {
+    width: 100px;
+    height: 60px;
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.shape.star {
+    position: relative;
+    width: 0;
+    height: 0;
+    background: none;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 28px solid #ffd700;
+}
+
+.shape.star::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: -40px;
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-top: 28px solid #ffd700;
+}
+
+.shape.heart {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    background: #e91e63;
+    transform: rotate(45deg);
+}
+
+.shape.heart::before,
+.shape.heart::after {
+    content: '';
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #e91e63;
+}
+
+.shape.heart::before {
+    top: -35px;
+    left: 0;
+}
+
+.shape.heart::after {
+    left: 35px;
+    top: 0;
+}
+
+.shape-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.game-controls {
+    padding: 20px;
+    background: white;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    border-top: 2px solid #eee;
+}
+
+.btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    touch-action: manipulation;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.overlay-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 90%;
+    animation: slideIn 0.3s ease;
+}
+
+.overlay-content h2 {
+    font-size: 36px;
+    color: #4caf50;
+    margin-bottom: 20px;
+}
+
+.feedback-shape {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.feedback-message {
+    font-size: 24px;
+    color: #333;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+@keyframes celebrate {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.pulse {
+    animation: pulse 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    .shapes-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

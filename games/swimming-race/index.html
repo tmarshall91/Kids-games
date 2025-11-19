@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Swimming Race - A fun mobile-friendly swimming game for kids">
+    <title>Swimming Race 🏊</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🏊 Swimming Race 🌊</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Distance:</span>
+                    <span id="distance" class="stat-value">0m</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Time:</span>
+                    <span id="timer" class="stat-value">0.0s</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Speed:</span>
+                    <span id="speed" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Swimming Pool -->
+            <div class="pool-container">
+                <!-- Lane markers -->
+                <div class="lane-marker" style="left: 0%"></div>
+                <div class="lane-marker" style="left: 25%"></div>
+                <div class="lane-marker" style="left: 50%"></div>
+                <div class="lane-marker" style="left: 75%"></div>
+                <div class="lane-marker" style="left: 100%"></div>
+
+                <!-- Progress track -->
+                <div class="progress-track">
+                    <div class="progress-bar" id="progressBar"></div>
+                    <div class="finish-line">FINISH 🏁</div>
+                </div>
+
+                <!-- Swimmers -->
+                <div class="swimmer-lane" id="playerLane">
+                    <div class="swimmer player-swimmer" id="playerSwimmer">🏊</div>
+                    <div class="swimmer-label">YOU</div>
+                </div>
+
+                <div class="swimmer-lane" id="cpuLane">
+                    <div class="swimmer cpu-swimmer" id="cpuSwimmer">🏊</div>
+                    <div class="swimmer-label">CPU</div>
+                </div>
+
+                <!-- Water effects -->
+                <div class="water-effects" id="waterEffects"></div>
+            </div>
+
+            <!-- Welcome Message -->
+            <div class="game-message" id="gameMessage">
+                <h2>Ready to Swim! 🏊</h2>
+                <p>Tap rapidly to swim faster!</p>
+                <p class="distance-select">Choose your distance:</p>
+                <div class="distance-buttons">
+                    <button id="distance50" class="distance-btn selected">50m</button>
+                    <button id="distance100" class="distance-btn">100m</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <div class="tap-area" id="tapArea">
+                <div class="tap-instruction">TAP HERE TO SWIM!</div>
+                <div class="tap-counter" id="tapCounter">0</div>
+            </div>
+            <div class="control-buttons">
+                <button id="startBtn" class="btn btn-primary">Start Race</button>
+                <button id="restartBtn" class="btn btn-secondary" style="display: none;">Race Again</button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2 id="resultTitle">Race Complete!</h2>
+            <div class="race-results">
+                <p class="result-stat">🏁 Distance: <span id="finalDistance">0m</span></p>
+                <p class="result-stat">⏱️ Time: <span id="finalTime">0.0s</span></p>
+                <p class="result-stat">🚀 Avg Speed: <span id="finalSpeed">0</span></p>
+                <p class="result-stat">👆 Total Taps: <span id="finalTaps">0</span></p>
+                <div class="medal" id="medalDisplay">🥇</div>
+            </div>
+            <button id="playAgainBtn" class="btn btn-primary">Race Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

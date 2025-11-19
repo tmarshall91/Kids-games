@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Clock reading practice game for kids to learn time">
+    <title>Clock Reading - Kids Learning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>Learn to Tell Time!</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <main class="game-area" id="gameArea">
+            <div class="game-message" id="gameMessage">
+                <h2>🕐 Time to Learn!</h2>
+                <p>Learn to read the clock</p>
+                <div class="mode-buttons">
+                    <button class="btn btn-primary" id="practiceBtn">Practice Mode</button>
+                    <button class="btn btn-success" id="quizBtn">Quiz Mode</button>
+                </div>
+            </div>
+
+            <div id="gameContent" class="game-content" style="display: none;">
+                <div class="clock-display">
+                    <svg id="clockSvg" class="clock" viewBox="0 0 200 200">
+                        <circle cx="100" cy="100" r="95" fill="white" stroke="#333" stroke-width="3"/>
+
+                        <!-- Clock numbers -->
+                        <text x="100" y="30" text-anchor="middle" font-size="16" font-weight="bold">12</text>
+                        <text x="155" y="107" text-anchor="middle" font-size="16" font-weight="bold">3</text>
+                        <text x="100" y="180" text-anchor="middle" font-size="16" font-weight="bold">6</text>
+                        <text x="45" y="107" text-anchor="middle" font-size="16" font-weight="bold">9</text>
+
+                        <!-- Hour hand -->
+                        <line id="hourHand" x1="100" y1="100" x2="100" y2="60" stroke="#333" stroke-width="6" stroke-linecap="round"/>
+
+                        <!-- Minute hand -->
+                        <line id="minuteHand" x1="100" y1="100" x2="100" y2="40" stroke="#666" stroke-width="4" stroke-linecap="round"/>
+
+                        <!-- Center dot -->
+                        <circle cx="100" cy="100" r="5" fill="#333"/>
+                    </svg>
+                </div>
+
+                <div id="timeDisplay" class="time-display">
+                    <p id="timeText" class="time-text">3:00</p>
+                </div>
+
+                <div id="quizSection" class="quiz-section" style="display: none;">
+                    <p class="question">What time is shown?</p>
+                    <div id="answerOptions" class="answer-options"></div>
+                </div>
+
+                <div id="practiceSection" class="practice-section" style="display: none;">
+                    <p class="instructions">Set the time to: <span id="targetTime">3:00</span></p>
+                    <div class="time-controls">
+                        <div class="control-group">
+                            <button class="time-btn" id="hourUp">▲</button>
+                            <span class="control-label">Hour</span>
+                            <button class="time-btn" id="hourDown">▼</button>
+                        </div>
+                        <div class="control-group">
+                            <button class="time-btn" id="minuteUp">▲</button>
+                            <span class="control-label">Minute</span>
+                            <button class="time-btn" id="minuteDown">▼</button>
+                        </div>
+                    </div>
+                    <button id="checkBtn" class="btn btn-primary">Check Time</button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="game-controls">
+            <button id="backBtn" class="btn btn-secondary" style="display: none;">Back to Menu</button>
+        </footer>
+    </div>
+
+    <div id="feedbackOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2 id="feedbackTitle">Correct!</h2>
+            <p id="feedbackMessage" class="feedback-message"></p>
+            <button id="continueBtn" class="btn btn-primary">Next</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

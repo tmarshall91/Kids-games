@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="A fun tower defense game for kids">
+    <title>Tower Defense Kids</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🏰 Tower Defense</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">💰 Coins:</span>
+                    <span id="coins" class="stat-value">100</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">❤️ Lives:</span>
+                    <span id="lives" class="stat-value">10</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">👾 Wave:</span>
+                    <span id="wave" class="stat-value">1</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <canvas id="gameCanvas"></canvas>
+
+            <!-- Game Message Overlay -->
+            <div class="game-message" id="gameMessage">
+                <h2>🏰 Defend Your Castle!</h2>
+                <p>Tap to place towers and stop the monsters!</p>
+                <ul class="instructions">
+                    <li>🗼 Tap empty spots to place towers</li>
+                    <li>💰 Earn coins by defeating monsters</li>
+                    <li>❤️ Don't let monsters reach the castle!</li>
+                </ul>
+            </div>
+        </main>
+
+        <!-- Tower Selection -->
+        <div class="tower-selection" id="towerSelection">
+            <div class="tower-option" data-type="basic" data-cost="50">
+                <div class="tower-icon">🗼</div>
+                <div class="tower-info">
+                    <div class="tower-name">Basic Tower</div>
+                    <div class="tower-cost">💰 50</div>
+                </div>
+            </div>
+            <div class="tower-option" data-type="fast" data-cost="75">
+                <div class="tower-icon">⚡</div>
+                <div class="tower-info">
+                    <div class="tower-name">Fast Tower</div>
+                    <div class="tower-cost">💰 75</div>
+                </div>
+            </div>
+            <div class="tower-option" data-type="strong" data-cost="100">
+                <div class="tower-icon">💪</div>
+                <div class="tower-info">
+                    <div class="tower-name">Strong Tower</div>
+                    <div class="tower-cost">💰 100</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+            <button id="nextWaveBtn" class="btn btn-secondary" style="display: none;">Next Wave</button>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2 id="gameOverTitle">Game Over!</h2>
+            <p class="final-score">Wave Reached: <span id="finalWave">0</span></p>
+            <p class="final-score">Monsters Defeated: <span id="monstersDefeated">0</span></p>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

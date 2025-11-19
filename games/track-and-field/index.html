@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Track and Field Events - Sprint, Jump, and Throw your way to gold!">
+    <title>🏟️ Track & Field Events</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🏟️ Track & Field Events</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Total Points:</span>
+                    <span id="totalPoints" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Events:</span>
+                    <span id="eventsCompleted" class="stat-value">0/3</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Event Selection Screen -->
+            <div id="eventSelection" class="event-selection">
+                <h2>Choose Your Event</h2>
+                <div class="events-grid">
+                    <button class="event-card" data-event="sprint">
+                        <div class="event-icon">🏃</div>
+                        <h3>100m Sprint</h3>
+                        <p>Tap rapidly to run!</p>
+                        <div class="event-status" id="sprintStatus"></div>
+                    </button>
+                    <button class="event-card" data-event="longjump">
+                        <div class="event-icon">🤸</div>
+                        <h3>Long Jump</h3>
+                        <p>Perfect timing wins!</p>
+                        <div class="event-status" id="longjumpStatus"></div>
+                    </button>
+                    <button class="event-card" data-event="javelin">
+                        <div class="event-icon">🎯</div>
+                        <h3>Javelin Throw</h3>
+                        <p>Angle + Power = Distance!</p>
+                        <div class="event-status" id="javelinStatus"></div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sprint Event -->
+            <div id="sprintEvent" class="event-screen" style="display: none;">
+                <div class="event-header">
+                    <h2>🏃 100m Sprint</h2>
+                    <p>Tap as fast as you can to run!</p>
+                </div>
+                <div class="track-field">
+                    <div class="track-lanes">
+                        <div class="lane">
+                            <div class="runner player-runner" id="playerRunner">🏃</div>
+                            <div class="finish-line"></div>
+                        </div>
+                        <div class="lane">
+                            <div class="runner ai-runner" id="aiRunner1">🏃</div>
+                        </div>
+                        <div class="lane">
+                            <div class="runner ai-runner" id="aiRunner2">🏃</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-stats">
+                    <div class="stat-box">
+                        <span>Distance:</span>
+                        <span id="sprintDistance">0m</span>
+                    </div>
+                    <div class="stat-box">
+                        <span>Time:</span>
+                        <span id="sprintTime">0.00s</span>
+                    </div>
+                    <div class="stat-box">
+                        <span>Taps:</span>
+                        <span id="tapCount">0</span>
+                    </div>
+                </div>
+                <div id="tapArea" class="tap-area">
+                    <div class="tap-instructions">TAP HERE RAPIDLY!</div>
+                </div>
+            </div>
+
+            <!-- Long Jump Event -->
+            <div id="longjumpEvent" class="event-screen" style="display: none;">
+                <div class="event-header">
+                    <h2>🤸 Long Jump</h2>
+                    <p>Build speed, then tap at the perfect moment to jump!</p>
+                </div>
+                <div class="longjump-field">
+                    <div class="runway">
+                        <div class="jumper" id="jumper">🏃</div>
+                        <div class="jump-line">JUMP LINE</div>
+                    </div>
+                    <div class="sand-pit">
+                        <div class="distance-markers">
+                            <span>4m</span>
+                            <span>5m</span>
+                            <span>6m</span>
+                            <span>7m</span>
+                            <span>8m</span>
+                        </div>
+                        <div class="landing-mark" id="landingMark"></div>
+                    </div>
+                </div>
+                <div class="event-stats">
+                    <div class="stat-box">
+                        <span>Speed:</span>
+                        <span id="jumpSpeed">0%</span>
+                    </div>
+                    <div class="stat-box large">
+                        <span>Distance:</span>
+                        <span id="jumpDistance">0.00m</span>
+                    </div>
+                    <div class="stat-box">
+                        <span>Attempts:</span>
+                        <span id="jumpAttempts">3</span>
+                    </div>
+                </div>
+                <div id="jumpButton" class="jump-button">
+                    <div class="jump-instructions">TAP TO JUMP!</div>
+                </div>
+            </div>
+
+            <!-- Javelin Event -->
+            <div id="javelinEvent" class="event-screen" style="display: none;">
+                <div class="event-header">
+                    <h2>🎯 Javelin Throw</h2>
+                    <p>Set angle, then hold to build power and release!</p>
+                </div>
+                <div class="javelin-field">
+                    <div class="thrower" id="thrower">🏃</div>
+                    <div class="javelin" id="javelin">🎯</div>
+                    <div class="trajectory-arc" id="trajectoryArc"></div>
+                    <div class="distance-grid">
+                        <span>20m</span>
+                        <span>40m</span>
+                        <span>60m</span>
+                        <span>80m</span>
+                    </div>
+                </div>
+                <div class="event-stats">
+                    <div class="stat-box">
+                        <span>Angle:</span>
+                        <span id="throwAngle">45°</span>
+                    </div>
+                    <div class="stat-box">
+                        <span>Power:</span>
+                        <span id="throwPower">0%</span>
+                    </div>
+                    <div class="stat-box large">
+                        <span>Distance:</span>
+                        <span id="throwDistance">0.00m</span>
+                    </div>
+                    <div class="stat-box">
+                        <span>Attempts:</span>
+                        <span id="throwAttempts">3</span>
+                    </div>
+                </div>
+                <div class="javelin-controls">
+                    <div class="angle-control">
+                        <label>Angle: <span id="angleValue">45</span>°</label>
+                        <input type="range" id="angleSlider" min="20" max="70" value="45">
+                    </div>
+                    <button id="throwButton" class="throw-button">
+                        HOLD TO CHARGE, RELEASE TO THROW!
+                    </button>
+                </div>
+            </div>
+
+            <!-- Event Complete -->
+            <div id="eventComplete" class="event-complete" style="display: none;">
+                <div class="medal-display" id="medalDisplay">
+                    <div class="medal-icon">🥇</div>
+                    <h2 id="medalTitle">Gold Medal!</h2>
+                </div>
+                <div class="event-results">
+                    <h3>Event Results</h3>
+                    <p id="eventResult">Score: 100 points</p>
+                    <p id="eventPerformance">Excellent performance!</p>
+                </div>
+                <button id="continueBtn" class="btn btn-primary">Continue</button>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="backBtn" class="btn btn-secondary" style="display: none;">Back to Events</button>
+            <button id="resetBtn" class="btn btn-secondary">Reset All</button>
+        </footer>
+    </div>
+
+    <!-- Final Results Overlay -->
+    <div id="finalResultsOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>🏆 Competition Complete!</h2>
+            <div class="final-medals" id="finalMedals">
+                <div class="medal-count">
+                    <span class="medal-icon">🥇</span>
+                    <span id="goldCount">0</span>
+                </div>
+                <div class="medal-count">
+                    <span class="medal-icon">🥈</span>
+                    <span id="silverCount">0</span>
+                </div>
+                <div class="medal-count">
+                    <span class="medal-icon">🥉</span>
+                    <span id="bronzeCount">0</span>
+                </div>
+            </div>
+            <p class="final-score">Total Points: <span id="finalTotalPoints">0</span></p>
+            <p class="final-message" id="finalMessage">Amazing athlete!</p>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

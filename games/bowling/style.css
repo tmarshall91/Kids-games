@@ -1,0 +1,446 @@
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #2C3E50 0%, #34495E 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    overflow: hidden;
+    touch-action: none;
+}
+
+/* === Game Container === */
+.game-container {
+    width: 100%;
+    max-width: 500px;
+    background: linear-gradient(to bottom, #ECF0F1 0%, #BDC3C7 100%);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+/* === Header === */
+.game-header {
+    background: linear-gradient(135deg, #E74C3C 0%, #C0392B 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.game-header h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-label {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+.stat-value {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.stat-value.pulse {
+    animation: pulse 0.3s ease;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* === Game Area === */
+.game-area {
+    position: relative;
+    min-height: 450px;
+    height: 65vh;
+    max-height: 650px;
+    background: linear-gradient(to bottom, #34495E 0%, #2C3E50 50%, #8B4513 100%);
+    overflow: hidden;
+}
+
+/* === Game Message === */
+.game-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.game-message h2 {
+    color: #E74C3C;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.game-message p {
+    color: #666;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* === Bowling Lane === */
+.bowling-lane {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+        rgba(139, 69, 19, 0.3) 0%,
+        rgba(160, 82, 45, 0.5) 50%,
+        rgba(139, 69, 19, 0.8) 100%);
+    perspective: 1000px;
+}
+
+/* === Lane Markers === */
+.lane-markers {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.foul-line {
+    position: absolute;
+    bottom: 80px;
+    left: 10%;
+    right: 10%;
+    height: 3px;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* === Pins Container === */
+.pins-container {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+}
+
+/* === Pin === */
+.pin {
+    position: absolute;
+    font-size: 32px;
+    transition: all 0.3s ease;
+    transform-origin: center bottom;
+    user-select: none;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.pin.knocked {
+    animation: pinFall 0.5s ease-out forwards;
+}
+
+@keyframes pinFall {
+    0% {
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(90deg) scale(0.7);
+        opacity: 0.3;
+    }
+}
+
+/* Pin positions (triangular arrangement) */
+.pin-0 { top: 0px; left: 50%; transform: translateX(-50%); }
+.pin-1 { top: 40px; left: 35%; }
+.pin-2 { top: 40px; left: 65%; }
+.pin-3 { top: 80px; left: 20%; }
+.pin-4 { top: 80px; left: 50%; transform: translateX(-50%); }
+.pin-5 { top: 80px; left: 80%; }
+.pin-6 { top: 120px; left: 5%; }
+.pin-7 { top: 120px; left: 35%; }
+.pin-8 { top: 120px; left: 65%; }
+.pin-9 { top: 120px; left: 95%; }
+
+/* === Aiming Guide === */
+.aiming-guide {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 60%;
+    pointer-events: none;
+    z-index: 5;
+    transition: left 0.1s ease;
+}
+
+.aim-line {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top,
+        rgba(255, 255, 0, 0.8) 0%,
+        rgba(255, 255, 0, 0.3) 50%,
+        rgba(255, 255, 0, 0) 100%);
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+    animation: aimPulse 1s ease-in-out infinite;
+}
+
+@keyframes aimPulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+/* === Bowling Ball === */
+.bowling-ball {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 48px;
+    cursor: grab;
+    user-select: none;
+    z-index: 10;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+    transition: none;
+}
+
+.bowling-ball.dragging {
+    cursor: grabbing;
+    transform: translateX(-50%) scale(1.1);
+}
+
+.bowling-ball.rolling {
+    cursor: default;
+    animation: ballRoll 0.1s linear infinite;
+}
+
+@keyframes ballRoll {
+    0% { transform: translateX(-50%) rotate(0deg); }
+    100% { transform: translateX(-50%) rotate(360deg); }
+}
+
+/* === Result Popup === */
+.result-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    font-weight: bold;
+    color: #FFD700;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    pointer-events: none;
+    animation: popupFloat 2s ease-out forwards;
+}
+
+@keyframes popupFloat {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+    }
+    20% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -150%) scale(1);
+        opacity: 0;
+    }
+}
+
+/* === Controls === */
+.game-controls {
+    padding: 20px;
+    text-align: center;
+    background: white;
+}
+
+.btn {
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    transition: all 0.3s ease;
+    min-width: 150px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #E74C3C 0%, #C0392B 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.5);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+}
+
+/* === Overlay === */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.overlay-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    max-width: 400px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.overlay-content h2 {
+    color: #E74C3C;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.final-score {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.final-message {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.score-breakdown {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.frame-score {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.frame-score:last-child {
+    border-bottom: none;
+}
+
+.frame-score.strike {
+    color: #E74C3C;
+    font-weight: bold;
+}
+
+.frame-score.spare {
+    color: #F39C12;
+    font-weight: bold;
+}
+
+/* === Responsive === */
+@media (max-width: 480px) {
+    .game-header h1 {
+        font-size: 24px;
+    }
+
+    .stat-value {
+        font-size: 18px;
+    }
+
+    .stat-label {
+        font-size: 11px;
+    }
+
+    .game-area {
+        min-height: 400px;
+    }
+
+    .pins-container {
+        top: 40px;
+        width: 160px;
+        height: 160px;
+    }
+
+    .pin {
+        font-size: 26px;
+    }
+
+    .pin-0 { top: 0px; }
+    .pin-1 { top: 32px; }
+    .pin-2 { top: 32px; }
+    .pin-3 { top: 64px; }
+    .pin-4 { top: 64px; }
+    .pin-5 { top: 64px; }
+    .pin-6 { top: 96px; }
+    .pin-7 { top: 96px; }
+    .pin-8 { top: 96px; }
+    .pin-9 { top: 96px; }
+
+    .bowling-ball {
+        font-size: 40px;
+    }
+
+    .result-popup {
+        font-size: 36px;
+    }
+}
+
+/* === Accessibility === */
+.btn:focus {
+    outline: 3px solid #E74C3C;
+    outline-offset: 2px;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="A fun tangram puzzle game for kids">
+    <title>Tangrams</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🧩 Tangrams</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">🎯 Puzzle:</span>
+                    <span id="puzzleNum" class="stat-value">1</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">⭐ Completed:</span>
+                    <span id="completed" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Target Silhouette -->
+            <div class="target-container">
+                <h3>Match This Shape!</h3>
+                <canvas id="targetCanvas" class="target-canvas"></canvas>
+            </div>
+
+            <!-- Puzzle Area -->
+            <div class="puzzle-container">
+                <canvas id="puzzleCanvas" class="puzzle-canvas"></canvas>
+            </div>
+
+            <!-- Game Message Overlay -->
+            <div class="game-message" id="gameMessage">
+                <h2>🧩 Tangram Master!</h2>
+                <p>Arrange the shapes to match the picture!</p>
+                <ul class="instructions">
+                    <li>🖱️ Drag pieces to move them</li>
+                    <li>🔄 Tap a piece to rotate it</li>
+                    <li>🎯 Match the target shape exactly</li>
+                    <li>✨ Complete puzzles to progress!</li>
+                </ul>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+            <button id="rotateBtn" class="btn btn-secondary" style="display: none;">🔄 Rotate</button>
+            <button id="resetBtn" class="btn btn-secondary" style="display: none;">↺ Reset</button>
+            <button id="nextBtn" class="btn btn-primary" style="display: none;">Next Puzzle</button>
+        </footer>
+    </div>
+
+    <!-- Success Overlay -->
+    <div id="successOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>🎉 Perfect Match!</h2>
+            <p class="success-message">You've completed the tangram!</p>
+            <div class="stars">⭐⭐⭐</div>
+            <button id="continueBtn" class="btn btn-primary">Continue</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

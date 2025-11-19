@@ -1,0 +1,256 @@
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+/* === Game Container === */
+.game-container {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 100%;
+}
+
+/* === Header === */
+.game-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.game-header h1 {
+    font-size: 32px;
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* === Game Area === */
+.game-area {
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* === Difficulty Selector === */
+.difficulty-selector {
+    text-align: center;
+    width: 100%;
+}
+
+.difficulty-selector h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.difficulty-btn {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 15px auto;
+    padding: 20px;
+    font-size: 20px;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.difficulty-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.difficulty-btn:active {
+    transform: translateY(0);
+}
+
+/* === Puzzle Container === */
+.puzzle-container {
+    display: grid;
+    gap: 3px;
+    background: #ccc;
+    padding: 3px;
+    border-radius: 10px;
+    margin: 20px auto;
+    touch-action: none;
+}
+
+/* === Puzzle Tiles === */
+.tile {
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+    -webkit-user-select: none;
+    position: relative;
+}
+
+.tile:hover {
+    opacity: 0.9;
+}
+
+.tile:active {
+    transform: scale(0.95);
+}
+
+.tile.empty {
+    background: rgba(0, 0, 0, 0.1);
+    cursor: default;
+}
+
+.tile.empty:hover {
+    opacity: 1;
+}
+
+/* === Game Message === */
+.game-message {
+    text-align: center;
+    padding: 30px;
+}
+
+.game-message h2 {
+    font-size: 32px;
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.game-message p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.game-message .stats {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 15px;
+}
+
+/* === Controls === */
+.game-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 120px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background: #e0e0e0;
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    .game-header h1 {
+        font-size: 24px;
+    }
+
+    .stat-value {
+        font-size: 20px;
+    }
+
+    .tile {
+        font-size: 20px;
+    }
+
+    .game-controls {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    .game-container {
+        padding: 15px;
+    }
+
+    .tile {
+        font-size: 16px;
+    }
+}

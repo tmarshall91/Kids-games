@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Connect the Dots - Follow the numbers to reveal the picture">
+    <title>Connect the Dots</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🔗 Connect the Dots</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Next Number:</span>
+                    <span id="nextNumber" class="stat-value">1</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Progress:</span>
+                    <span id="progress" class="stat-value">0%</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Instructions -->
+        <div id="instructions" class="instructions">
+            <h2>How to Play</h2>
+            <p>Connect the dots in order from 1 to reveal the picture!</p>
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+        </div>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea" style="display: none;">
+            <canvas id="gameCanvas"></canvas>
+        </main>
+
+        <!-- Game Complete Message -->
+        <div class="game-message" id="gameMessage" style="display: none;">
+            <h2>🎉 Picture Complete!</h2>
+            <p>You revealed the picture!</p>
+            <canvas id="resultCanvas"></canvas>
+        </div>
+
+        <!-- Controls Section -->
+        <footer class="game-controls" id="controls" style="display: none;">
+            <button id="clearBtn" class="btn btn-secondary">Clear & Restart</button>
+            <button id="newGameBtn" class="btn btn-primary">New Picture</button>
+        </footer>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

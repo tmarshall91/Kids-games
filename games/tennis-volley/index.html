@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Tennis Volley - A fun timing-based tennis game for kids">
+    <title>Tennis Volley 🎾</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🎾 Tennis Volley 🎾</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Rally:</span>
+                    <span id="rally" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Best:</span>
+                    <span id="bestRally" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Tennis Court -->
+            <div class="tennis-court">
+                <!-- Net -->
+                <div class="net"></div>
+
+                <!-- Court zones -->
+                <div class="court-zone opponent-zone">
+                    <div id="opponentPlayer" class="player opponent">🏸</div>
+                </div>
+
+                <div class="court-zone player-zone">
+                    <div id="playerRacket" class="player user">🏸</div>
+                </div>
+
+                <!-- Ball -->
+                <div id="ball" class="ball">🎾</div>
+
+                <!-- Timing indicator -->
+                <div id="timingIndicator" class="timing-indicator"></div>
+            </div>
+
+            <!-- Game message -->
+            <div class="game-message" id="gameMessage">
+                <h2>Ready to Play?</h2>
+                <p>Tap when the ball is in your zone!</p>
+                <p class="tip">Perfect timing = Better rally!</p>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+            <button id="restartBtn" class="btn btn-secondary" style="display: none;">Play Again</button>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Game Over!</h2>
+            <p class="rally-info">Rally: <span id="finalRally">0</span></p>
+            <p class="best-info">Best Rally: <span id="finalBestRally">0</span></p>
+            <p id="encouragement" class="encouragement">Great effort!</p>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

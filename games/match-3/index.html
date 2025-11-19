@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="A fun match-3 puzzle game for kids">
+    <title>Sweet Match 3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🍬 Sweet Match 3</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">🎯 Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">🎯 Target:</span>
+                    <span id="target" class="stat-value">1000</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">🔄 Moves:</span>
+                    <span id="moves" class="stat-value">20</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <div id="gameBoard" class="game-board"></div>
+
+            <!-- Game Message Overlay -->
+            <div class="game-message" id="gameMessage">
+                <h2>🍬 Match the Sweets!</h2>
+                <p>Match 3 or more sweets to score points!</p>
+                <ul class="instructions">
+                    <li>🔄 Swap adjacent sweets</li>
+                    <li>✨ Match 3+ to score</li>
+                    <li>🎯 Reach the target score</li>
+                    <li>💫 Create combos for bonus points!</li>
+                </ul>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+            <button id="restartBtn" class="btn btn-secondary" style="display: none;">Restart</button>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2 id="gameOverTitle">🎉 Level Complete!</h2>
+            <p class="final-score">Final Score: <span id="finalScore">0</span></p>
+            <p class="stars" id="stars">⭐⭐⭐</p>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

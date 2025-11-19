@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Number counting game for kids to learn numbers">
+    <title>Number Counting - Kids Learning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>Count the Objects!</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Level:</span>
+                    <span id="level" class="stat-value">1</span>
+                </span>
+            </div>
+        </header>
+
+        <main class="game-area" id="gameArea">
+            <div class="game-message" id="gameMessage">
+                <h2>Let's Count!</h2>
+                <p>Tap Start to begin counting</p>
+            </div>
+
+            <div id="objectsContainer" class="objects-container"></div>
+
+            <div id="questionContainer" class="question-container" style="display: none;">
+                <p class="question">How many do you see?</p>
+                <div id="answerButtons" class="answer-buttons"></div>
+            </div>
+        </main>
+
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+            <button id="nextBtn" class="btn btn-success" style="display: none;">Next</button>
+        </footer>
+    </div>
+
+    <div id="feedbackOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2 id="feedbackTitle">Correct!</h2>
+            <p id="feedbackMessage" class="feedback-message"></p>
+            <button id="continueBtn" class="btn btn-primary">Continue</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

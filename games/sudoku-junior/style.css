@@ -1,0 +1,504 @@
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    touch-action: none;
+}
+
+/* === Game Container === */
+.game-container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* === Header === */
+.game-header {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.game-header h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.stat {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 15px;
+    border-radius: 15px;
+    font-size: 16px;
+}
+
+.stat-label {
+    font-weight: normal;
+}
+
+.stat-value {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* === Game Area === */
+.game-area {
+    position: relative;
+    background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* === Sudoku Grid === */
+.sudoku-grid {
+    background: white;
+    border: 3px solid #333;
+    display: grid;
+    gap: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.sudoku-grid.size-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.sudoku-grid.size-6 {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.sudoku-cell {
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    background: white;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+    min-width: 50px;
+}
+
+.sudoku-cell:active {
+    transform: scale(0.95);
+}
+
+.sudoku-cell.given {
+    background: #e3f2fd;
+    color: #1976d2;
+    cursor: default;
+    font-weight: 900;
+}
+
+.sudoku-cell.selected {
+    background: #fff176;
+    box-shadow: inset 0 0 0 2px #fbc02d;
+}
+
+.sudoku-cell.correct {
+    background: #c8e6c9;
+    color: #2e7d32;
+}
+
+.sudoku-cell.incorrect {
+    background: #ffcdd2;
+    color: #c62828;
+    animation: shake 0.5s ease;
+}
+
+.sudoku-cell.highlighted {
+    background: #e1f5fe;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Grid borders for boxes */
+.sudoku-grid.size-4 .sudoku-cell:nth-child(4n+1),
+.sudoku-grid.size-4 .sudoku-cell:nth-child(4n+2) {
+    border-right: 2px solid #666;
+}
+
+.sudoku-grid.size-4 .sudoku-cell:nth-child(-n+8) {
+    border-bottom: 2px solid #666;
+}
+
+.sudoku-grid.size-6 .sudoku-cell:nth-child(6n+1),
+.sudoku-grid.size-6 .sudoku-cell:nth-child(6n+2),
+.sudoku-grid.size-6 .sudoku-cell:nth-child(6n+3) {
+    border-right: 2px solid #666;
+}
+
+.sudoku-grid.size-6 .sudoku-cell:nth-child(-n+18) {
+    border-bottom: 2px solid #666;
+}
+
+/* === Number Pad === */
+.number-pad {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    gap: 10px;
+    max-width: 400px;
+    width: 100%;
+}
+
+.number-btn {
+    aspect-ratio: 1;
+    font-size: 24px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    min-height: 50px;
+}
+
+.number-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.number-btn:active {
+    transform: translateY(0);
+}
+
+.number-btn.clear {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+}
+
+/* === Level Selection === */
+.level-buttons {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.level-btn {
+    background: white;
+    border: 3px solid #667eea;
+    border-radius: 15px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+}
+
+.level-btn:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.level-btn:active {
+    transform: translateY(-2px);
+}
+
+.level-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.level-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.level-desc {
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+/* === Game Message === */
+.game-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 90%;
+    z-index: 100;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.game-message h2 {
+    font-size: 28px;
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.game-message p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.instructions {
+    text-align: left;
+    display: inline-block;
+    margin: 20px auto 0;
+    font-size: 16px;
+    color: #666;
+    line-height: 1.8;
+}
+
+.instructions li {
+    margin-bottom: 8px;
+}
+
+/* === Controls === */
+.game-controls {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    background: #f5f5f5;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+}
+
+.btn-secondary:hover {
+    box-shadow: 0 6px 20px rgba(79, 172, 254, 0.4);
+}
+
+/* === Game Over Overlay === */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.overlay-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 90%;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.overlay-content h2 {
+    font-size: 36px;
+    color: #667eea;
+    margin-bottom: 20px;
+}
+
+.final-score {
+    font-size: 20px;
+    color: #666;
+    margin: 15px 0;
+}
+
+.final-score span {
+    font-weight: bold;
+    color: #667eea;
+    font-size: 24px;
+}
+
+.rating {
+    font-size: 48px;
+    margin: 20px 0;
+}
+
+/* === Responsive === */
+@media (max-width: 600px) {
+    .game-header h1 {
+        font-size: 24px;
+    }
+
+    .stat {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+
+    .stat-value {
+        font-size: 16px;
+    }
+
+    .game-area {
+        min-height: 400px;
+        padding: 10px;
+    }
+
+    .sudoku-cell {
+        font-size: 20px;
+        min-width: 40px;
+    }
+
+    .number-btn {
+        font-size: 20px;
+        min-height: 45px;
+    }
+
+    .game-message {
+        padding: 20px;
+    }
+
+    .game-message h2 {
+        font-size: 24px;
+    }
+
+    .game-message p {
+        font-size: 16px;
+    }
+
+    .instructions {
+        font-size: 14px;
+    }
+
+    .level-btn {
+        padding: 15px;
+        min-width: 100px;
+    }
+
+    .level-icon {
+        font-size: 36px;
+    }
+
+    .level-name {
+        font-size: 18px;
+    }
+
+    .level-desc {
+        font-size: 14px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .overlay-content {
+        padding: 30px 20px;
+    }
+
+    .overlay-content h2 {
+        font-size: 28px;
+    }
+
+    .final-score {
+        font-size: 18px;
+    }
+
+    .rating {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 400px) {
+    .sudoku-cell {
+        font-size: 18px;
+        min-width: 35px;
+    }
+
+    .number-pad {
+        gap: 8px;
+    }
+
+    .number-btn {
+        font-size: 18px;
+        min-height: 40px;
+    }
+
+    .level-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .level-btn {
+        width: 100%;
+    }
+}
