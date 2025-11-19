@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Build perfect habitats for different animals">
+    <title>Animal Habitat Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🏡 Habitat Builder 🌳</h1>
+            <div class="current-animal" id="currentAnimal">
+                <span>Building for: </span>
+                <span id="animalDisplay" class="animal-display">🦁</span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Instructions -->
+            <div class="instructions" id="instructions">
+                <h2>Welcome Habitat Builder!</h2>
+                <p>Choose an animal and build the perfect home</p>
+                <p class="hint">Tap elements below to add them to the habitat</p>
+            </div>
+
+            <!-- Habitat Canvas -->
+            <div id="habitatCanvas" class="habitat-canvas"></div>
+        </main>
+
+        <!-- Element Palette -->
+        <div class="element-palette" id="elementPalette">
+            <div class="palette-section">
+                <h3>Choose Animal</h3>
+                <div class="palette-items" id="animalPalette"></div>
+            </div>
+            <div class="palette-section">
+                <h3>Add Elements</h3>
+                <div class="palette-items" id="itemsPalette"></div>
+            </div>
+        </div>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="clearBtn" class="btn btn-secondary">Clear All</button>
+            <button id="saveBtn" class="btn btn-primary">Save Habitat</button>
+        </footer>
+    </div>
+
+    <!-- Save Confirmation Overlay -->
+    <div id="saveOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>🎉 Habitat Saved! 🎉</h2>
+            <p class="save-message">Your beautiful habitat has been saved!</p>
+            <div id="savedHabitat" class="saved-preview"></div>
+            <button id="newHabitatBtn" class="btn btn-primary">Build Another</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

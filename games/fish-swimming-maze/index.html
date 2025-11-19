@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Guide your fish through the underwater maze">
+    <title>Fish Swimming Maze</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🐠 Fish Maze 🐠</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Level:</span>
+                    <span id="level" class="stat-value">1</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Time:</span>
+                    <span id="timer" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Game message -->
+            <div class="game-message" id="gameMessage">
+                <h2>Welcome to the Ocean!</h2>
+                <p>Use arrow buttons to swim through the maze</p>
+                <p class="instructions">Reach the treasure to win! ⭐</p>
+            </div>
+
+            <!-- Maze canvas -->
+            <div id="mazeCanvas" class="maze-canvas" style="display: none;">
+                <div id="fish" class="fish">🐠</div>
+                <div id="goal" class="goal">⭐</div>
+            </div>
+        </main>
+
+        <!-- Direction Controls -->
+        <div id="directionControls" class="direction-controls" style="display: none;">
+            <div class="control-row">
+                <button class="dir-btn" data-direction="up">⬆️</button>
+            </div>
+            <div class="control-row">
+                <button class="dir-btn" data-direction="left">⬅️</button>
+                <button class="dir-btn" data-direction="down">⬇️</button>
+                <button class="dir-btn" data-direction="right">➡️</button>
+            </div>
+        </div>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Swimming</button>
+            <button id="restartBtn" class="btn btn-secondary" style="display: none;">Restart</button>
+        </footer>
+    </div>
+
+    <!-- Level Complete Overlay -->
+    <div id="levelCompleteOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>🎉 Level Complete! 🎉</h2>
+            <p class="level-info">Level <span id="completedLevel">1</span> finished!</p>
+            <p class="time-info">Time: <span id="completedTime">0</span>s</p>
+            <button id="nextLevelBtn" class="btn btn-primary">Next Level</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

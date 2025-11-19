@@ -1,0 +1,328 @@
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    touch-action: manipulation;
+}
+
+/* === Game Container === */
+.game-container {
+    width: 100%;
+    max-width: 428px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    max-height: 800px;
+}
+
+/* === Header === */
+.game-header {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.game-header h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.current-animal {
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.animal-display {
+    font-size: 32px;
+}
+
+/* === Game Area === */
+.game-area {
+    flex: 1;
+    padding: 15px;
+    background: linear-gradient(180deg, #87CEEB 0%, #90EE90 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.instructions {
+    text-align: center;
+    color: #333;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.instructions h2 {
+    font-size: 22px;
+    color: #11998e;
+    margin-bottom: 10px;
+}
+
+.instructions p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.hint {
+    font-size: 12px !important;
+    color: #999;
+    font-style: italic;
+}
+
+/* === Habitat Canvas === */
+.habitat-canvas {
+    width: 100%;
+    height: calc(100% - 140px);
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    border: 3px dashed rgba(17, 153, 142, 0.3);
+}
+
+.habitat-item {
+    position: absolute;
+    font-size: 40px;
+    cursor: move;
+    touch-action: none;
+    user-select: none;
+    z-index: 10;
+    animation: placeItem 0.3s ease;
+}
+
+/* === Element Palette === */
+.element-palette {
+    padding: 15px;
+    background: #f8f9fa;
+    border-top: 2px solid #ddd;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.palette-section {
+    margin-bottom: 15px;
+}
+
+.palette-section:last-child {
+    margin-bottom: 0;
+}
+
+.palette-section h3 {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.palette-items {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.palette-item {
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    touch-action: manipulation;
+}
+
+.palette-item:active {
+    transform: scale(0.9);
+}
+
+.palette-item.selected {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    box-shadow: 0 4px 10px rgba(17, 153, 142, 0.4);
+}
+
+/* === Game Controls === */
+.game-controls {
+    padding: 15px;
+    background: white;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    border-top: 2px solid #eee;
+}
+
+/* === Buttons === */
+.btn {
+    padding: 15px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    touch-action: manipulation;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    color: white;
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+}
+
+/* === Overlay === */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.overlay-content {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    animation: slideIn 0.3s ease;
+}
+
+.overlay-content h2 {
+    font-size: 28px;
+    color: #11998e;
+    margin-bottom: 15px;
+}
+
+.save-message {
+    font-size: 16px;
+    color: #666;
+    margin: 15px 0;
+}
+
+.saved-preview {
+    width: 250px;
+    height: 250px;
+    margin: 20px auto;
+    background: linear-gradient(180deg, #87CEEB 0%, #90EE90 100%);
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.saved-preview .habitat-item {
+    font-size: 30px;
+}
+
+/* === Animations === */
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes placeItem {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* === Responsive Design === */
+@media (max-width: 360px) {
+    .habitat-item {
+        font-size: 36px;
+    }
+
+    .palette-item {
+        width: 45px;
+        height: 45px;
+        font-size: 28px;
+    }
+}
+
+@media (max-height: 650px) {
+    .game-container {
+        height: 95vh;
+    }
+
+    .game-header {
+        padding: 15px;
+    }
+
+    .element-palette {
+        max-height: 150px;
+    }
+
+    .instructions {
+        padding: 15px;
+    }
+
+    .instructions h2 {
+        font-size: 18px;
+    }
+}
+
+/* === Accessibility === */
+.btn:focus, .palette-item:focus {
+    outline: 3px solid #11998e;
+    outline-offset: 2px;
+}
+
+/* === Prevent text selection === */
+.game-area {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
