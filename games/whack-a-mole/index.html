@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Whack-a-Mole - A fun mobile-friendly game for kids">
+    <title>Whack-a-Mole</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🔨 Whack-a-Mole</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Time:</span>
+                    <span id="timer" class="stat-value">30</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Welcome Message -->
+            <div class="game-message" id="gameMessage">
+                <h2>Welcome!</h2>
+                <p>Tap the moles before they hide!</p>
+                <p class="small">You have 30 seconds</p>
+            </div>
+
+            <!-- Mole Grid -->
+            <div class="mole-grid" id="moleGrid">
+                <div class="hole" data-hole="0">
+                    <div class="mole">🦦</div>
+                </div>
+                <div class="hole" data-hole="1">
+                    <div class="mole">🦦</div>
+                </div>
+                <div class="hole" data-hole="2">
+                    <div class="mole">🦦</div>
+                </div>
+                <div class="hole" data-hole="3">
+                    <div class="mole">🦦</div>
+                </div>
+                <div class="hole" data-hole="4">
+                    <div class="mole">🦦</div>
+                </div>
+                <div class="hole" data-hole="5">
+                    <div class="mole">🦦</div>
+                </div>
+                <div class="hole" data-hole="6">
+                    <div class="mole">🦦</div>
+                </div>
+                <div class="hole" data-hole="7">
+                    <div class="mole">🦦</div>
+                </div>
+                <div class="hole" data-hole="8">
+                    <div class="mole">🦦</div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+            <button id="restartBtn" class="btn btn-secondary" style="display: none;">Play Again</button>
+            <a href="../../index.html" class="btn btn-link">Back to Games</a>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Game Over!</h2>
+            <p class="final-score">Your Score: <span id="finalScore">0</span></p>
+            <p class="final-message" id="finalMessage">Great job!</p>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+            <a href="../../index.html" class="btn btn-link">Back to Games</a>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
