@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Maze Runner - Swipe to navigate through mazes">
+    <title>Maze Runner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🏃 Maze Runner</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Level:</span>
+                    <span id="level" class="stat-value">1</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Moves:</span>
+                    <span id="moves" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Instructions -->
+        <div id="instructions" class="instructions">
+            <h2>How to Play</h2>
+            <p>Swipe or use arrow keys to guide the player 🔵 to the goal 🎯!</p>
+            <p>Avoid hitting the walls!</p>
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+        </div>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea" style="display: none;">
+            <div id="mazeContainer" class="maze-container"></div>
+            <div class="controls-hint">
+                <p>⬆️ ⬇️ ⬅️ ➡️ Swipe or use Arrow Keys</p>
+            </div>
+        </main>
+
+        <!-- Level Complete Message -->
+        <div class="game-message" id="levelComplete" style="display: none;">
+            <h2>🎉 Level Complete!</h2>
+            <p>Great job! You found the exit!</p>
+            <p class="stats">Moves: <span id="finalMoves">0</span></p>
+            <button id="nextLevelBtn" class="btn btn-primary">Next Level</button>
+        </div>
+
+        <!-- Game Complete Message -->
+        <div class="game-message" id="gameComplete" style="display: none;">
+            <h2>🏆 All Levels Complete!</h2>
+            <p>Congratulations! You solved all the mazes!</p>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+
+        <!-- Controls Section -->
+        <footer class="game-controls" id="controls" style="display: none;">
+            <button id="restartBtn" class="btn btn-secondary">Restart Level</button>
+            <button id="newGameBtn" class="btn btn-primary">New Game</button>
+        </footer>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

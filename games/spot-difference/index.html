@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Spot the Difference - Find all differences between two images">
+    <title>Spot the Difference</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🔍 Spot the Difference</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Found:</span>
+                    <span id="found" class="stat-value">0/<span id="total">5</span></span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Time:</span>
+                    <span id="timer" class="stat-value">0:00</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Instructions -->
+        <div id="instructions" class="instructions">
+            <p>Find all the differences between the two pictures!</p>
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+        </div>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea" style="display: none;">
+            <div class="images-container">
+                <div class="image-wrapper">
+                    <h3>Picture 1</h3>
+                    <div id="image1" class="game-image"></div>
+                </div>
+                <div class="image-wrapper">
+                    <h3>Picture 2</h3>
+                    <div id="image2" class="game-image"></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Game Complete Message -->
+        <div class="game-message" id="gameMessage" style="display: none;">
+            <h2>🎉 Great Job!</h2>
+            <p>You found all the differences!</p>
+            <p class="stats">Time: <span id="finalTime">0:00</span></p>
+        </div>
+
+        <!-- Controls Section -->
+        <footer class="game-controls" id="controls" style="display: none;">
+            <button id="hintBtn" class="btn btn-secondary">💡 Hint</button>
+            <button id="newGameBtn" class="btn btn-primary">New Game</button>
+        </footer>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
