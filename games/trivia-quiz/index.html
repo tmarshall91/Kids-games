@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Fun trivia quiz game for kids">
+    <title>Trivia Quiz Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🧠 Trivia Quiz</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Question:</span>
+                    <span id="questionNumber" class="stat-value">0/10</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <div class="game-message" id="gameMessage">
+                <h2>🎮 Ready to Play?</h2>
+                <p>Answer fun trivia questions and test your knowledge!</p>
+            </div>
+
+            <div class="quiz-container" id="quizContainer" style="display: none;">
+                <div class="question-container">
+                    <div class="category-badge" id="categoryBadge">General</div>
+                    <h2 class="question-text" id="questionText"></h2>
+                </div>
+
+                <div class="answers-container" id="answersContainer">
+                    <!-- Answer buttons will be dynamically added here -->
+                </div>
+
+                <div class="feedback" id="feedback" style="display: none;"></div>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Quiz</button>
+            <button id="nextBtn" class="btn btn-secondary" style="display: none;">Next Question</button>
+            <a href="../../index.html" class="btn btn-back">← Back</a>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>🎉 Quiz Complete!</h2>
+            <p class="final-score">Score: <span id="finalScore">0</span> / 10</p>
+            <p class="percentage" id="percentage"></p>
+            <p class="message" id="finalMessage"></p>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

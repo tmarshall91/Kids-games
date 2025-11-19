@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Find hidden objects game for kids">
+    <title>Hide and Seek</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🔍 Hide and Seek</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Found:</span>
+                    <span id="found" class="stat-value">0/8</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Time:</span>
+                    <span id="timer" class="stat-value">60</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <div class="game-message" id="gameMessage">
+                <h2>🎯 Ready to Play?</h2>
+                <p>Find all the hidden objects!</p>
+                <p>Look carefully and tap to reveal them</p>
+            </div>
+
+            <div class="search-area" id="searchArea" style="display: none;">
+                <div class="target-list" id="targetList">
+                    <h3>Find These:</h3>
+                    <div class="targets" id="targets"></div>
+                </div>
+
+                <div class="scene" id="scene">
+                    <!-- Hidden objects will be placed here -->
+                </div>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+            <button id="hintBtn" class="btn btn-secondary" style="display: none;">💡 Hint</button>
+            <a href="../../index.html" class="btn btn-back">← Back</a>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2 id="gameOverTitle">🎉 All Found!</h2>
+            <p class="final-stats">
+                Found: <span id="finalFound">0</span> / 8<br>
+                Time: <span id="finalTime">0</span> seconds
+            </p>
+            <p class="message" id="finalMessage"></p>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

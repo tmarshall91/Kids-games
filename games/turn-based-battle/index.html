@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Simple turn-based RPG combat!">
+    <title>Turn-Based Battle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>⚔️ Turn-Based Battle</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Round:</span>
+                    <span id="round" class="stat-value">1</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Turn:</span>
+                    <span id="turn" class="stat-value">Player 1</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <div class="game-message" id="gameMessage">
+                <h2>Welcome!</h2>
+                <p>Choose your character and battle!</p>
+                <p class="instruction">Take turns attacking until one player wins</p>
+            </div>
+
+            <!-- Battle Arena -->
+            <div class="battle-arena" id="battleArena" style="display: none;">
+                <!-- Player 1 -->
+                <div class="fighter-container player1">
+                    <div class="fighter" id="fighter1">
+                        <div class="fighter-avatar">🦸</div>
+                        <div class="fighter-name">Player 1</div>
+                        <div class="health-bar-container">
+                            <div class="health-bar" id="health1">
+                                <div class="health-fill"></div>
+                            </div>
+                            <div class="health-text"><span id="hp1">100</span>/100</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VS Text -->
+                <div class="vs-text">VS</div>
+
+                <!-- Player 2 -->
+                <div class="fighter-container player2">
+                    <div class="fighter" id="fighter2">
+                        <div class="fighter-avatar">🧙</div>
+                        <div class="fighter-name">Player 2</div>
+                        <div class="health-bar-container">
+                            <div class="health-bar" id="health2">
+                                <div class="health-fill"></div>
+                            </div>
+                            <div class="health-text"><span id="hp2">100</span>/100</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Battle Log -->
+                <div class="battle-log" id="battleLog">
+                    <div class="log-message">Battle Start!</div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <div class="action-buttons" id="actionButtons" style="display: none;">
+                <button id="attackBtn" class="btn btn-attack">⚔️ Attack</button>
+                <button id="defendBtn" class="btn btn-defend">🛡️ Defend</button>
+                <button id="specialBtn" class="btn btn-special">✨ Special</button>
+            </div>
+            <button id="startBtn" class="btn btn-primary">Start Battle</button>
+            <button id="restartBtn" class="btn btn-secondary" style="display: none;">New Battle</button>
+            <a href="../../index.html" class="btn btn-back">Back to Games</a>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2 id="winnerText">Victory!</h2>
+            <p class="final-score"><span id="winnerName">Player 1</span> Wins!</p>
+            <p class="battle-stats">Rounds: <span id="finalRound">0</span></p>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,354 @@
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    overflow: hidden;
+}
+
+/* === Game Container === */
+.game-container {
+    background: linear-gradient(180deg, #1a1a2e 0%, #0f0c29 100%);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    position: relative;
+    border: 2px solid #4a4a8a;
+}
+
+/* === Header === */
+.game-header {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.game-header h1 {
+    font-size: 32px;
+    color: #fff;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px #4a90e2, 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+.stat {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    flex: 1;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #aaa;
+    margin-right: 5px;
+}
+
+.stat-value {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* === Game Area === */
+.game-area {
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.space-field {
+    background: linear-gradient(180deg, #000428 0%, #004e92 100%);
+    border: 3px solid #4a4a8a;
+    border-radius: 15px;
+    height: 450px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 0 50px rgba(0, 100, 200, 0.3);
+}
+
+/* Stars background */
+.space-field::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(2px 2px at 20% 30%, white, transparent),
+        radial-gradient(2px 2px at 60% 70%, white, transparent),
+        radial-gradient(1px 1px at 50% 50%, white, transparent),
+        radial-gradient(1px 1px at 80% 10%, white, transparent),
+        radial-gradient(2px 2px at 90% 60%, white, transparent),
+        radial-gradient(1px 1px at 33% 80%, white, transparent),
+        radial-gradient(1px 1px at 15% 90%, white, transparent);
+    background-size: 200% 200%;
+    background-position: 0% 0%;
+    animation: starfield 20s linear infinite;
+    opacity: 0.5;
+}
+
+@keyframes starfield {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+/* === Spaceship === */
+.spaceship {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 48px;
+    z-index: 10;
+    filter: drop-shadow(0 0 10px #4a90e2);
+    transition: left 0.1s ease;
+    user-select: none;
+}
+
+/* === Objects === */
+.objects-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.space-object {
+    position: absolute;
+    font-size: 36px;
+    user-select: none;
+    animation: fall linear;
+    z-index: 5;
+}
+
+.star {
+    animation: fall linear, twinkle 1s ease-in-out infinite;
+}
+
+.asteroid {
+    animation: fall linear, rotate 2s linear infinite;
+}
+
+.planet {
+    animation: fall linear, pulse 2s ease-in-out infinite;
+}
+
+@keyframes fall {
+    from {
+        top: -50px;
+    }
+    to {
+        top: 100%;
+    }
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(0.8);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* === Collision Effects === */
+.collision-effect {
+    position: absolute;
+    font-size: 40px;
+    pointer-events: none;
+    animation: explode 0.5s ease-out forwards;
+    z-index: 20;
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* === Controls === */
+.game-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.control-instructions {
+    text-align: center;
+    font-size: 14px;
+    color: #aaa;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.btn {
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+    color: white;
+    border: 2px solid #5a9fef;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.5);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+    color: white;
+    border: 2px solid #f5a623;
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(243, 156, 18, 0.5);
+}
+
+/* === Overlays === */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.overlay-content {
+    background: linear-gradient(135deg, #1a1a2e 0%, #0f0c29 100%);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    border: 2px solid #4a4a8a;
+}
+
+.overlay-content h2 {
+    font-size: 32px;
+    color: #fff;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #4a90e2;
+}
+
+.instructions {
+    font-size: 16px;
+    color: #ccc;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.final-score,
+.survival-time {
+    font-size: 24px;
+    color: #fff;
+    margin: 15px 0;
+}
+
+.final-score span,
+.survival-time span {
+    font-weight: bold;
+    color: #4a90e2;
+}
+
+/* === Responsive === */
+@media (max-width: 400px) {
+    .game-header h1 {
+        font-size: 24px;
+    }
+
+    .stat {
+        padding: 8px 12px;
+    }
+
+    .stat-label {
+        font-size: 12px;
+    }
+
+    .stat-value {
+        font-size: 16px;
+    }
+
+    .spaceship {
+        font-size: 40px;
+    }
+
+    .space-object {
+        font-size: 28px;
+    }
+
+    .space-field {
+        height: 350px;
+    }
+}
+
+/* === Touch Optimization === */
+@media (hover: none) {
+    .btn:active {
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,433 @@
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    touch-action: manipulation;
+}
+
+/* === Game Container === */
+.game-container {
+    width: 100%;
+    max-width: 428px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    max-height: 800px;
+}
+
+/* === Header === */
+.game-header {
+    background: linear-gradient(135deg, #FF6B6B 0%, #EE5A6F 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.game-header h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-label {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.stat-value {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* === Game Area === */
+.game-area {
+    flex: 1;
+    padding: 20px;
+    background: #F0F4F8;
+    position: relative;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-message {
+    text-align: center;
+    color: #333;
+}
+
+.game-message h2 {
+    font-size: 32px;
+    color: #FF6B6B;
+    margin-bottom: 15px;
+}
+
+.game-message p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.instruction {
+    font-size: 16px !important;
+    color: #4ECDC4;
+    font-weight: bold;
+}
+
+/* === Battle Arena === */
+.battle-arena {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.fighter-container {
+    display: flex;
+    justify-content: center;
+}
+
+.fighter {
+    background: white;
+    border: 4px solid #ddd;
+    border-radius: 15px;
+    padding: 20px;
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.fighter.active {
+    border-color: #FFD93D;
+    box-shadow: 0 0 20px rgba(255, 217, 61, 0.6);
+    transform: scale(1.05);
+}
+
+.fighter.attacking {
+    animation: attack 0.5s ease;
+}
+
+.fighter.defending {
+    border-color: #4ECDC4;
+    box-shadow: 0 0 20px rgba(78, 205, 196, 0.6);
+}
+
+.fighter.damaged {
+    animation: shake 0.3s ease;
+}
+
+.fighter-avatar {
+    font-size: 72px;
+    margin-bottom: 10px;
+}
+
+.fighter-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.health-bar-container {
+    margin-top: 10px;
+}
+
+.health-bar {
+    width: 100%;
+    height: 25px;
+    background: #E0E0E0;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+}
+
+.health-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4CAF50 0%, #8BC34A 100%);
+    width: 100%;
+    transition: width 0.5s ease;
+    border-radius: 15px;
+}
+
+.health-bar.low .health-fill {
+    background: linear-gradient(90deg, #FF6B6B 0%, #EE5A6F 100%);
+}
+
+.health-bar.medium .health-fill {
+    background: linear-gradient(90deg, #FFD93D 0%, #F39C12 100%);
+}
+
+.health-text {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.vs-text {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: #FF6B6B;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* === Battle Log === */
+.battle-log {
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    max-height: 100px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+.log-message {
+    font-size: 14px;
+    color: #666;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.log-message:last-child {
+    border-bottom: none;
+}
+
+.log-message.attack {
+    color: #FF6B6B;
+    font-weight: bold;
+}
+
+.log-message.defend {
+    color: #4ECDC4;
+    font-weight: bold;
+}
+
+.log-message.special {
+    color: #FFD93D;
+    font-weight: bold;
+}
+
+/* === Game Controls === */
+.game-controls {
+    padding: 20px;
+    background: white;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-top: 2px solid #eee;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+/* === Buttons === */
+.btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    touch-action: manipulation;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #FF6B6B 0%, #EE5A6F 100%);
+    color: white;
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+    color: white;
+}
+
+.btn-attack {
+    background: linear-gradient(135deg, #FF6B6B 0%, #EE5A6F 100%);
+    color: white;
+    flex: 1;
+    min-width: 90px;
+    padding: 12px 20px;
+    font-size: 16px;
+}
+
+.btn-defend {
+    background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+    color: white;
+    flex: 1;
+    min-width: 90px;
+    padding: 12px 20px;
+    font-size: 16px;
+}
+
+.btn-special {
+    background: linear-gradient(135deg, #FFD93D 0%, #F39C12 100%);
+    color: white;
+    flex: 1;
+    min-width: 90px;
+    padding: 12px 20px;
+    font-size: 16px;
+}
+
+.btn-back {
+    background: #6c757d;
+    color: white;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* === Overlay === */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.overlay-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 90%;
+    animation: slideIn 0.3s ease;
+}
+
+.overlay-content h2 {
+    font-size: 36px;
+    color: #FF6B6B;
+    margin-bottom: 20px;
+}
+
+.final-score {
+    font-size: 24px;
+    color: #333;
+    margin: 20px 0;
+}
+
+.battle-stats {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* === Animations === */
+@keyframes attack {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(20px); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* === Responsive Design === */
+@media (max-width: 400px) {
+    .fighter {
+        padding: 15px;
+    }
+
+    .fighter-avatar {
+        font-size: 56px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .btn-attack,
+    .btn-defend,
+    .btn-special {
+        width: 100%;
+    }
+}
+
+@media (max-height: 700px) {
+    .game-container {
+        height: 95vh;
+    }
+
+    .game-header {
+        padding: 15px;
+    }
+
+    .fighter-avatar {
+        font-size: 56px;
+    }
+}
+
+/* === Prevent text selection during gameplay === */
+.game-area {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}

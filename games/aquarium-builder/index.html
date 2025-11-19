@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Collect and arrange beautiful fish in your aquarium">
+    <title>Aquarium Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🐠 Aquarium Builder</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Fish:</span>
+                    <span id="fishCount" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <div class="aquarium" id="aquarium">
+                <div class="bubbles-container" id="bubblesContainer"></div>
+                <div class="fish-container" id="fishContainer"></div>
+            </div>
+        </main>
+
+        <!-- Fish Spawner -->
+        <div class="spawner" id="spawner">
+            <div class="spawner-label">Tap to catch! →</div>
+            <div class="spawner-area" id="spawnerArea">
+                <div class="spawn-fish" id="spawnFish">🐟</div>
+            </div>
+        </div>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+            <button id="clearBtn" class="btn btn-secondary" style="display: none;">Clear Tank</button>
+        </footer>
+    </div>
+
+    <!-- Welcome Overlay -->
+    <div id="welcomeOverlay" class="overlay">
+        <div class="overlay-content">
+            <h2>🐠 Aquarium Builder</h2>
+            <p class="instructions">
+                <strong>How to Play:</strong><br>
+                1. Watch for fish to appear<br>
+                2. Tap the fish to catch it<br>
+                3. The fish swims in your tank<br>
+                4. Collect different types of fish<br>
+                5. Build a beautiful aquarium!
+            </p>
+            <button id="playBtn" class="btn btn-primary">Start Building!</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
