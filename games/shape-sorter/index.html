@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Drag shapes to matching holes - A fun educational game for kids">
+    <title>Shape Sorter - Kids Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>Shape Sorter</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Matched:</span>
+                    <span id="timer" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Game content will be dynamically added here -->
+            <div class="game-message" id="gameMessage">
+                <h2>Shape Sorter!</h2>
+                <p>Drag each shape to its matching hole</p>
+                <p style="font-size: 14px; margin-top: 10px;">🔵 Circle  🔶 Square  🔺 Triangle  ⭐ Star</p>
+            </div>
+
+            <!-- Target Holes (will be populated by JS) -->
+            <div class="targets-container" id="targetsContainer" style="display: none;"></div>
+
+            <!-- Shapes to Drag (will be populated by JS) -->
+            <div class="shapes-container" id="shapesContainer" style="display: none;"></div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+            <button id="restartBtn" class="btn btn-secondary" style="display: none;">Play Again</button>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Great Job!</h2>
+            <p class="final-score">You matched <span id="finalScore">0</span> shapes!</p>
+            <p class="final-message" id="finalMessage">Amazing work!</p>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
