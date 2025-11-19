@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Click the cookie to earn points and buy upgrades in this fun incremental game!">
+    <title>Cookie Clicker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>Cookie Clicker</h1>
+            <div class="game-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Cookies:</span>
+                    <span id="cookieCount" class="stat-value">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Per Second:</span>
+                    <span id="cookiesPerSecond" class="stat-value">0</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area">
+            <!-- Cookie Click Area -->
+            <div class="cookie-section">
+                <div id="cookie" class="cookie">
+                    <div class="cookie-inner">🍪</div>
+                </div>
+                <div id="clickFeedback" class="click-feedback"></div>
+            </div>
+
+            <!-- Shop Section -->
+            <div class="shop-section">
+                <h2>Shop - Buy Upgrades</h2>
+                <div id="shopItems" class="shop-items">
+                    <!-- Shop items will be dynamically generated -->
+                </div>
+            </div>
+        </main>
+
+        <!-- Info Button -->
+        <button id="infoBtn" class="info-btn">ℹ️</button>
+
+        <!-- Reset Button -->
+        <button id="resetBtn" class="reset-btn">Reset Game</button>
+    </div>
+
+    <!-- Instructions Overlay -->
+    <div id="instructionsOverlay" class="overlay">
+        <div class="overlay-content">
+            <h2>How to Play</h2>
+            <div class="instructions">
+                <p><strong>Goal:</strong> Click the cookie to earn cookies and buy upgrades!</p>
+                <ul>
+                    <li>Tap or click the big cookie to earn 1 cookie</li>
+                    <li>Use cookies to buy upgrades in the shop</li>
+                    <li>Upgrades automatically generate cookies for you</li>
+                    <li>The more you buy, the faster you earn!</li>
+                    <li>Your progress is automatically saved</li>
+                </ul>
+            </div>
+            <button id="closeInstructions" class="btn btn-primary">Start Playing!</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
