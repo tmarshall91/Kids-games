@@ -1,0 +1,537 @@
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 50%, #fd79a8 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    overflow: hidden;
+}
+
+/* === Game Container === */
+.game-container {
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 90vh;
+}
+
+/* === Header === */
+.game-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+.game-header h1 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* === Stats === */
+.stat-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+.stat-icon {
+    font-size: 24px;
+    min-width: 30px;
+}
+
+.stat-bar {
+    flex: 1;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.5s ease, background-color 0.5s ease;
+}
+
+.bar-fill.happiness {
+    background: linear-gradient(90deg, #55efc4, #00b894);
+}
+
+.bar-fill.hunger {
+    background: linear-gradient(90deg, #fdcb6e, #e17055);
+}
+
+.bar-fill.energy {
+    background: linear-gradient(90deg, #74b9ff, #0984e3);
+}
+
+.stat-value {
+    font-weight: bold;
+    min-width: 35px;
+    text-align: right;
+    font-size: 16px;
+}
+
+/* === Game Area === */
+.game-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    background: linear-gradient(180deg, #e3f2fd 0%, #fff3e0 100%);
+    min-height: 400px;
+}
+
+/* === Pet Container === */
+.pet-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* === Pet Styles === */
+.pet {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    animation: breathe 3s ease-in-out infinite;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.pet:active {
+    transform: scale(0.95);
+}
+
+.pet.jumping {
+    animation: jump 0.6s ease-in-out;
+}
+
+.pet.eating {
+    animation: eat 0.8s ease-in-out;
+}
+
+.pet.sleeping {
+    animation: sleep 2s ease-in-out infinite;
+}
+
+/* Pet Face */
+.pet-face {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+    border-radius: 50%;
+    margin: 0 auto;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    z-index: 2;
+}
+
+/* Pet Ears */
+.pet-ears {
+    position: absolute;
+    width: 100%;
+    top: -20px;
+}
+
+.ear {
+    position: absolute;
+    width: 40px;
+    height: 60px;
+    background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+    border-radius: 50% 50% 20% 20%;
+}
+
+.ear-left {
+    left: 10px;
+    transform: rotate(-20deg);
+}
+
+.ear-right {
+    right: 10px;
+    transform: rotate(20deg);
+}
+
+/* Pet Eyes */
+.pet-eyes {
+    position: absolute;
+    width: 100%;
+    top: 45px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.eye {
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.pupil {
+    width: 15px;
+    height: 15px;
+    background: #2d3436;
+    border-radius: 50%;
+    animation: blink 4s ease-in-out infinite;
+}
+
+.eye.closed .pupil {
+    transform: scaleY(0.1);
+}
+
+/* Pet Nose */
+.pet-nose {
+    position: absolute;
+    width: 15px;
+    height: 12px;
+    background: #e17055;
+    border-radius: 50% 50% 50% 50%;
+    top: 85px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Pet Mouth */
+.pet-mouth {
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    border: 3px solid #2d3436;
+    border-top: none;
+    border-radius: 0 0 40px 40px;
+    top: 95px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.pet-mouth.happy {
+    border-radius: 0 0 40px 40px;
+}
+
+.pet-mouth.sad {
+    border-radius: 40px 40px 0 0;
+    border-top: 3px solid #2d3436;
+    border-bottom: none;
+    top: 100px;
+}
+
+/* Pet Body */
+.pet-body {
+    width: 120px;
+    height: 80px;
+    background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+    border-radius: 50%;
+    margin: -30px auto 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Pet Status */
+.pet-status {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2d3436;
+    padding: 10px 20px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* === Particles === */
+#particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.particle {
+    position: absolute;
+    font-size: 30px;
+    animation: float-up 2s ease-out forwards;
+    pointer-events: none;
+}
+
+/* === Game Message === */
+.game-message {
+    text-align: center;
+    color: #2d3436;
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+}
+
+.game-message h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #667eea;
+}
+
+.game-message p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* === Controls === */
+.game-controls {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    background: white;
+    border-top: 2px solid #eee;
+}
+
+.btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 15px 10px;
+    font-size: 16px;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    font-weight: bold;
+    border: 3px solid transparent;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+    min-height: 80px;
+}
+
+.btn-icon {
+    font-size: 32px;
+}
+
+.btn-text {
+    font-size: 14px;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn-feed {
+    background: linear-gradient(135deg, #e17055 0%, #d63031 100%);
+    border-color: #d63031;
+}
+
+.btn-feed:hover {
+    box-shadow: 0 5px 20px rgba(225, 112, 85, 0.5);
+}
+
+.btn-play {
+    background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+    border-color: #0984e3;
+}
+
+.btn-play:hover {
+    box-shadow: 0 5px 20px rgba(116, 185, 255, 0.5);
+}
+
+.btn-sleep {
+    background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+    border-color: #6c5ce7;
+}
+
+.btn-sleep:hover {
+    box-shadow: 0 5px 20px rgba(162, 155, 254, 0.5);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* === Overlay === */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    animation: fadeIn 0.3s ease;
+}
+
+.overlay-content {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 400px;
+    margin: 20px;
+    animation: slideUp 0.3s ease;
+}
+
+.overlay-content h2 {
+    font-size: 28px;
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.overlay-content p {
+    font-size: 18px;
+    margin: 15px 0;
+    color: #2d3436;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px 30px;
+    margin-top: 15px;
+}
+
+/* === Animations === */
+@keyframes breathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes jump {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+}
+
+@keyframes eat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.1) rotate(-5deg); }
+    75% { transform: scale(1.1) rotate(5deg); }
+}
+
+@keyframes sleep {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(0.98) rotate(-2deg); }
+}
+
+@keyframes blink {
+    0%, 90%, 100% { transform: scaleY(1); }
+    95% { transform: scaleY(0.1); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes float-up {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100px) scale(1.5);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === Responsive === */
+@media (max-width: 480px) {
+    .game-header h1 {
+        font-size: 24px;
+    }
+
+    .pet {
+        width: 160px;
+        height: 160px;
+    }
+
+    .pet-face {
+        width: 120px;
+        height: 120px;
+    }
+
+    .pet-body {
+        width: 100px;
+        height: 70px;
+    }
+
+    .stat-icon {
+        font-size: 20px;
+    }
+
+    .btn-icon {
+        font-size: 28px;
+    }
+}
+
+@media (min-width: 768px) {
+    .game-container {
+        max-width: 600px;
+    }
+}
+
+/* === Utility === */
+.hidden {
+    display: none;
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Take care of your virtual pet! Feed, play, and keep your pet happy">
+    <title>Pet Care Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🐾 Pet Care 🐾</h1>
+            <div class="game-stats">
+                <div class="stat-group">
+                    <div class="stat">
+                        <span class="stat-icon">😊</span>
+                        <div class="stat-bar">
+                            <div id="happinessBar" class="bar-fill happiness"></div>
+                        </div>
+                        <span class="stat-value" id="happiness">100</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-icon">🍎</span>
+                        <div class="stat-bar">
+                            <div id="hungerBar" class="bar-fill hunger"></div>
+                        </div>
+                        <span class="stat-value" id="hunger">100</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-icon">⚡</span>
+                        <div class="stat-bar">
+                            <div id="energyBar" class="bar-fill energy"></div>
+                        </div>
+                        <span class="stat-value" id="energy">100</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Pet Display -->
+            <div class="pet-container">
+                <div class="pet" id="pet">
+                    <div class="pet-face">
+                        <div class="pet-ears">
+                            <div class="ear ear-left"></div>
+                            <div class="ear ear-right"></div>
+                        </div>
+                        <div class="pet-eyes">
+                            <div class="eye eye-left">
+                                <div class="pupil"></div>
+                            </div>
+                            <div class="eye eye-right">
+                                <div class="pupil"></div>
+                            </div>
+                        </div>
+                        <div class="pet-nose"></div>
+                        <div class="pet-mouth" id="petMouth"></div>
+                    </div>
+                    <div class="pet-body"></div>
+                </div>
+                <div class="pet-status" id="petStatus">😊 Happy</div>
+            </div>
+
+            <!-- Action Particles (for visual feedback) -->
+            <div id="particles"></div>
+
+            <!-- Welcome Message -->
+            <div class="game-message" id="gameMessage">
+                <h2>Meet Your Pet!</h2>
+                <p>Tap the buttons below to feed and play</p>
+                <p>Keep your pet happy, fed, and energized!</p>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="feedBtn" class="btn btn-feed" aria-label="Feed your pet">
+                <span class="btn-icon">🍎</span>
+                <span class="btn-text">Feed</span>
+            </button>
+            <button id="playBtn" class="btn btn-play" aria-label="Play with your pet">
+                <span class="btn-icon">🎾</span>
+                <span class="btn-text">Play</span>
+            </button>
+            <button id="sleepBtn" class="btn btn-sleep" aria-label="Put pet to sleep">
+                <span class="btn-icon">😴</span>
+                <span class="btn-text">Sleep</span>
+            </button>
+        </footer>
+    </div>
+
+    <!-- Game Tips Overlay -->
+    <div id="tipOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2 id="tipTitle">Tip!</h2>
+            <p id="tipMessage">Remember to take care of your pet!</p>
+            <button id="closeTipBtn" class="btn btn-primary">Got it!</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
