@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Build bridges to help the car cross safely!">
+    <title>Bridge Builder - Kids Games</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>Bridge Builder</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Level:</span>
+                    <span id="level" class="stat-value">1</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Budget:</span>
+                    <span id="budget" class="stat-value">$100</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <canvas id="gameCanvas"></canvas>
+            <div class="status-message" id="statusMessage"></div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <div class="build-tools" id="buildTools">
+                <button class="tool-btn active" data-tool="beam" id="beamTool">
+                    <span class="tool-icon">━</span>
+                    <span class="tool-name">Beam</span>
+                    <span class="tool-cost">$10</span>
+                </button>
+                <button class="tool-btn" data-tool="cable" id="cableTool">
+                    <span class="tool-icon">╱</span>
+                    <span class="tool-name">Cable</span>
+                    <span class="tool-cost">$5</span>
+                </button>
+            </div>
+            <div class="action-buttons">
+                <button id="clearBtn" class="btn btn-outline">Clear</button>
+                <button id="testBtn" class="btn btn-primary">Test Bridge</button>
+                <button id="nextLevelBtn" class="btn btn-secondary" style="display: none;">Next Level</button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Success Overlay -->
+    <div id="successOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Success!</h2>
+            <p class="message">Your bridge held! The car made it across!</p>
+            <p class="final-score">Budget used: <span id="budgetUsed">$0</span></p>
+            <button id="continueBtn" class="btn btn-primary">Next Level</button>
+        </div>
+    </div>
+
+    <!-- Failure Overlay -->
+    <div id="failureOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Bridge Collapsed!</h2>
+            <p class="message">Try a different design!</p>
+            <button id="retryBtn" class="btn btn-primary">Try Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

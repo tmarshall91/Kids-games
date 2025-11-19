@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Classic 2048 puzzle game - merge numbers to reach 2048!">
+    <title>2048 Clone - Kids Games</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>2048</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Best:</span>
+                    <span id="best" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <div id="gameBoard" class="game-board">
+                <!-- 4x4 grid will be created by JavaScript -->
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <p class="instructions">Swipe or use arrow keys to move tiles!</p>
+            <button id="newGameBtn" class="btn btn-primary">New Game</button>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Game Over!</h2>
+            <p class="final-score">Final Score: <span id="finalScore">0</span></p>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <!-- Win Overlay -->
+    <div id="winOverlay" class="overlay win-overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>You Win!</h2>
+            <p class="final-score">You reached 2048!</p>
+            <p class="final-score">Score: <span id="winScore">0</span></p>
+            <button id="continueBtn" class="btn btn-secondary">Keep Playing</button>
+            <button id="newGameWinBtn" class="btn btn-primary">New Game</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
