@@ -1,0 +1,307 @@
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+/* === Game Container === */
+.game-container {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* === Header === */
+.game-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.game-header h1 {
+    font-size: 32px;
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+.stat {
+    background: #f0f0f0;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.stat-label {
+    color: #666;
+    margin-right: 5px;
+}
+
+.stat-value {
+    color: #667eea;
+    font-weight: bold;
+}
+
+/* === Hangman Drawing === */
+.hangman-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.hangman-svg {
+    width: 200px;
+    height: 250px;
+}
+
+/* === Word Display === */
+.word-display {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.letter-box {
+    width: 40px;
+    height: 50px;
+    border-bottom: 3px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: #667eea;
+}
+
+/* === Category === */
+.category {
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: #f0f0f0;
+    border-radius: 10px;
+}
+
+/* === Keyboard === */
+.keyboard {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.key {
+    aspect-ratio: 1;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    touch-action: manipulation;
+}
+
+.key:hover {
+    background: #5568d3;
+    transform: scale(1.05);
+}
+
+.key:active {
+    transform: scale(0.95);
+}
+
+.key.correct {
+    background: #4caf50;
+    cursor: not-allowed;
+}
+
+.key.wrong {
+    background: #e74c3c;
+    cursor: not-allowed;
+}
+
+.key:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* === Game Message === */
+.game-message {
+    text-align: center;
+    padding: 30px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.game-message h2 {
+    font-size: 28px;
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.game-message p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+/* === Controls === */
+.game-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    flex: 1;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    touch-action: manipulation;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background: #e0e0e0;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* === Overlay === */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.overlay-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.overlay-content h2 {
+    font-size: 32px;
+    color: #667eea;
+    margin-bottom: 20px;
+}
+
+.overlay-content h2.won {
+    color: #4caf50;
+}
+
+.overlay-content h2.lost {
+    color: #e74c3c;
+}
+
+.final-score {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* === Responsive === */
+@media (max-width: 480px) {
+    .game-header h1 {
+        font-size: 28px;
+    }
+
+    .game-stats {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .keyboard {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 5px;
+    }
+
+    .key {
+        font-size: 16px;
+    }
+
+    .letter-box {
+        width: 35px;
+        height: 45px;
+        font-size: 28px;
+    }
+
+    .hangman-svg {
+        width: 180px;
+        height: 225px;
+    }
+}
+
+@media (max-width: 360px) {
+    .keyboard {
+        gap: 4px;
+    }
+
+    .key {
+        font-size: 14px;
+    }
+
+    .letter-box {
+        width: 30px;
+        height: 40px;
+        font-size: 24px;
+        gap: 6px;
+    }
+}

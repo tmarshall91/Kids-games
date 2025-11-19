@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Learn letter sounds by matching pictures with their beginning letters - A fun educational game for kids">
+    <title>Beginning Sounds - Match Letters to Pictures</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>Beginning Sounds</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Round:</span>
+                    <span id="round" class="stat-value">1/10</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Welcome Message -->
+            <div class="game-message" id="gameMessage">
+                <h2>Match Letters to Pictures!</h2>
+                <p>Tap the letter that makes the beginning sound</p>
+                <div class="example">
+                    <span class="example-emoji">🍎</span>
+                    <span class="example-text">Apple starts with <strong>A</strong></span>
+                </div>
+            </div>
+
+            <!-- Game Content (Hidden Initially) -->
+            <div class="game-content" id="gameContent" style="display: none;">
+                <!-- Picture Display -->
+                <div class="picture-container">
+                    <div class="picture" id="picture">🍎</div>
+                    <div class="word-label" id="wordLabel">APPLE</div>
+                </div>
+
+                <!-- Letter Options -->
+                <div class="letter-options" id="letterOptions">
+                    <!-- Letter buttons will be dynamically added here -->
+                </div>
+
+                <!-- Feedback Message -->
+                <div class="feedback-message" id="feedbackMessage"></div>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+            <button id="nextBtn" class="btn btn-secondary" style="display: none;">Next</button>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Great Job!</h2>
+            <p class="final-score">You got <span id="finalScore">0</span> out of 10 correct!</p>
+            <div class="performance-message" id="performanceMessage"></div>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

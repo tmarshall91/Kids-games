@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Find letters in alphabetical order! A fun alphabet learning game for kids.">
+    <title>Alphabet Soup - Kids Games</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>Alphabet Soup</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Progress:</span>
+                    <span id="progress" class="stat-value">0/26</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Time:</span>
+                    <span id="timer" class="stat-value">0:00</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Target Letter Display -->
+            <div class="target-container" id="targetContainer" style="display: none;">
+                <h2 class="instruction">Find the letter:</h2>
+                <div class="target-letter" id="targetLetter">A</div>
+            </div>
+
+            <!-- Soup Bowl with Floating Letters -->
+            <div class="soup-bowl" id="soupBowl" style="display: none;">
+                <!-- Letters will be dynamically added here -->
+            </div>
+
+            <!-- Welcome Message -->
+            <div class="game-message" id="gameMessage">
+                <h2>Welcome to Alphabet Soup!</h2>
+                <p>Find all the letters from A to Z in order</p>
+                <p>Tap the letters floating in the soup!</p>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+            <button id="restartBtn" class="btn btn-secondary" style="display: none;">Play Again</button>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Amazing!</h2>
+            <p class="completion-message">You found all 26 letters!</p>
+            <p class="final-time">Time: <span id="finalTime">0:00</span></p>
+            <div class="celebration">🎉 🎊 ✨</div>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

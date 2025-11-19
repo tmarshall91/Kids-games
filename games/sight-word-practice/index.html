@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Practice sight word recognition with fast-paced drills for kids">
+    <title>Sight Word Practice - Kids Games</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>Sight Word Practice</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Round:</span>
+                    <span id="round" class="stat-value">0/20</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Time:</span>
+                    <span id="timer" class="stat-value">0.0s</span>
+                </span>
+            </div>
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div id="progressBar" class="progress-bar"></div>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Welcome Message -->
+            <div class="game-message" id="gameMessage">
+                <h2>Welcome!</h2>
+                <p>Practice recognizing sight words quickly!</p>
+                <p class="instruction">You'll see a word and choose the correct answer from multiple choices.</p>
+            </div>
+
+            <!-- Word Display -->
+            <div id="wordDisplay" class="word-display" style="display: none;">
+                <div class="question-text" id="questionText">What word is this?</div>
+                <div class="word-card" id="wordCard">
+                    <span id="displayWord" class="display-word">the</span>
+                </div>
+                <div id="feedback" class="feedback"></div>
+            </div>
+
+            <!-- Answer Buttons -->
+            <div id="answerButtons" class="answer-buttons" style="display: none;">
+                <!-- Buttons will be dynamically added here -->
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+            <button id="restartBtn" class="btn btn-secondary" style="display: none;">New Game</button>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Amazing Job!</h2>
+            <div class="final-stats">
+                <p class="final-score">Score: <span id="finalScore">0</span> / 20</p>
+                <p class="final-accuracy">Accuracy: <span id="finalAccuracy">0</span>%</p>
+                <p class="final-time">Total Time: <span id="finalTime">0</span>s</p>
+            </div>
+            <div class="performance-message" id="performanceMessage"></div>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
