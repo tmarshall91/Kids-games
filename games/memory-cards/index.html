@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Memory Cards</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>🧠 Memory Cards 🃏</h1>
+            <div class="game-stats">
+                <span id="moves">Moves: 0</span>
+                <span id="matches">Matches: 0/8</span>
+                <span id="timer">Time: 0:00</span>
+            </div>
+        </header>
+
+        <div id="theme-selector" class="screen">
+            <h2>Choose a Theme</h2>
+            <div class="theme-buttons">
+                <button class="theme-btn" data-theme="animals">🐶 Animals</button>
+                <button class="theme-btn" data-theme="fruits">🍎 Fruits</button>
+                <button class="theme-btn" data-theme="emojis">😀 Emojis</button>
+                <button class="theme-btn" data-theme="numbers">🔢 Numbers</button>
+            </div>
+        </div>
+
+        <main id="game-area" class="game-area" style="display: none;">
+            <div id="game-board" class="board">
+                <!-- Cards will be generated here -->
+            </div>
+
+            <div class="controls">
+                <button id="restart-btn" class="btn btn-primary">New Game</button>
+                <button id="change-theme-btn" class="btn btn-secondary">Change Theme</button>
+                <a href="../../index.html" class="btn btn-secondary">Back to Games</a>
+            </div>
+        </main>
+
+        <div id="game-over-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <h2>🎉 You Won! 🎉</h2>
+                <p id="final-stats"></p>
+                <button id="play-again-btn" class="btn btn-primary">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

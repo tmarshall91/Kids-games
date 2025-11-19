@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Old Maid - Card Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>👵 Old Maid 👵</h1>
+            <div class="game-stats">
+                <span id="player-cards">Your Cards: 0</span>
+                <span id="computer-cards">Computer Cards: 0</span>
+            </div>
+        </header>
+
+        <div id="welcome-screen" class="screen">
+            <div class="welcome-content">
+                <h2>How to Play</h2>
+                <ul class="instructions">
+                    <li>🃏 Match and discard pairs of same-colored cards</li>
+                    <li>👵 One "Old Maid" card has no match!</li>
+                    <li>🎯 Take turns drawing cards from each other</li>
+                    <li>✨ Pairs are automatically discarded</li>
+                    <li>😱 Don't be left with the Old Maid!</li>
+                </ul>
+                <button id="start-btn" class="btn btn-primary">Start Game</button>
+            </div>
+        </div>
+
+        <main id="game-area" class="game-area" style="display: none;">
+            <div class="computer-section">
+                <h3>Computer's Hand</h3>
+                <div id="computer-hand" class="card-container">
+                    <!-- Computer cards -->
+                </div>
+            </div>
+
+            <div class="action-area">
+                <div id="action-message" class="action-message">
+                    <p id="turn-text">Your turn! Pick a card from computer's hand</p>
+                    <button id="draw-btn" class="btn btn-small" style="display: none;">Draw Card</button>
+                </div>
+            </div>
+
+            <div class="player-section">
+                <h3>Your Hand</h3>
+                <div id="player-hand" class="card-container">
+                    <!-- Player cards -->
+                </div>
+            </div>
+
+            <div id="message-box" class="message-box"></div>
+        </main>
+
+        <div id="game-over-screen" class="screen" style="display: none;">
+            <div class="game-over-content">
+                <h2 id="game-result"></h2>
+                <p id="result-message"></p>
+                <button id="restart-btn" class="btn btn-primary">Play Again</button>
+                <a href="../../index.html" class="btn btn-secondary">Back to Games</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
