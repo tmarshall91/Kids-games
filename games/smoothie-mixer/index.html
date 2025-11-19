@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Blend fruit smoothies - A fun smoothie-making game for kids">
+    <title>Smoothie Mixer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🥤 Smoothie Mixer</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Smoothies Made:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Blender display -->
+            <div class="blender-container">
+                <div class="blender" id="blender">
+                    <div class="blender-top"></div>
+                    <div class="blender-glass">
+                        <div class="smoothie-liquid" id="smoothieLiquid"></div>
+                        <div class="ingredients-display" id="ingredientsDisplay"></div>
+                    </div>
+                    <div class="blender-base"></div>
+                </div>
+            </div>
+
+            <!-- Ingredients selector -->
+            <div class="ingredients-selector">
+                <h3>Add Ingredients:</h3>
+                <div class="ingredient-buttons">
+                    <button class="ingredient-btn" data-ingredient="banana" data-color="#ffe066">🍌 Banana</button>
+                    <button class="ingredient-btn" data-ingredient="strawberry" data-color="#ff6b9d">🍓 Strawberry</button>
+                    <button class="ingredient-btn" data-ingredient="blueberry" data-color="#a8d8ff">🫐 Blueberry</button>
+                    <button class="ingredient-btn" data-ingredient="mango" data-color="#ffc966">🥭 Mango</button>
+                    <button class="ingredient-btn" data-ingredient="kiwi" data-color="#7cb342">🥝 Kiwi</button>
+                    <button class="ingredient-btn" data-ingredient="orange" data-color="#ffa94d">🍊 Orange</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="clearBtn" class="btn btn-secondary">Clear</button>
+            <button id="blendBtn" class="btn btn-blend">Blend!</button>
+            <button id="serveBtn" class="btn btn-primary" style="display: none;">Serve!</button>
+        </footer>
+    </div>
+
+    <!-- Success Overlay -->
+    <div id="successOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Delicious! 🥤</h2>
+            <p class="message">Yummy smoothie blended!</p>
+            <button id="nextBtn" class="btn btn-primary">Make Another</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

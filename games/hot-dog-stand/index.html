@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Make hot dogs to order - A fun hot dog making game for kids">
+    <title>Hot Dog Stand</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🌭 Hot Dog Stand</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Hot Dogs Made:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Order display -->
+            <div class="order-display" id="orderDisplay">
+                <h3>Customer Order:</h3>
+                <div class="order-items" id="orderItems">
+                    <p>Click "New Order" to start!</p>
+                </div>
+            </div>
+
+            <!-- Hot dog display -->
+            <div class="hotdog-container" id="hotdogContainer">
+                <div class="plate"></div>
+            </div>
+
+            <!-- Toppings selector -->
+            <div class="toppings-selector">
+                <h3>Add Toppings:</h3>
+                <div class="topping-buttons">
+                    <button class="topping-btn" data-topping="bun-bottom" data-label="Bun">🍞 Bun</button>
+                    <button class="topping-btn" data-topping="sausage" data-label="Hot Dog">🌭 Hot Dog</button>
+                    <button class="topping-btn" data-topping="ketchup" data-label="Ketchup">🔴 Ketchup</button>
+                    <button class="topping-btn" data-topping="mustard" data-label="Mustard">🟡 Mustard</button>
+                    <button class="topping-btn" data-topping="onion" data-label="Onions">🧅 Onions</button>
+                    <button class="topping-btn" data-topping="relish" data-label="Relish">🥒 Relish</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="newOrderBtn" class="btn btn-secondary">New Order</button>
+            <button id="clearBtn" class="btn btn-warning">Clear</button>
+            <button id="serveBtn" class="btn btn-primary">Serve!</button>
+        </footer>
+    </div>
+
+    <!-- Success Overlay -->
+    <div id="successOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Perfect! 🌭</h2>
+            <p class="message">Customer is happy!</p>
+            <button id="nextBtn" class="btn btn-primary">Next Order</button>
+        </div>
+    </div>
+
+    <!-- Wrong Order Overlay -->
+    <div id="wrongOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Oops! 😅</h2>
+            <p class="message">That's not what they ordered. Try again!</p>
+            <button id="tryAgainBtn" class="btn btn-secondary">Try Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
