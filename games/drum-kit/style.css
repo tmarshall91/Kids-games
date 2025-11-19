@@ -1,0 +1,251 @@
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #fc5c7d 0%, #6a82fb 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* === Game Container === */
+.game-container {
+    width: 100%;
+    max-width: 428px;
+    height: 100vh;
+    background: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* === Header === */
+.game-header {
+    background: linear-gradient(135deg, #fc5c7d 0%, #6a82fb 100%);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.game-header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.game-stats {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.record-btn,
+.playback-btn {
+    padding: 0.5rem 1rem;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.record-btn:hover,
+.playback-btn:hover {
+    background: white;
+    color: #fc5c7d;
+}
+
+.record-btn.recording {
+    background: #ff4444;
+    border-color: #ff4444;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.playback-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* === Game Area === */
+.game-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    background: #2a2a2a;
+}
+
+.drum-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.drum-row {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    align-items: center;
+}
+
+/* === Drums === */
+.drum {
+    position: relative;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    transition: transform 0.1s, box-shadow 0.1s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.drum:active {
+    transform: scale(0.95);
+}
+
+.drum.hit {
+    animation: drumHit 0.3s ease-out;
+}
+
+@keyframes drumHit {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.drum-label {
+    position: absolute;
+    bottom: 10%;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+/* === Cymbal === */
+.cymbal {
+    width: 90px;
+    height: 90px;
+    background: radial-gradient(circle, #ffd700, #daa520);
+    border: 3px solid #b8860b;
+}
+
+.cymbal .drum-label {
+    font-size: 0.6rem;
+}
+
+/* === Tom Drums === */
+.tom {
+    width: 85px;
+    height: 85px;
+    background: radial-gradient(circle, #ff6b6b, #c92a2a);
+    border: 4px solid #a61e1e;
+}
+
+.tom.small {
+    width: 75px;
+    height: 75px;
+}
+
+/* === Snare Drum === */
+.snare {
+    width: 95px;
+    height: 95px;
+    background: radial-gradient(circle, #e0e0e0, #9e9e9e);
+    border: 4px solid #616161;
+}
+
+/* === Bass Drum === */
+.bass {
+    width: 110px;
+    height: 110px;
+    background: radial-gradient(circle, #424242, #1a1a1a);
+    border: 5px solid #000000;
+}
+
+/* === Hi-Hat === */
+.hihat {
+    width: 85px;
+    height: 85px;
+    background: radial-gradient(circle, #90caf9, #42a5f5);
+    border: 4px solid #1976d2;
+}
+
+/* === Spacer === */
+.spacer {
+    width: 40px;
+}
+
+/* === Instructions === */
+.instructions {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.instructions p {
+    color: white;
+    font-size: 0.9rem;
+}
+
+/* === Responsive Design === */
+@media (min-width: 768px) {
+    .game-container {
+        border-radius: 20px;
+        height: 90vh;
+    }
+}
+
+@media (max-height: 600px) {
+    .drum {
+        transform: scale(0.9);
+    }
+
+    .drum-row {
+        gap: 0.5rem;
+    }
+
+    .instructions {
+        margin-top: 1rem;
+        padding: 0.5rem;
+    }
+}
+
+/* === Touch Optimization === */
+@media (hover: none) {
+    .drum:hover {
+        transform: none;
+    }
+}

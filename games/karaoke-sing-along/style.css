@@ -1,0 +1,236 @@
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* === Game Container === */
+.game-container {
+    width: 100%;
+    max-width: 428px;
+    height: 100vh;
+    background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* === Header === */
+.game-header {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.game-header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+}
+
+.song-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.prev-btn,
+.next-btn {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    color: white;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.prev-btn:active,
+.next-btn:active {
+    transform: scale(0.95);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.song-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    min-width: 200px;
+}
+
+/* === Game Area === */
+.game-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem;
+    position: relative;
+}
+
+/* === Lyrics === */
+.lyrics-container {
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+.current-line {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    min-height: 3rem;
+    animation: fadeIn 0.5s ease-in;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.next-line {
+    font-size: 1.2rem;
+    opacity: 0.6;
+    min-height: 2rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === Progress Bar === */
+.progress-container {
+    width: 100%;
+    max-width: 350px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+    border-radius: 5px;
+    transition: width 0.1s linear;
+}
+
+/* === Playback Controls === */
+.playback-controls {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.control-btn {
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    border: none;
+    color: white;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 15px rgba(240, 147, 251, 0.4);
+}
+
+.control-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 10px rgba(240, 147, 251, 0.6);
+}
+
+/* === Singing Indicator === */
+.singing-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.singing-indicator.active {
+    opacity: 1;
+}
+
+.mic-icon {
+    font-size: 4rem;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.note-animation {
+    font-size: 2rem;
+    color: white;
+    animation: float 2s infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-20px);
+        opacity: 0.7;
+    }
+}
+
+/* === Responsive Design === */
+@media (min-width: 768px) {
+    .game-container {
+        border-radius: 20px;
+        height: 90vh;
+    }
+}
+
+@media (max-height: 600px) {
+    .current-line {
+        font-size: 1.5rem;
+    }
+
+    .next-line {
+        font-size: 1rem;
+    }
+
+    .mic-icon {
+        font-size: 3rem;
+    }
+}
+
+/* === Touch Optimization === */
+@media (hover: none) {
+    .control-btn:hover,
+    .prev-btn:hover,
+    .next-btn:hover {
+        transform: none;
+    }
+}

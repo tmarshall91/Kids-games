@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Sing along with popular children's songs!">
+    <title>Karaoke Sing-Along - Kids Games</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>Karaoke Sing-Along</h1>
+            <div class="song-selector">
+                <button class="prev-btn" id="prevBtn">←</button>
+                <span class="song-title" id="songTitle">Twinkle Twinkle Little Star</span>
+                <button class="next-btn" id="nextBtn">→</button>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Lyrics Display -->
+            <div class="lyrics-container">
+                <div class="current-line" id="currentLine">
+                    Twinkle, twinkle, little star
+                </div>
+                <div class="next-line" id="nextLine">
+                    How I wonder what you are
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <!-- Controls -->
+            <div class="playback-controls">
+                <button class="control-btn" id="playBtn">▶ Play</button>
+                <button class="control-btn" id="pauseBtn" style="display: none;">⏸ Pause</button>
+                <button class="control-btn" id="restartBtn">↻ Restart</button>
+            </div>
+
+            <!-- Visual Indicator -->
+            <div class="singing-indicator" id="indicator">
+                <div class="mic-icon">🎤</div>
+                <div class="note-animation">♪ ♫ ♪</div>
+            </div>
+        </main>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

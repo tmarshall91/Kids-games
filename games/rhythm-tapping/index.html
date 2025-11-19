@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Tap along to the rhythm and keep the beat!">
+    <title>Rhythm Tapping - Kids Games</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>Rhythm Tapping</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Accuracy:</span>
+                    <span id="accuracy" class="stat-value">0%</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Streak:</span>
+                    <span id="streak" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Metronome Visual -->
+            <div class="metronome">
+                <div class="beat-indicator" id="beatIndicator">
+                    <div class="pulse-ring"></div>
+                    <div class="beat-circle"></div>
+                </div>
+            </div>
+
+            <!-- Tap Zone -->
+            <div class="tap-zone" id="tapZone">
+                <div class="tap-circle">
+                    <div class="tap-text">TAP!</div>
+                </div>
+            </div>
+
+            <!-- Feedback Messages -->
+            <div class="feedback-message" id="feedbackMessage"></div>
+
+            <div class="game-message" id="gameMessage">
+                <h2>Feel the Rhythm!</h2>
+                <p>Tap the circle in time with the beat</p>
+                <p>Try to stay on rhythm for a perfect score!</p>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Tapping</button>
+            <div class="tempo-control" style="display: none;">
+                <label>Tempo: <span id="tempoDisplay">120</span> BPM</label>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Great Rhythm!</h2>
+            <p class="final-score">Accuracy: <span id="finalAccuracy">0</span>%</p>
+            <p class="max-streak">Best Streak: <span id="maxStreak">0</span></p>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

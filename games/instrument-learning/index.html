@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Learn to play different musical instruments!">
+    <title>Instrument Learning - Kids Games</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>Instrument Learning</h1>
+            <div class="instrument-selector">
+                <button class="instrument-tab active" data-instrument="piano">Piano</button>
+                <button class="instrument-tab" data-instrument="guitar">Guitar</button>
+                <button class="instrument-tab" data-instrument="xylophone">Xylophone</button>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Piano -->
+            <div class="instrument-display active" data-instrument="piano">
+                <div class="piano-keys">
+                    <div class="piano-key white" data-note="C">
+                        <span class="key-label">C</span>
+                    </div>
+                    <div class="piano-key black" data-note="C#">
+                        <span class="key-label">C#</span>
+                    </div>
+                    <div class="piano-key white" data-note="D">
+                        <span class="key-label">D</span>
+                    </div>
+                    <div class="piano-key black" data-note="D#">
+                        <span class="key-label">D#</span>
+                    </div>
+                    <div class="piano-key white" data-note="E">
+                        <span class="key-label">E</span>
+                    </div>
+                    <div class="piano-key white" data-note="F">
+                        <span class="key-label">F</span>
+                    </div>
+                    <div class="piano-key black" data-note="F#">
+                        <span class="key-label">F#</span>
+                    </div>
+                    <div class="piano-key white" data-note="G">
+                        <span class="key-label">G</span>
+                    </div>
+                    <div class="piano-key black" data-note="G#">
+                        <span class="key-label">G#</span>
+                    </div>
+                    <div class="piano-key white" data-note="A">
+                        <span class="key-label">A</span>
+                    </div>
+                    <div class="piano-key black" data-note="A#">
+                        <span class="key-label">A#</span>
+                    </div>
+                    <div class="piano-key white" data-note="B">
+                        <span class="key-label">B</span>
+                    </div>
+                    <div class="piano-key white" data-note="C2">
+                        <span class="key-label">C</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guitar -->
+            <div class="instrument-display" data-instrument="guitar">
+                <div class="guitar-strings">
+                    <div class="guitar-string" data-note="E2">
+                        <span class="string-label">E (Low)</span>
+                    </div>
+                    <div class="guitar-string" data-note="A2">
+                        <span class="string-label">A</span>
+                    </div>
+                    <div class="guitar-string" data-note="D3">
+                        <span class="string-label">D</span>
+                    </div>
+                    <div class="guitar-string" data-note="G3">
+                        <span class="string-label">G</span>
+                    </div>
+                    <div class="guitar-string" data-note="B3">
+                        <span class="string-label">B</span>
+                    </div>
+                    <div class="guitar-string" data-note="E4">
+                        <span class="string-label">E (High)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Xylophone -->
+            <div class="instrument-display" data-instrument="xylophone">
+                <div class="xylophone-bars">
+                    <div class="xylo-bar" data-note="C" style="height: 120px; background: #ff6b6b;">
+                        <span class="bar-label">C</span>
+                    </div>
+                    <div class="xylo-bar" data-note="D" style="height: 110px; background: #ffa94d;">
+                        <span class="bar-label">D</span>
+                    </div>
+                    <div class="xylo-bar" data-note="E" style="height: 100px; background: #ffd43b;">
+                        <span class="bar-label">E</span>
+                    </div>
+                    <div class="xylo-bar" data-note="F" style="height: 95px; background: #51cf66;">
+                        <span class="bar-label">F</span>
+                    </div>
+                    <div class="xylo-bar" data-note="G" style="height: 85px; background: #4dabf7;">
+                        <span class="bar-label">G</span>
+                    </div>
+                    <div class="xylo-bar" data-note="A" style="height: 75px; background: #748ffc;">
+                        <span class="bar-label">A</span>
+                    </div>
+                    <div class="xylo-bar" data-note="B" style="height: 65px; background: #da77f2;">
+                        <span class="bar-label">B</span>
+                    </div>
+                    <div class="xylo-bar" data-note="C2" style="height: 60px; background: #ff6b6b;">
+                        <span class="bar-label">C</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="instructions">
+                <p>Tap the keys, strings, or bars to play notes!</p>
+                <p>Experiment and create your own melodies!</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
