@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Serve customers quickly - A fun restaurant management game for kids">
+    <title>Restaurant Rush</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🍽️ Restaurant Rush</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Time:</span>
+                    <span id="timer" class="stat-value">60</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Start screen -->
+            <div class="game-info" id="gameInfo">
+                <h2>Welcome to Restaurant Rush!</h2>
+                <p>Tap the food items customers want before time runs out!</p>
+                <p>Complete orders quickly to earn more points!</p>
+                <button id="startBtn" class="btn btn-primary">Start Serving!</button>
+            </div>
+
+            <!-- Customers container -->
+            <div class="customers-container" id="customersContainer" style="display: none;"></div>
+
+            <!-- Food items -->
+            <div class="food-grid" id="foodGrid" style="display: none;">
+                <button class="food-item" data-food="pizza">🍕</button>
+                <button class="food-item" data-food="burger">🍔</button>
+                <button class="food-item" data-food="fries">🍟</button>
+                <button class="food-item" data-food="drink">🥤</button>
+                <button class="food-item" data-food="salad">🥗</button>
+                <button class="food-item" data-food="dessert">🍰</button>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="restartBtn" class="btn btn-secondary" style="display: none;">Play Again</button>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Time's Up! 🍽️</h2>
+            <p class="message">You served <span id="finalScore">0</span> customers!</p>
+            <p class="message">Total Score: <span id="totalScore">0</span></p>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

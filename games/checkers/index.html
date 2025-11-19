@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Checkers</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>⚫ Checkers ⚪</h1>
+            <div class="game-stats">
+                <span id="current-player">Your Turn (Red)</span>
+                <span id="captured">Red: 0 | White: 0</span>
+            </div>
+        </header>
+
+        <main class="game-area">
+            <div id="game-board" class="board">
+                <!-- 8x8 checkerboard -->
+            </div>
+
+            <div class="controls">
+                <button id="restart-btn" class="btn btn-primary">New Game</button>
+                <a href="../../index.html" class="btn btn-secondary">Back to Games</a>
+            </div>
+        </main>
+
+        <div id="game-over-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <h2 id="game-result"></h2>
+                <p id="result-details"></p>
+                <button id="play-again-btn" class="btn btn-primary">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

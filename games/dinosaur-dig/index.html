@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Excavate dinosaur fossils by digging through layers">
+    <title>Dinosaur Dig</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🦴 Dinosaur Dig</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Fossils:</span>
+                    <span id="fossilCount" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <div class="dig-site" id="digSite">
+                <div class="grid-container" id="gridContainer">
+                    <!-- Dig grid will be dynamically added here -->
+                </div>
+            </div>
+            <div class="discovered-fossils" id="discoveredFossils">
+                <div class="fossil-label">Discovered:</div>
+                <div class="fossil-display" id="fossilDisplay"></div>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <div class="control-instructions">
+                Tap tiles to dig and uncover fossils!
+            </div>
+            <button id="startBtn" class="btn btn-primary">Start Digging</button>
+            <button id="newSiteBtn" class="btn btn-secondary" style="display: none;">New Site</button>
+        </footer>
+    </div>
+
+    <!-- Welcome Overlay -->
+    <div id="welcomeOverlay" class="overlay">
+        <div class="overlay-content">
+            <h2>🦴 Dinosaur Dig</h2>
+            <p class="instructions">
+                <strong>How to Play:</strong><br>
+                1. Tap dirt tiles to dig<br>
+                2. Uncover hidden fossil pieces<br>
+                3. Find all pieces of each dinosaur<br>
+                4. Collect different dinosaurs:<br>
+                   • 🦕 Brachiosaurus<br>
+                   • 🦖 T-Rex<br>
+                   • 🦴 Triceratops<br>
+                   • 🐊 Pterodactyl<br>
+                5. Complete fossils for bonus points!
+            </p>
+            <button id="playBtn" class="btn btn-primary">Start Digging!</button>
+        </div>
+    </div>
+
+    <!-- Discovery Modal -->
+    <div id="discoveryModal" class="overlay" style="display: none;">
+        <div class="overlay-content discovery">
+            <h2>Fossil Complete! 🎉</h2>
+            <p class="discovered-dino" id="discoveredDino"></p>
+            <p class="bonus-points">Bonus: <span id="bonusPoints">+100</span> points!</p>
+            <button id="continueBtn" class="btn btn-primary">Continue</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

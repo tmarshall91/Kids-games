@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Build scenes by dragging and dropping stickers!">
+    <title>Sticker Scene Creator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>🎪 Sticker Scene</h1>
+        </header>
+
+        <main class="game-area">
+            <div id="sceneCanvas" class="scene-canvas"></div>
+        </main>
+
+        <footer class="game-controls">
+            <div class="sticker-panel">
+                <h3>Stickers</h3>
+                <div class="sticker-categories">
+                    <div class="sticker-row">
+                        <span class="category-label">Animals:</span>
+                        <button class="sticker-btn" data-sticker="🐶">🐶</button>
+                        <button class="sticker-btn" data-sticker="🐱">🐱</button>
+                        <button class="sticker-btn" data-sticker="🦁">🦁</button>
+                        <button class="sticker-btn" data-sticker="🐘">🐘</button>
+                        <button class="sticker-btn" data-sticker="🦋">🦋</button>
+                    </div>
+                    <div class="sticker-row">
+                        <span class="category-label">Nature:</span>
+                        <button class="sticker-btn" data-sticker="🌳">🌳</button>
+                        <button class="sticker-btn" data-sticker="🌸">🌸</button>
+                        <button class="sticker-btn" data-sticker="🌞">🌞</button>
+                        <button class="sticker-btn" data-sticker="⭐">⭐</button>
+                        <button class="sticker-btn" data-sticker="🌈">🌈</button>
+                    </div>
+                    <div class="sticker-row">
+                        <span class="category-label">Objects:</span>
+                        <button class="sticker-btn" data-sticker="🏠">🏠</button>
+                        <button class="sticker-btn" data-sticker="🚗">🚗</button>
+                        <button class="sticker-btn" data-sticker="⚽">⚽</button>
+                        <button class="sticker-btn" data-sticker="🎈">🎈</button>
+                        <button class="sticker-btn" data-sticker="🎁">🎁</button>
+                    </div>
+                </div>
+            </div>
+            <div class="control-row">
+                <button id="clearBtn" class="btn-action">🗑️ Clear Scene</button>
+            </div>
+        </footer>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="A fun drawing pad for kids with colors and tools">
+    <title>Drawing Pad</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🎨 Drawing Pad</h1>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area">
+            <canvas id="drawingCanvas"></canvas>
+        </main>
+
+        <!-- Tools Section -->
+        <div class="tools-panel">
+            <div class="tool-section">
+                <label>Brush Size:</label>
+                <div class="brush-sizes">
+                    <button class="size-btn" data-size="2">●</button>
+                    <button class="size-btn active" data-size="5">●</button>
+                    <button class="size-btn" data-size="10">●</button>
+                    <button class="size-btn" data-size="20">●</button>
+                </div>
+            </div>
+
+            <div class="tool-section">
+                <label>Colors:</label>
+                <div class="color-palette">
+                    <button class="color-btn active" data-color="#FF0000" style="background: #FF0000;"></button>
+                    <button class="color-btn" data-color="#FF6B00" style="background: #FF6B00;"></button>
+                    <button class="color-btn" data-color="#FFD700" style="background: #FFD700;"></button>
+                    <button class="color-btn" data-color="#00FF00" style="background: #00FF00;"></button>
+                    <button class="color-btn" data-color="#0099FF" style="background: #0099FF;"></button>
+                    <button class="color-btn" data-color="#9933FF" style="background: #9933FF;"></button>
+                    <button class="color-btn" data-color="#FF1493" style="background: #FF1493;"></button>
+                    <button class="color-btn" data-color="#000000" style="background: #000000;"></button>
+                    <button class="color-btn" data-color="#FFFFFF" style="background: #FFFFFF; border: 2px solid #ccc;"></button>
+                    <button class="color-btn" data-color="#8B4513" style="background: #8B4513;"></button>
+                </div>
+            </div>
+
+            <div class="tool-section">
+                <label>Tools:</label>
+                <div class="tool-buttons">
+                    <button id="brushTool" class="tool-btn active">🖌️ Brush</button>
+                    <button id="eraserTool" class="tool-btn">🧹 Eraser</button>
+                    <button id="clearBtn" class="tool-btn danger">🗑️ Clear</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

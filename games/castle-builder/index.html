@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Collect resources and build your medieval castle">
+    <title>Castle Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🏰 Castle Builder</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">🪨</span>
+                    <span id="stoneCount" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">🪵</span>
+                    <span id="woodCount" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">🪙</span>
+                    <span id="goldCount" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Castle Display -->
+        <div class="castle-display" id="castleDisplay">
+            <div class="castle-parts" id="castleParts">
+                <div class="castle-part tower-left" data-part="towerLeft">
+                    <span class="part-emoji" style="opacity: 0.2;">🗼</span>
+                </div>
+                <div class="castle-part wall" data-part="wall">
+                    <span class="part-emoji" style="opacity: 0.2;">🧱</span>
+                </div>
+                <div class="castle-part tower-right" data-part="towerRight">
+                    <span class="part-emoji" style="opacity: 0.2;">🗼</span>
+                </div>
+                <div class="castle-part gate" data-part="gate">
+                    <span class="part-emoji" style="opacity: 0.2;">🚪</span>
+                </div>
+                <div class="castle-part flag" data-part="flag">
+                    <span class="part-emoji" style="opacity: 0.2;">🚩</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resource Collector -->
+        <main class="game-area" id="gameArea">
+            <div class="resource-field" id="resourceField">
+                <!-- Resources will spawn here -->
+            </div>
+        </main>
+
+        <!-- Building Menu -->
+        <div class="build-menu" id="buildMenu">
+            <div class="build-label">Build Castle Parts:</div>
+            <div class="build-buttons">
+                <button class="build-btn" data-part="towerLeft" id="buildTowerLeft">
+                    🗼 Tower<br><small>🪨10 🪵5</small>
+                </button>
+                <button class="build-btn" data-part="wall" id="buildWall">
+                    🧱 Wall<br><small>🪨15</small>
+                </button>
+                <button class="build-btn" data-part="towerRight" id="buildTowerRight">
+                    🗼 Tower<br><small>🪨10 🪵5</small>
+                </button>
+                <button class="build-btn" data-part="gate" id="buildGate">
+                    🚪 Gate<br><small>🪵10</small>
+                </button>
+                <button class="build-btn" data-part="flag" id="buildFlag">
+                    🚩 Flag<br><small>🪙5</small>
+                </button>
+            </div>
+        </div>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Building</button>
+        </footer>
+    </div>
+
+    <!-- Welcome Overlay -->
+    <div id="welcomeOverlay" class="overlay">
+        <div class="overlay-content">
+            <h2>🏰 Castle Builder</h2>
+            <p class="instructions">
+                <strong>How to Play:</strong><br>
+                1. Tap falling resources to collect<br>
+                2. Gather stone 🪨, wood 🪵, and gold 🪙<br>
+                3. Build castle parts using resources:<br>
+                   • Towers: 10🪨 + 5🪵<br>
+                   • Wall: 15🪨<br>
+                   • Gate: 10🪵<br>
+                   • Flag: 5🪙<br>
+                4. Complete all 5 parts to finish your castle!
+            </p>
+            <button id="playBtn" class="btn btn-primary">Start Building!</button>
+        </div>
+    </div>
+
+    <!-- Victory Overlay -->
+    <div id="victoryOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content victory">
+            <h2>Castle Complete! 👑</h2>
+            <p class="victory-message">Your magnificent castle stands tall!</p>
+            <div class="complete-castle">🏰</div>
+            <button id="playAgainBtn" class="btn btn-primary">Build Another</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

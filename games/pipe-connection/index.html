@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Connect the pipes to create a water flow path!">
+    <title>Pipe Connection - Kids Games</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>Pipe Connection</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Level:</span>
+                    <span id="level" class="stat-value">1</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Moves:</span>
+                    <span id="moves" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <div id="pipeGrid" class="pipe-grid">
+                <!-- Grid will be created by JavaScript -->
+            </div>
+            <div class="flow-message" id="flowMessage" style="display: none;">
+                Water is flowing!
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <p class="instructions">Tap pipes to rotate them and create a path!</p>
+            <div class="button-group">
+                <button id="checkBtn" class="btn btn-secondary">Check Flow</button>
+                <button id="nextLevelBtn" class="btn btn-primary" style="display: none;">Next Level</button>
+                <button id="restartBtn" class="btn btn-outline">Restart</button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Success Overlay -->
+    <div id="successOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Level Complete!</h2>
+            <p class="final-score">Moves used: <span id="finalMoves">0</span></p>
+            <button id="continueBtn" class="btn btn-primary">Next Level</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Simple math facts game for kids - addition and subtraction practice">
+    <title>Math Facts - Kids Learning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>Math Facts!</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Streak:</span>
+                    <span id="streak" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <main class="game-area" id="gameArea">
+            <div class="game-message" id="gameMessage">
+                <h2>🔢 Let's Do Math!</h2>
+                <p>Practice addition and subtraction</p>
+                <div class="difficulty-buttons">
+                    <button class="btn btn-easy" id="easyBtn">Easy (1-5)</button>
+                    <button class="btn btn-medium" id="mediumBtn">Medium (1-10)</button>
+                    <button class="btn btn-hard" id="hardBtn">Hard (1-20)</button>
+                </div>
+            </div>
+
+            <div id="mathContainer" class="math-container" style="display: none;">
+                <div class="problem-display">
+                    <span id="number1" class="number">5</span>
+                    <span id="operator" class="operator">+</span>
+                    <span id="number2" class="number">3</span>
+                    <span class="equals">=</span>
+                    <span class="question-mark">?</span>
+                </div>
+
+                <div id="answerButtons" class="answer-buttons"></div>
+
+                <div class="operation-selector">
+                    <button id="additionBtn" class="operation-btn active">➕ Addition</button>
+                    <button id="subtractionBtn" class="operation-btn">➖ Subtraction</button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="game-controls">
+            <button id="backBtn" class="btn btn-secondary" style="display: none;">Back to Menu</button>
+        </footer>
+    </div>
+
+    <div id="feedbackOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2 id="feedbackTitle">Correct!</h2>
+            <p id="feedbackMessage" class="feedback-message"></p>
+            <button id="continueBtn" class="btn btn-primary">Next Problem</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

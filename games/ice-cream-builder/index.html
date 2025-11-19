@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Build ice cream cones - A fun ice cream building game for kids">
+    <title>Ice Cream Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🍦 Ice Cream Builder</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Cones Made:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Ice cream display -->
+            <div class="ice-cream-container" id="iceCreamContainer">
+                <div class="cone"></div>
+            </div>
+
+            <!-- Flavor selector -->
+            <div class="flavor-selector">
+                <h3>Choose Flavors:</h3>
+                <div class="flavor-buttons">
+                    <button class="flavor-btn" data-flavor="vanilla" data-color="#fff5e6">🤍 Vanilla</button>
+                    <button class="flavor-btn" data-flavor="chocolate" data-color="#8b4513">🤎 Chocolate</button>
+                    <button class="flavor-btn" data-flavor="strawberry" data-color="#ffb3d9">💗 Strawberry</button>
+                    <button class="flavor-btn" data-flavor="mint" data-color="#98ff98">💚 Mint</button>
+                    <button class="flavor-btn" data-flavor="blueberry" data-color="#a8d8ff">💙 Blueberry</button>
+                    <button class="flavor-btn" data-flavor="mango" data-color="#ffc966">🧡 Mango</button>
+                </div>
+            </div>
+
+            <!-- Toppings selector -->
+            <div class="toppings-selector">
+                <h3>Add Toppings:</h3>
+                <div class="topping-buttons">
+                    <button class="topping-btn" data-topping="cherry">🍒 Cherry</button>
+                    <button class="topping-btn" data-topping="sprinkles">✨ Sprinkles</button>
+                    <button class="topping-btn" data-topping="chocolate-drizzle">🍫 Drizzle</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="clearBtn" class="btn btn-secondary">Start Over</button>
+            <button id="serveBtn" class="btn btn-primary">Serve!</button>
+        </footer>
+    </div>
+
+    <!-- Success Overlay -->
+    <div id="successOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Yummy! 🍦</h2>
+            <p class="message">Delicious ice cream cone!</p>
+            <button id="nextBtn" class="btn btn-primary">Make Another</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

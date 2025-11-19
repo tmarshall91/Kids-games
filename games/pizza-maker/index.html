@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Create custom pizzas - A fun pizza-making game for kids">
+    <title>Pizza Maker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🍕 Pizza Maker</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Pizzas Made:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Pizza display -->
+            <div class="pizza-container">
+                <div class="pizza" id="pizza">
+                    <div class="pizza-base"></div>
+                    <div class="toppings-layer" id="toppingsLayer"></div>
+                </div>
+            </div>
+
+            <!-- Toppings selector -->
+            <div class="toppings-selector" id="toppingsSelector">
+                <h3>Add Toppings:</h3>
+                <div class="topping-buttons">
+                    <button class="topping-btn" data-topping="sauce">🍅 Sauce</button>
+                    <button class="topping-btn" data-topping="cheese">🧀 Cheese</button>
+                    <button class="topping-btn" data-topping="pepperoni">🔴 Pepperoni</button>
+                    <button class="topping-btn" data-topping="mushroom">🍄 Mushroom</button>
+                    <button class="topping-btn" data-topping="olive">⚫ Olive</button>
+                    <button class="topping-btn" data-topping="pepper">🫑 Pepper</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="clearBtn" class="btn btn-secondary">Clear Pizza</button>
+            <button id="serveBtn" class="btn btn-primary">Serve Pizza!</button>
+        </footer>
+    </div>
+
+    <!-- Success Overlay -->
+    <div id="successOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Pizza Served! 🍕</h2>
+            <p class="message">Delicious pizza made!</p>
+            <button id="nextBtn" class="btn btn-primary">Make Another</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

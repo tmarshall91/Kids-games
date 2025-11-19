@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="A fun Sudoku game for kids with 4x4 and 6x6 grids">
+    <title>Sudoku Junior</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🧩 Sudoku Junior</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">⏱️ Time:</span>
+                    <span id="timer" class="stat-value">0:00</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">❌ Mistakes:</span>
+                    <span id="mistakes" class="stat-value">0/3</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <div id="sudokuGrid" class="sudoku-grid"></div>
+
+            <!-- Number Pad -->
+            <div id="numberPad" class="number-pad" style="display: none;"></div>
+
+            <!-- Game Message Overlay -->
+            <div class="game-message" id="gameMessage">
+                <h2>🧩 Choose Your Level!</h2>
+                <p>Pick a grid size to start playing</p>
+                <div class="level-buttons">
+                    <button class="level-btn" data-size="4">
+                        <div class="level-icon">🟢</div>
+                        <div class="level-name">Easy</div>
+                        <div class="level-desc">4×4 Grid</div>
+                    </button>
+                    <button class="level-btn" data-size="6">
+                        <div class="level-icon">🟡</div>
+                        <div class="level-name">Medium</div>
+                        <div class="level-desc">6×6 Grid</div>
+                    </button>
+                </div>
+                <ul class="instructions">
+                    <li>🔢 Fill each row with unique numbers</li>
+                    <li>📊 Fill each column with unique numbers</li>
+                    <li>🎯 Fill each box with unique numbers</li>
+                    <li>✨ Complete the puzzle correctly!</li>
+                </ul>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="hintBtn" class="btn btn-secondary" style="display: none;">💡 Hint</button>
+            <button id="checkBtn" class="btn btn-secondary" style="display: none;">✅ Check</button>
+            <button id="newGameBtn" class="btn btn-primary" style="display: none;">🎮 New Game</button>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2 id="gameOverTitle">🎉 Puzzle Complete!</h2>
+            <p class="final-score">Time: <span id="finalTime">0:00</span></p>
+            <p class="final-score">Mistakes: <span id="finalMistakes">0</span></p>
+            <div class="rating" id="rating">⭐⭐⭐</div>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

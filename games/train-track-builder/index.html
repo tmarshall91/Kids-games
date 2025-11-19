@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Build and connect train tracks">
+    <title>Train Track Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🚂 Train Track Builder</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Tracks:</span>
+                    <span id="trackCount" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Level:</span>
+                    <span id="level" class="stat-value">1</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <div class="grid" id="grid"></div>
+            <div class="train" id="train" style="display: none;">🚂</div>
+            <div class="game-message" id="gameMessage">
+                <h2>Build Your Track!</h2>
+                <p>Connect start 🟢 to end 🔴</p>
+            </div>
+        </main>
+
+        <!-- Track Selection -->
+        <div class="track-selector">
+            <button class="track-btn" data-track="straight-h" title="Horizontal">─</button>
+            <button class="track-btn" data-track="straight-v" title="Vertical">│</button>
+            <button class="track-btn" data-track="corner-tl" title="Top-Left">┐</button>
+            <button class="track-btn" data-track="corner-tr" title="Top-Right">┌</button>
+            <button class="track-btn" data-track="corner-bl" title="Bottom-Left">┘</button>
+            <button class="track-btn" data-track="corner-br" title="Bottom-Right">└</button>
+        </div>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="clearBtn" class="btn btn-secondary">Clear</button>
+            <button id="testBtn" class="btn btn-primary">Test Track</button>
+            <button id="nextBtn" class="btn btn-success" style="display: none;">Next Level</button>
+            <a href="../../index.html" class="btn btn-home">Home</a>
+        </footer>
+    </div>
+
+    <!-- Success Overlay -->
+    <div id="successOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>🎉 Success!</h2>
+            <p class="final-score">Track Complete!</p>
+            <p class="final-score">Level <span id="completedLevel">1</span> Finished</p>
+            <button id="continueBtn" class="btn btn-primary">Next Level</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

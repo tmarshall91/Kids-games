@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Draw and guess game for kids">
+    <title>Drawing Charades</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🎨 Drawing Charades</h1>
+            <div class="word-display" id="wordDisplay">
+                <span class="word-label">Draw this:</span>
+                <span id="currentWord" class="current-word">Tap Start to Begin</span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <canvas id="drawingCanvas"></canvas>
+
+            <!-- Drawing Tools -->
+            <div class="tools-panel">
+                <div class="color-palette">
+                    <button class="color-btn active" data-color="#000000" style="background: #000000;"></button>
+                    <button class="color-btn" data-color="#FF0000" style="background: #FF0000;"></button>
+                    <button class="color-btn" data-color="#00FF00" style="background: #00FF00;"></button>
+                    <button class="color-btn" data-color="#0000FF" style="background: #0000FF;"></button>
+                    <button class="color-btn" data-color="#FFFF00" style="background: #FFFF00;"></button>
+                    <button class="color-btn" data-color="#FF00FF" style="background: #FF00FF;"></button>
+                    <button class="color-btn" data-color="#00FFFF" style="background: #00FFFF;"></button>
+                    <button class="color-btn" data-color="#FFA500" style="background: #FFA500;"></button>
+                </div>
+
+                <div class="tool-controls">
+                    <button id="pencilBtn" class="tool-btn active">✏️ Pencil</button>
+                    <button id="eraserBtn" class="tool-btn">🧹 Eraser</button>
+                    <button id="clearBtn" class="tool-btn">🗑️ Clear</button>
+                </div>
+
+                <div class="brush-size">
+                    <label for="brushSize">Brush Size:</label>
+                    <input type="range" id="brushSize" min="2" max="20" value="5">
+                </div>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+            <button id="newWordBtn" class="btn btn-secondary" style="display: none;">New Word</button>
+            <a href="../../index.html" class="btn btn-back">← Back</a>
+        </footer>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

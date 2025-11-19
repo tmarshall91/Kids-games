@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Endless Runner - Auto-scroll with jump and duck controls">
+    <title>Endless Runner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>Endless Runner</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Distance:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Best:</span>
+                    <span id="bestScore" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <main class="game-area" id="gameArea">
+            <canvas id="gameCanvas"></canvas>
+            <div class="game-message" id="gameMessage">
+                <h2>Endless Runner</h2>
+                <p>Tap top half to jump</p>
+                <p>Tap bottom half to duck</p>
+                <p class="instructions">Avoid obstacles!</p>
+            </div>
+        </main>
+
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Running</button>
+        </footer>
+    </div>
+
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Game Over!</h2>
+            <p class="final-score">Distance: <span id="finalScore">0</span></p>
+            <p class="high-score">Best: <span id="finalBest">0</span></p>
+            <button id="playAgainBtn" class="btn btn-primary">Run Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

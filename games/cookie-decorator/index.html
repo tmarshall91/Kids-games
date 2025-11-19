@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Decorate cookies with toppings - A fun cookie decorating game for kids">
+    <title>Cookie Decorator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🍪 Cookie Decorator</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Cookies Made:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Cookie display -->
+            <div class="cookie-container">
+                <div class="cookie" id="cookie">
+                    <div class="decorations" id="decorations"></div>
+                </div>
+            </div>
+
+            <!-- Frosting colors -->
+            <div class="frosting-selector">
+                <h3>Frosting Color:</h3>
+                <div class="color-buttons">
+                    <button class="color-btn" data-color="#ffc0cb" style="background: #ffc0cb;">Pink</button>
+                    <button class="color-btn" data-color="#b19cd9" style="background: #b19cd9;">Purple</button>
+                    <button class="color-btn" data-color="#87ceeb" style="background: #87ceeb;">Blue</button>
+                    <button class="color-btn" data-color="#98fb98" style="background: #98fb98;">Green</button>
+                </div>
+            </div>
+
+            <!-- Decorations selector -->
+            <div class="decorations-selector">
+                <h3>Add Decorations:</h3>
+                <div class="decoration-buttons">
+                    <button class="decoration-btn" data-decoration="sprinkle">✨ Sprinkles</button>
+                    <button class="decoration-btn" data-decoration="chocolate-chip">🍫 Choco Chips</button>
+                    <button class="decoration-btn" data-decoration="candy">🍬 Candy</button>
+                    <button class="decoration-btn" data-decoration="heart">❤️ Heart</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="clearBtn" class="btn btn-secondary">Clear Cookie</button>
+            <button id="serveBtn" class="btn btn-primary">Serve!</button>
+        </footer>
+    </div>
+
+    <!-- Success Overlay -->
+    <div id="successOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Beautiful Cookie! 🍪</h2>
+            <p class="message">Looks delicious!</p>
+            <button id="nextBtn" class="btn btn-primary">Decorate Another</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

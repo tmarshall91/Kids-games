@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Plant and harvest crops in this fun gardening game for kids">
+    <title>Garden Growing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🌱 Garden Growing</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Crops:</span>
+                    <span id="harvested" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <div class="garden-grid" id="gardenGrid">
+                <!-- Garden plots will be dynamically added here -->
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <div class="seed-selector" id="seedSelector">
+                <button class="seed-btn active" data-seed="tomato">🍅</button>
+                <button class="seed-btn" data-seed="carrot">🥕</button>
+                <button class="seed-btn" data-seed="corn">🌽</button>
+                <button class="seed-btn" data-seed="flower">🌻</button>
+            </div>
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+            <button id="restartBtn" class="btn btn-secondary" style="display: none;">Play Again</button>
+        </footer>
+    </div>
+
+    <!-- Welcome Overlay -->
+    <div id="welcomeOverlay" class="overlay">
+        <div class="overlay-content">
+            <h2>🌱 Garden Growing</h2>
+            <p class="instructions">
+                <strong>How to Play:</strong><br>
+                1. Select a seed type 🍅🥕🌽🌻<br>
+                2. Tap empty plots to plant<br>
+                3. Watch your plants grow!<br>
+                4. Tap grown plants to harvest<br>
+                5. Earn points for each harvest!
+            </p>
+            <button id="playBtn" class="btn btn-primary">Start Growing!</button>
+        </div>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Great Gardening! 🌟</h2>
+            <p class="final-score">Score: <span id="finalScore">0</span></p>
+            <p class="final-crops">Crops Harvested: <span id="finalHarvested">0</span></p>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

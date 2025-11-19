@@ -1,0 +1,525 @@
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    touch-action: manipulation; /* Prevent double-tap zoom */
+}
+
+/* === Game Container === */
+.game-container {
+    width: 100%;
+    max-width: 428px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    max-height: 800px;
+}
+
+/* === Header === */
+.game-header {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.game-header h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-label {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* === Game Area === */
+.game-area {
+    flex: 1;
+    padding: 20px;
+    background: #f0f0f0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* === Tennis Court === */
+.tennis-court {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #8fbc8f 0%, #90ee90 50%, #8fbc8f 100%);
+    border: 4px solid white;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* === Net === */
+.net {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: repeating-linear-gradient(
+        90deg,
+        white 0px,
+        white 10px,
+        transparent 10px,
+        transparent 15px
+    );
+    transform: translateY(-50%);
+    z-index: 5;
+    border-top: 3px solid #666;
+    border-bottom: 3px solid #666;
+}
+
+.net::before,
+.net::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    width: 8px;
+    height: 25px;
+    background: #666;
+}
+
+.net::before {
+    left: -4px;
+}
+
+.net::after {
+    right: -4px;
+}
+
+/* === Court Zones === */
+.court-zone {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    left: 0;
+}
+
+.opponent-zone {
+    top: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+}
+
+.player-zone {
+    bottom: 0;
+    background: linear-gradient(0deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+}
+
+/* === Players === */
+.player {
+    position: absolute;
+    font-size: 48px;
+    z-index: 10;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.player.opponent {
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg);
+}
+
+.player.user {
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.player.swing {
+    animation: swing 0.3s ease;
+}
+
+/* === Ball === */
+.ball {
+    position: absolute;
+    font-size: 32px;
+    z-index: 15;
+    transition: all 0.05s linear;
+    filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.4));
+    display: none;
+}
+
+.ball.active {
+    display: block;
+}
+
+.ball.hit {
+    animation: ballSpin 0.5s linear infinite;
+}
+
+/* === Timing Indicator === */
+.timing-indicator {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    border: 2px solid white;
+    overflow: hidden;
+    display: none;
+    z-index: 20;
+}
+
+.timing-indicator.active {
+    display: block;
+}
+
+.timing-indicator::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 100%;
+    background: rgba(76, 175, 80, 0.6);
+    border-left: 2px solid #4caf50;
+    border-right: 2px solid #4caf50;
+}
+
+.timing-indicator::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: #ff5722;
+    animation: timingSlide 1s linear infinite;
+}
+
+/* === Game Message === */
+.game-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #333;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+.game-message.hidden {
+    display: none;
+}
+
+.game-message h2 {
+    font-size: 32px;
+    color: #43e97b;
+    margin-bottom: 15px;
+}
+
+.game-message p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.game-message .tip {
+    font-size: 14px;
+    color: #999;
+    font-style: italic;
+}
+
+/* === Feedback === */
+.feedback {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    font-weight: bold;
+    z-index: 50;
+    pointer-events: none;
+    animation: feedbackPop 0.6s ease-out forwards;
+}
+
+.feedback.perfect {
+    color: #4caf50;
+}
+
+.feedback.good {
+    color: #ffc107;
+}
+
+.feedback.miss {
+    color: #f44336;
+}
+
+/* === Game Controls === */
+.game-controls {
+    padding: 20px;
+    background: white;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    border-top: 2px solid #eee;
+}
+
+/* === Buttons === */
+.btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    touch-action: manipulation;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(67, 233, 123, 0.4);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    color: white;
+}
+
+.btn-secondary:hover {
+    box-shadow: 0 6px 20px rgba(250, 112, 154, 0.4);
+}
+
+/* === Overlay === */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.overlay-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 90%;
+    animation: slideIn 0.3s ease;
+}
+
+.overlay-content h2 {
+    font-size: 36px;
+    color: #43e97b;
+    margin-bottom: 20px;
+}
+
+.rally-info, .best-info {
+    font-size: 24px;
+    color: #333;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+.encouragement {
+    font-size: 18px;
+    color: #666;
+    font-style: italic;
+    margin: 20px 0;
+}
+
+/* === Animations === */
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes swing {
+    0%, 100% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    50% {
+        transform: translateX(-50%) rotate(-20deg);
+    }
+}
+
+@keyframes ballSpin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes timingSlide {
+    from {
+        left: 0;
+    }
+    to {
+        left: calc(100% - 4px);
+    }
+}
+
+@keyframes feedbackPop {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -80%) scale(1);
+        opacity: 0;
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.bounce {
+    animation: bounce 0.5s ease;
+}
+
+.pulse {
+    animation: pulse 0.3s ease;
+}
+
+/* === Responsive Design === */
+@media (min-width: 768px) {
+    .game-container {
+        height: 85vh;
+    }
+
+    .game-header h1 {
+        font-size: 32px;
+    }
+
+    .btn {
+        font-size: 20px;
+        padding: 18px 40px;
+    }
+
+    .player {
+        font-size: 56px;
+    }
+
+    .ball {
+        font-size: 38px;
+    }
+}
+
+@media (max-height: 600px) {
+    .game-container {
+        height: 95vh;
+    }
+
+    .game-header {
+        padding: 15px;
+    }
+
+    .game-header h1 {
+        font-size: 24px;
+    }
+
+    .player {
+        font-size: 36px;
+    }
+
+    .ball {
+        font-size: 24px;
+    }
+}
+
+/* === Accessibility === */
+.btn:focus {
+    outline: 3px solid #43e97b;
+    outline-offset: 2px;
+}
+
+/* === Prevent text selection during gameplay === */
+.game-area {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}

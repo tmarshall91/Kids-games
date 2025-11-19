@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="A fun Simon Says memory game for kids">
+    <title>Simon Says</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>Simon Says</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Level:</span>
+                    <span id="level" class="stat-value">1</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Game message -->
+            <div class="game-message" id="gameMessage">
+                <h2>Welcome!</h2>
+                <p>Watch the pattern and repeat it</p>
+            </div>
+
+            <!-- Simon board - 4 colored buttons -->
+            <div class="simon-board" id="simonBoard">
+                <button class="simon-button green" id="btn-0" data-color="0" aria-label="Green button"></button>
+                <button class="simon-button red" id="btn-1" data-color="1" aria-label="Red button"></button>
+                <button class="simon-button yellow" id="btn-2" data-color="2" aria-label="Yellow button"></button>
+                <button class="simon-button blue" id="btn-3" data-color="3" aria-label="Blue button"></button>
+
+                <!-- Center circle -->
+                <div class="center-circle">
+                    <div class="center-text">Simon<br>Says</div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+            <button id="restartBtn" class="btn btn-secondary" style="display: none;">New Game</button>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Game Over!</h2>
+            <p class="final-score">Level Reached: <span id="finalLevel">0</span></p>
+            <p class="final-score">Final Score: <span id="finalScore">0</span></p>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

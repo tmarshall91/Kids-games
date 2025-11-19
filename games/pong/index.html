@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Classic Pong game - Tap left/right to move your paddle">
+    <title>Pong</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>Pong</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">AI:</span>
+                    <span id="aiScore" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">You:</span>
+                    <span id="playerScore" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Best:</span>
+                    <span id="bestScore" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <main class="game-area" id="gameArea">
+            <canvas id="gameCanvas"></canvas>
+            <div class="game-message" id="gameMessage">
+                <h2>Pong</h2>
+                <p>Tap left or right to move paddle</p>
+                <p class="instructions">First to 5 wins!</p>
+            </div>
+        </main>
+
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+        </footer>
+    </div>
+
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2 id="gameOverTitle">You Win!</h2>
+            <p class="final-score">Final Score: <span id="finalScore">0 - 0</span></p>
+            <p class="high-score">Best Wins: <span id="finalBest">0</span></p>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="A fun mini golf game for kids with creative themed holes">
+    <title>⛳ Mini Golf - Kids Games</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>⛳ Mini Golf 🏌️</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Hole:</span>
+                    <span id="currentHole" class="stat-value">1/6</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Strokes:</span>
+                    <span id="strokes" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Par:</span>
+                    <span id="par" class="stat-value">3</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Game canvas will be rendered here -->
+            <canvas id="golfCanvas"></canvas>
+
+            <!-- Power meter overlay -->
+            <div id="powerMeter" class="power-meter" style="display: none;">
+                <div class="power-meter-label">Power</div>
+                <div class="power-meter-bar">
+                    <div id="powerFill" class="power-meter-fill"></div>
+                </div>
+            </div>
+
+            <!-- Hole complete message -->
+            <div id="holeCompleteMessage" class="hole-message" style="display: none;">
+                <div class="hole-message-content">
+                    <h2 id="holeCompleteTitle">⛳ Hole Complete!</h2>
+                    <p id="holeCompletePar"></p>
+                    <button id="nextHoleBtn" class="btn btn-primary">Next Hole ➡️</button>
+                </div>
+            </div>
+
+            <!-- Start message -->
+            <div class="game-message" id="gameMessage">
+                <h2>Welcome to Mini Golf! ⛳</h2>
+                <p>Drag the ball ⚪ to aim and set power</p>
+                <p>Complete 6 creative holes!</p>
+            </div>
+        </main>
+
+        <!-- Hole Info Section -->
+        <div class="hole-info">
+            <div class="hole-name" id="holeName">Hole 1: The Beginning</div>
+            <div class="hole-par">Par: <span id="holeParValue">3</span></div>
+        </div>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game 🏌️</button>
+            <button id="restartBtn" class="btn btn-secondary" style="display: none;">Restart Hole</button>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>🏆 Game Complete! 🏆</h2>
+            <p class="final-score">Total Strokes: <span id="finalStrokes">0</span></p>
+            <p class="par-info">Total Par: <span id="totalPar">18</span></p>
+            <p class="score-diff" id="scoreDiff"></p>
+            <div class="scorecard" id="scorecard"></div>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

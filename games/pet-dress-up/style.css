@@ -1,0 +1,305 @@
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    touch-action: manipulation;
+}
+
+/* === Game Container === */
+.game-container {
+    width: 100%;
+    max-width: 428px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    max-height: 800px;
+}
+
+/* === Header === */
+.game-header {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.game-header h1 {
+    font-size: 28px;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* === Game Area === */
+.game-area {
+    flex: 1;
+    padding: 15px;
+    background: #f8f9fa;
+    overflow-y: auto;
+}
+
+/* === Pet Display === */
+.pet-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    min-height: 200px;
+}
+
+.pet-container {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.pet-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.pet-base {
+    font-size: 100px;
+    z-index: 2;
+    position: relative;
+    animation: float 3s ease-in-out infinite;
+}
+
+.pet-hat {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 50px;
+    z-index: 3;
+}
+
+.pet-accessory {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 40px;
+    z-index: 3;
+}
+
+/* === Options Container === */
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.option-category {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.option-category h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.option-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.option-btn {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background: white;
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    touch-action: manipulation;
+}
+
+.option-btn:active {
+    transform: scale(0.9);
+}
+
+.option-btn.selected {
+    border-color: #fa709a;
+    background: #fff0f5;
+    box-shadow: 0 0 10px rgba(250, 112, 154, 0.3);
+}
+
+.option-btn.none {
+    font-size: 16px;
+    font-weight: bold;
+    color: #999;
+}
+
+/* === Game Controls === */
+.game-controls {
+    padding: 20px;
+    background: white;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    border-top: 2px solid #eee;
+}
+
+/* === Buttons === */
+.btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    touch-action: manipulation;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    color: white;
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #a8caba 0%, #5d4e6d 100%);
+    color: white;
+}
+
+/* === Animations === */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.bounce {
+    animation: bounce 0.3s ease;
+}
+
+/* === Responsive Design === */
+@media (max-width: 360px) {
+    .pet-container {
+        width: 160px;
+        height: 160px;
+    }
+
+    .pet-base {
+        font-size: 80px;
+    }
+
+    .option-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 24px;
+    }
+}
+
+@media (min-width: 768px) {
+    .pet-container {
+        width: 220px;
+        height: 220px;
+    }
+
+    .pet-base {
+        font-size: 120px;
+    }
+}
+
+@media (max-height: 600px) {
+    .game-container {
+        height: 95vh;
+    }
+
+    .game-header {
+        padding: 15px;
+    }
+
+    .pet-display {
+        min-height: 150px;
+    }
+
+    .pet-container {
+        width: 150px;
+        height: 150px;
+    }
+
+    .pet-base {
+        font-size: 80px;
+    }
+}
+
+/* === Accessibility === */
+.btn:focus {
+    outline: 3px solid #fa709a;
+    outline-offset: 2px;
+}
+
+.option-btn:focus {
+    outline: 2px solid #fa709a;
+    outline-offset: 2px;
+}
+
+/* === Prevent text selection === */
+.game-area {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}

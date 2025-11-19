@@ -1,0 +1,393 @@
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    touch-action: manipulation;
+}
+
+/* === Game Container === */
+.game-container {
+    width: 100%;
+    max-width: 428px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    max-height: 800px;
+}
+
+/* === Header === */
+.game-header {
+    background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.game-header h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-label {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* === Game Area === */
+.game-area {
+    flex: 1;
+    padding: 20px;
+    background: #f8f9fa;
+    position: relative;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-message {
+    text-align: center;
+    color: #333;
+}
+
+.game-message h2 {
+    font-size: 32px;
+    color: #FF6B6B;
+    margin-bottom: 15px;
+}
+
+.game-message p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.instruction {
+    font-size: 16px !important;
+    color: #4ECDC4;
+    font-weight: bold;
+}
+
+/* === Challenge Container === */
+.challenge-container {
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.player-indicator {
+    background: linear-gradient(135deg, #FFD93D 0%, #F39C12 100%);
+    color: white;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.player-indicator h2 {
+    font-size: 24px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.challenge-card {
+    background: white;
+    border: 4px solid #ddd;
+    border-radius: 15px;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.challenge-icon {
+    font-size: 64px;
+    margin-bottom: 15px;
+}
+
+.challenge-card h3 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.challenge-card p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.challenge-game {
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.tap-target {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.tap-target:active {
+    transform: scale(0.9);
+}
+
+.tap-counter {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.challenge-timer {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.timer-label {
+    font-size: 18px;
+    color: #666;
+}
+
+.timer-value {
+    font-size: 32px;
+    font-weight: bold;
+    color: #FF6B6B;
+}
+
+.timer-value.warning {
+    color: #FF6B6B;
+    animation: pulse 0.5s infinite;
+}
+
+/* === Game Controls === */
+.game-controls {
+    padding: 20px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    border-top: 2px solid #eee;
+}
+
+.challenge-controls {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+}
+
+.main-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* === Buttons === */
+.btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    touch-action: manipulation;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #FFD93D 0%, #F39C12 100%);
+    color: white;
+}
+
+.btn-secondary:hover {
+    box-shadow: 0 6px 20px rgba(255, 217, 61, 0.4);
+}
+
+.btn-back {
+    background: #6c757d;
+    color: white;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-back:hover {
+    background: #5a6268;
+}
+
+/* === Overlay === */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.overlay-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 90%;
+    animation: slideIn 0.3s ease;
+}
+
+.overlay-content h2 {
+    font-size: 36px;
+    color: #FF6B6B;
+    margin-bottom: 20px;
+}
+
+.final-score,
+.rounds-completed {
+    font-size: 20px;
+    color: #333;
+    margin: 10px 0;
+}
+
+/* === Animations === */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes celebration {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+}
+
+/* === Responsive Design === */
+@media (max-width: 400px) {
+    .challenge-icon {
+        font-size: 48px;
+    }
+
+    .tap-target {
+        width: 80px;
+        height: 80px;
+        font-size: 36px;
+    }
+}
+
+@media (max-height: 650px) {
+    .game-container {
+        height: 95vh;
+    }
+
+    .game-header {
+        padding: 15px;
+    }
+
+    .game-header h1 {
+        font-size: 24px;
+    }
+
+    .challenge-game {
+        min-height: 120px;
+    }
+}
+
+/* === Prevent text selection during gameplay === */
+.game-area {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}

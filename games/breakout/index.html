@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Classic Breakout/Arkanoid brick breaker game with colorful bricks and touch controls">
+    <title>Breakout - Brick Breaker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>🧱 Breakout</h1>
+            <div class="game-stats">
+                <div class="stat">
+                    <span class="label">Score:</span>
+                    <span id="score">0</span>
+                </div>
+                <div class="stat">
+                    <span class="label">Lives:</span>
+                    <span id="lives">3</span>
+                </div>
+                <div class="stat">
+                    <span class="label">High:</span>
+                    <span id="high-score">0</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="game-area">
+            <canvas id="game-canvas"></canvas>
+
+            <div id="welcome-screen" class="screen">
+                <div class="screen-content">
+                    <h2>Welcome to Breakout!</h2>
+                    <div class="instructions">
+                        <p>🎯 Break all the bricks to win!</p>
+                        <p>🏓 Move paddle to bounce the ball</p>
+                        <p>💎 Each brick = 10 points</p>
+                        <p>❤️ You have 3 lives</p>
+                        <p>⚡ Ball speeds up as you progress!</p>
+                    </div>
+                    <button id="start-btn" class="btn btn-primary">Start Game</button>
+                </div>
+            </div>
+
+            <div id="pause-screen" class="screen" style="display: none;">
+                <div class="screen-content">
+                    <h2>Paused</h2>
+                    <button id="resume-btn" class="btn btn-primary">Resume</button>
+                    <button id="restart-btn" class="btn btn-secondary">Restart</button>
+                </div>
+            </div>
+
+            <div id="game-over-screen" class="screen" style="display: none;">
+                <div class="screen-content">
+                    <h2>Game Over!</h2>
+                    <p class="final-score">Your Score: <span id="final-score">0</span></p>
+                    <p id="high-score-message" class="high-score-message" style="display: none;">
+                        🎉 New High Score! 🎉
+                    </p>
+                    <button id="play-again-btn" class="btn btn-primary">Play Again</button>
+                </div>
+            </div>
+
+            <div id="win-screen" class="screen" style="display: none;">
+                <div class="screen-content">
+                    <h2>🎉 You Win! 🎉</h2>
+                    <p class="final-score">Your Score: <span id="win-score">0</span></p>
+                    <p class="win-message">All bricks destroyed!</p>
+                    <button id="play-again-win-btn" class="btn btn-primary">Play Again</button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="game-controls">
+            <button id="pause-btn" class="btn btn-small" style="display: none;">⏸️ Pause</button>
+            <div class="touch-hint" id="touch-hint">
+                👆 Touch or drag to move paddle
+            </div>
+        </footer>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

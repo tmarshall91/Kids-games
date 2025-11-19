@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Alphabet learning game with letter sounds for kids">
+    <title>Alphabet Learning - Kids Learning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>Learn the Alphabet!</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Letters:</span>
+                    <span id="lettersLearned" class="stat-value">0/26</span>
+                </span>
+            </div>
+        </header>
+
+        <main class="game-area" id="gameArea">
+            <div class="game-message" id="gameMessage">
+                <h2>🔤 ABC Time!</h2>
+                <p>Tap any letter to hear its sound</p>
+                <button id="startBtn" class="btn btn-primary">Let's Learn!</button>
+            </div>
+
+            <div id="alphabetGrid" class="alphabet-grid" style="display: none;"></div>
+
+            <div id="soundDisplay" class="sound-display">
+                <div class="sound-bubble" id="soundBubble"></div>
+            </div>
+        </main>
+
+        <footer class="game-controls">
+            <button id="practiceModeBtn" class="btn btn-secondary" style="display: none;">Practice Mode</button>
+            <button id="quizModeBtn" class="btn btn-success" style="display: none;">Quiz Mode</button>
+        </footer>
+    </div>
+
+    <div id="quizOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Find the Letter!</h2>
+            <p id="quizQuestion" class="quiz-question"></p>
+            <div id="quizOptions" class="quiz-options"></div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

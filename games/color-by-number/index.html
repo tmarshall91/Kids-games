@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Color by Number - Tap regions to fill with colors">
+    <title>Color by Number</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🎨 Color by Number</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Colored:</span>
+                    <span id="colored" class="stat-value">0/<span id="total">0</span></span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Progress:</span>
+                    <span id="progress" class="stat-value">0%</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Instructions -->
+        <div id="instructions" class="instructions">
+            <h2>How to Play</h2>
+            <p>Select a color and tap regions with matching numbers to fill them!</p>
+            <button id="startBtn" class="btn btn-primary">Start Coloring</button>
+        </div>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea" style="display: none;">
+            <div class="color-palette" id="colorPalette"></div>
+            <canvas id="gameCanvas"></canvas>
+        </main>
+
+        <!-- Game Complete Message -->
+        <div class="game-message" id="gameMessage" style="display: none;">
+            <h2>🎉 Beautiful Artwork!</h2>
+            <p>You colored the entire picture!</p>
+            <canvas id="resultCanvas"></canvas>
+        </div>
+
+        <!-- Controls Section -->
+        <footer class="game-controls" id="controls" style="display: none;">
+            <button id="clearBtn" class="btn btn-secondary">Clear All</button>
+            <button id="newGameBtn" class="btn btn-primary">New Picture</button>
+        </footer>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

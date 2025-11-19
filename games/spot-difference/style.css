@@ -1,0 +1,281 @@
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+/* === Game Container === */
+.game-container {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
+    width: 100%;
+}
+
+/* === Header === */
+.game-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.game-header h1 {
+    font-size: 28px;
+    color: #fcb69f;
+    margin-bottom: 15px;
+}
+
+.game-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* === Instructions === */
+.instructions {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.instructions p {
+    font-size: 20px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* === Game Area === */
+.game-area {
+    margin: 20px 0;
+}
+
+.images-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.image-wrapper {
+    text-align: center;
+}
+
+.image-wrapper h3 {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.game-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    background: #f5f5f5;
+    border: 3px solid #fcb69f;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: crosshair;
+}
+
+/* === Difference Markers === */
+.difference {
+    position: absolute;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.difference:hover {
+    background: rgba(252, 182, 159, 0.2);
+}
+
+.difference.found {
+    border-color: #4CAF50;
+    background: rgba(76, 175, 80, 0.3);
+    pointer-events: none;
+    animation: pulse 0.5s ease;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.found-marker {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 3px solid #4CAF50;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: markerAppear 0.5s ease;
+}
+
+@keyframes markerAppear {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* === Scene Elements === */
+.element {
+    position: absolute;
+    border-radius: 5px;
+}
+
+.circle {
+    border-radius: 50%;
+}
+
+.star {
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.triangle {
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.heart {
+    clip-path: path('M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z');
+}
+
+/* === Game Message === */
+.game-message {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.game-message h2 {
+    font-size: 32px;
+    color: #fcb69f;
+    margin-bottom: 15px;
+}
+
+.game-message p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.game-message .stats {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 15px;
+}
+
+/* === Controls === */
+.game-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 120px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    color: #333;
+    box-shadow: 0 4px 15px rgba(252, 182, 159, 0.3);
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(252, 182, 159, 0.4);
+}
+
+.btn-secondary {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background: #e0e0e0;
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    .game-header h1 {
+        font-size: 24px;
+    }
+
+    .images-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .image-wrapper h3 {
+        font-size: 16px;
+    }
+
+    .stat-value {
+        font-size: 20px;
+    }
+
+    .game-controls {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    .game-container {
+        padding: 15px;
+    }
+
+    .game-header h1 {
+        font-size: 20px;
+    }
+}

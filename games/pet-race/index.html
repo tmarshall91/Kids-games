@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Race your favorite pets and see who wins">
+    <title>Pet Race Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🏁 Pet Race 🏁</h1>
+            <p class="subtitle">Pick your pet and watch them race!</p>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Pet Selection -->
+            <div class="pet-selection" id="petSelection">
+                <h2>Choose Your Racer!</h2>
+                <div class="pets-grid" id="petsGrid"></div>
+            </div>
+
+            <!-- Race Track -->
+            <div class="race-track" id="raceTrack" style="display: none;">
+                <div class="finish-line"></div>
+                <div id="raceLanes" class="race-lanes"></div>
+                <div class="race-info" id="raceInfo">
+                    <p>Get ready...</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startRaceBtn" class="btn btn-primary" style="display: none;">Start Race!</button>
+            <button id="raceAgainBtn" class="btn btn-secondary" style="display: none;">Race Again</button>
+        </footer>
+    </div>
+
+    <!-- Winner Overlay -->
+    <div id="winnerOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2 id="winnerTitle">🏆 Winner! 🏆</h2>
+            <div class="winner-pet" id="winnerPet">🐕</div>
+            <p class="winner-text" id="winnerText"></p>
+            <button id="newRaceBtn" class="btn btn-primary">New Race</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

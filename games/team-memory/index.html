@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Work together to find all matching pairs!">
+    <title>Team Memory Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🧠 Team Memory Game</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Pairs:</span>
+                    <span id="pairs" class="stat-value">0/8</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Moves:</span>
+                    <span id="moves" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <div class="game-message" id="gameMessage">
+                <h2>Welcome!</h2>
+                <p>Work together to find all matching pairs!</p>
+                <p class="instruction">Tap cards to flip them and find matches</p>
+            </div>
+
+            <!-- Cards Grid -->
+            <div class="cards-container" id="cardsContainer" style="display: none;">
+                <div class="cards-grid" id="cardsGrid">
+                    <!-- Cards will be generated here -->
+                </div>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+            <button id="restartBtn" class="btn btn-secondary" style="display: none;">New Game</button>
+            <a href="../../index.html" class="btn btn-back">Back to Games</a>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>All Pairs Found! 🎉</h2>
+            <p class="final-score">Total Moves: <span id="finalMoves">0</span></p>
+            <p class="performance" id="performance"></p>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Stack sandwich ingredients - A fun sandwich-making game for kids">
+    <title>Sandwich Stacker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🥪 Sandwich Stacker</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Sandwiches Made:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Sandwich display -->
+            <div class="sandwich-container" id="sandwichContainer">
+                <div class="plate"></div>
+            </div>
+
+            <!-- Ingredients selector -->
+            <div class="ingredients-selector">
+                <h3>Stack Your Ingredients:</h3>
+                <div class="ingredient-buttons">
+                    <button class="ingredient-btn" data-ingredient="bread-bottom" data-once="true">🍞 Bottom Bread</button>
+                    <button class="ingredient-btn" data-ingredient="lettuce">🥬 Lettuce</button>
+                    <button class="ingredient-btn" data-ingredient="tomato">🍅 Tomato</button>
+                    <button class="ingredient-btn" data-ingredient="cheese">🧀 Cheese</button>
+                    <button class="ingredient-btn" data-ingredient="meat">🥓 Meat</button>
+                    <button class="ingredient-btn" data-ingredient="onion">🧅 Onion</button>
+                    <button class="ingredient-btn" data-ingredient="pickle">🥒 Pickle</button>
+                    <button class="ingredient-btn" data-ingredient="bread-top" data-once="true">🍞 Top Bread</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="clearBtn" class="btn btn-secondary">Start Over</button>
+            <button id="serveBtn" class="btn btn-primary">Serve Sandwich!</button>
+        </footer>
+    </div>
+
+    <!-- Success Overlay -->
+    <div id="successOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Yummy Sandwich! 🥪</h2>
+            <p class="message">Delicious sandwich stacked!</p>
+            <button id="nextBtn" class="btn btn-primary">Make Another</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

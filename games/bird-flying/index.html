@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Help the bird fly through the clouds and avoid obstacles">
+    <title>Bird Flying Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🐦 Flying Bird 🐦</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Best:</span>
+                    <span id="highScore" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Game message -->
+            <div class="game-message" id="gameMessage">
+                <h2>Ready to Fly?</h2>
+                <p>Tap to make the bird fly</p>
+                <p class="instructions">Avoid the obstacles!</p>
+            </div>
+
+            <!-- Game canvas -->
+            <div id="gameCanvas" class="game-canvas" style="display: none;">
+                <div id="bird" class="bird">🐦</div>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Flying</button>
+            <button id="restartBtn" class="btn btn-secondary" style="display: none;">Try Again</button>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>🌟 Flight Complete! 🌟</h2>
+            <p class="final-score">Score: <span id="finalScore">0</span></p>
+            <p class="high-score-message" id="highScoreMessage"></p>
+            <button id="playAgainBtn" class="btn btn-primary">Fly Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

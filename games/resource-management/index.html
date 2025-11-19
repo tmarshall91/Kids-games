@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Manage resources and build your empire!">
+    <title>Resource Management - Kids Games</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>Resource Empire</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Day:</span>
+                    <span id="day" class="stat-value">1</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Population:</span>
+                    <span id="population" class="stat-value">10</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Resources Display -->
+        <section class="resources-panel">
+            <div class="resource-item">
+                <span class="resource-icon">🪵</span>
+                <div class="resource-info">
+                    <div class="resource-name">Wood</div>
+                    <div class="resource-amount" id="wood">50</div>
+                    <div class="resource-rate">+<span id="woodRate">0</span>/day</div>
+                </div>
+            </div>
+            <div class="resource-item">
+                <span class="resource-icon">🪨</span>
+                <div class="resource-info">
+                    <div class="resource-name">Stone</div>
+                    <div class="resource-amount" id="stone">30</div>
+                    <div class="resource-rate">+<span id="stoneRate">0</span>/day</div>
+                </div>
+            </div>
+            <div class="resource-item">
+                <span class="resource-icon">🌾</span>
+                <div class="resource-info">
+                    <div class="resource-name">Food</div>
+                    <div class="resource-amount" id="food">100</div>
+                    <div class="resource-rate">+<span id="foodRate">0</span>/day</div>
+                </div>
+            </div>
+            <div class="resource-item">
+                <span class="resource-icon">💰</span>
+                <div class="resource-info">
+                    <div class="resource-name">Gold</div>
+                    <div class="resource-amount" id="gold">100</div>
+                    <div class="resource-rate">+<span id="goldRate">0</span>/day</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Buildings Section -->
+        <section class="buildings-panel">
+            <h2>Buildings</h2>
+            <div class="buildings-grid" id="buildingsGrid">
+                <!-- Buildings will be dynamically added -->
+            </div>
+        </section>
+
+        <!-- Actions Section -->
+        <section class="actions-panel">
+            <h2>Actions</h2>
+            <div class="actions-grid">
+                <button class="action-btn" id="nextDayBtn">
+                    <span class="action-icon">⏭️</span>
+                    <span class="action-text">Next Day</span>
+                </button>
+                <button class="action-btn" id="harvestBtn">
+                    <span class="action-icon">⚒️</span>
+                    <span class="action-text">Manual Harvest</span>
+                    <span class="action-cost">Free</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Status Message -->
+        <div class="status-message" id="statusMessage"></div>
+    </div>
+
+    <!-- Achievement Overlay -->
+    <div id="achievementOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Achievement Unlocked!</h2>
+            <p class="achievement-text" id="achievementText"></p>
+            <button id="closeAchievementBtn" class="btn btn-primary">Awesome!</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

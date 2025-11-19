@@ -1,0 +1,412 @@
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+/* === Game Container === */
+.game-container {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+}
+
+/* === Header === */
+.game-header {
+    margin-bottom: 20px;
+}
+
+.game-header h1 {
+    font-size: 32px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.game-stats {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.stat {
+    background: #667eea;
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+}
+
+.stat-label {
+    display: block;
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+.stat-value {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* === Game Area === */
+.game-area {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.pipe-grid {
+    display: grid;
+    gap: 5px;
+    background: #e0e0e0;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+/* === Pipe Cells === */
+.pipe-cell {
+    aspect-ratio: 1;
+    background: #fff;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.pipe-cell:hover {
+    background: #f0f0f0;
+    transform: scale(1.05);
+}
+
+.pipe-cell.source {
+    background: #4CAF50;
+    border-color: #45a049;
+}
+
+.pipe-cell.drain {
+    background: #2196F3;
+    border-color: #0b7dda;
+}
+
+.pipe-cell.flowing {
+    animation: water-flow 1s ease-in-out;
+}
+
+@keyframes water-flow {
+    0%, 100% {
+        background: #fff;
+    }
+    50% {
+        background: #bbdefb;
+    }
+}
+
+/* Pipe Types */
+.pipe {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+/* Straight horizontal pipe */
+.pipe.straight-h::before {
+    content: '';
+    position: absolute;
+    top: 45%;
+    left: 0;
+    right: 0;
+    height: 10%;
+    background: #795548;
+}
+
+/* Straight vertical pipe */
+.pipe.straight-v::before {
+    content: '';
+    position: absolute;
+    left: 45%;
+    top: 0;
+    bottom: 0;
+    width: 10%;
+    background: #795548;
+}
+
+/* Corner pipe (top-right) */
+.pipe.corner-tr::before {
+    content: '';
+    position: absolute;
+    right: 45%;
+    top: 45%;
+    width: 55%;
+    height: 10%;
+    background: #795548;
+}
+
+.pipe.corner-tr::after {
+    content: '';
+    position: absolute;
+    left: 45%;
+    bottom: 45%;
+    width: 10%;
+    height: 55%;
+    background: #795548;
+}
+
+/* Corner pipe (top-left) */
+.pipe.corner-tl::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 45%;
+    width: 55%;
+    height: 10%;
+    background: #795548;
+}
+
+.pipe.corner-tl::after {
+    content: '';
+    position: absolute;
+    left: 45%;
+    bottom: 45%;
+    width: 10%;
+    height: 55%;
+    background: #795548;
+}
+
+/* Corner pipe (bottom-right) */
+.pipe.corner-br::before {
+    content: '';
+    position: absolute;
+    right: 45%;
+    top: 45%;
+    width: 55%;
+    height: 10%;
+    background: #795548;
+}
+
+.pipe.corner-br::after {
+    content: '';
+    position: absolute;
+    left: 45%;
+    top: 0;
+    width: 10%;
+    height: 55%;
+    background: #795548;
+}
+
+/* Corner pipe (bottom-left) */
+.pipe.corner-bl::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 45%;
+    width: 55%;
+    height: 10%;
+    background: #795548;
+}
+
+.pipe.corner-bl::after {
+    content: '';
+    position: absolute;
+    left: 45%;
+    top: 0;
+    width: 10%;
+    height: 55%;
+    background: #795548;
+}
+
+/* Connected pipes glow */
+.pipe-cell.connected .pipe::before,
+.pipe-cell.connected .pipe::after {
+    background: #2196F3;
+    box-shadow: 0 0 10px #2196F3;
+}
+
+.pipe-cell.source .source-icon,
+.pipe-cell.drain .drain-icon {
+    font-size: 24px;
+    z-index: 10;
+}
+
+/* === Flow Message === */
+.flow-message {
+    text-align: center;
+    margin-top: 15px;
+    padding: 10px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* === Controls === */
+.game-controls {
+    text-align: center;
+}
+
+.instructions {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Arial', sans-serif;
+    flex: 1;
+    min-width: 100px;
+}
+
+.btn-primary {
+    background: #4CAF50;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #45a049;
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background: #2196F3;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #0b7dda;
+    transform: scale(1.05);
+}
+
+.btn-outline {
+    background: white;
+    color: #666;
+    border: 2px solid #ddd;
+}
+
+.btn-outline:hover {
+    background: #f0f0f0;
+    transform: scale(1.05);
+}
+
+/* === Overlay === */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.overlay-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 90%;
+}
+
+.overlay-content h2 {
+    font-size: 36px;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.final-score {
+    font-size: 20px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.final-score span {
+    font-size: 32px;
+    font-weight: bold;
+    color: #2196F3;
+    display: block;
+    margin-top: 10px;
+}
+
+/* === Responsive === */
+@media (max-width: 480px) {
+    .game-header h1 {
+        font-size: 24px;
+    }
+
+    .pipe-cell.source .source-icon,
+    .pipe-cell.drain .drain-icon {
+        font-size: 18px;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+/* Grid size adjustments */
+.pipe-grid.size-5 {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.pipe-grid.size-6 {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.pipe-grid.size-7 {
+    grid-template-columns: repeat(7, 1fr);
+}

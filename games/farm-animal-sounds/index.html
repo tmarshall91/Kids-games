@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Learn what sounds farm animals make">
+    <title>Farm Animal Sounds</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🐄 Farm Sounds 🐷</h1>
+            <p class="subtitle">Tap the animals to hear their sounds!</p>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Farm scene -->
+            <div class="farm-scene">
+                <div class="animals-grid" id="animalsGrid"></div>
+            </div>
+
+            <!-- Sound display -->
+            <div class="sound-display" id="soundDisplay">
+                <div class="sound-bubble" id="soundBubble"></div>
+            </div>
+        </main>
+
+        <!-- Game Modes -->
+        <div class="game-modes">
+            <button id="freePlayBtn" class="mode-btn active">Free Play</button>
+            <button id="quizModeBtn" class="mode-btn">Quiz Mode</button>
+        </div>
+
+        <!-- Quiz Section -->
+        <div id="quizSection" class="quiz-section" style="display: none;">
+            <div class="quiz-question">
+                <h3>Which animal makes this sound?</h3>
+                <p class="quiz-sound" id="quizSound">Moo!</p>
+                <div class="quiz-options" id="quizOptions"></div>
+            </div>
+            <div class="quiz-stats">
+                <span>Score: <span id="quizScore">0</span></span>
+                <span>Question: <span id="questionNumber">1</span>/10</span>
+            </div>
+        </div>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="resetBtn" class="btn btn-secondary" style="display: none;">Reset Quiz</button>
+        </footer>
+    </div>
+
+    <!-- Quiz Complete Overlay -->
+    <div id="quizCompleteOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>🎉 Quiz Complete! 🎉</h2>
+            <p class="final-score">You got <span id="finalScore">0</span> out of 10 correct!</p>
+            <p class="percentage" id="percentage"></p>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

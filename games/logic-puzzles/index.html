@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Visual pattern logic puzzles for kids">
+    <title>Logic Puzzles</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🧠 Logic Puzzles</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">🎯 Level:</span>
+                    <span id="level" class="stat-value">1</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">⭐ Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">🔥 Streak:</span>
+                    <span id="streak" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Puzzle Display -->
+            <div class="puzzle-container">
+                <div class="puzzle-question">
+                    <h3 id="puzzleTitle">What comes next?</h3>
+                    <div class="pattern-display" id="patternDisplay"></div>
+                    <div class="question-mark">❓</div>
+                </div>
+            </div>
+
+            <!-- Answer Options -->
+            <div class="answer-options" id="answerOptions"></div>
+
+            <!-- Game Message Overlay -->
+            <div class="game-message" id="gameMessage">
+                <h2>🧠 Pattern Master!</h2>
+                <p>Find the pattern and pick the right answer!</p>
+                <ul class="instructions">
+                    <li>🔍 Look at the pattern carefully</li>
+                    <li>🧩 Find what comes next</li>
+                    <li>✨ Tap the correct answer</li>
+                    <li>🏆 Complete levels to earn points!</li>
+                </ul>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+            <button id="skipBtn" class="btn btn-secondary" style="display: none;">⏭️ Skip</button>
+            <button id="nextBtn" class="btn btn-primary" style="display: none;">Next Puzzle</button>
+        </footer>
+    </div>
+
+    <!-- Feedback Overlay -->
+    <div id="feedbackOverlay" class="feedback-overlay" style="display: none;">
+        <div class="feedback-content">
+            <div id="feedbackIcon" class="feedback-icon">🎉</div>
+            <h2 id="feedbackText">Correct!</h2>
+        </div>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>🎉 Great Job!</h2>
+            <p class="final-score">Final Score: <span id="finalScore">0</span></p>
+            <p class="final-score">Levels Completed: <span id="levelsCompleted">0</span></p>
+            <p class="achievement" id="achievement">Pattern Master!</p>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

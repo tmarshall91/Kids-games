@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Classic Snake Game - Eat food and grow longer">
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>🐍 Snake Game</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Best:</span>
+                    <span id="bestScore" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <main class="game-area" id="gameArea">
+            <canvas id="gameCanvas"></canvas>
+            <div class="game-message" id="gameMessage">
+                <h2>Snake Game</h2>
+                <p>Use arrows to move</p>
+                <p>Eat food to grow!</p>
+            </div>
+            <div class="controls-overlay">
+                <button class="dir-btn" id="upBtn" aria-label="Move up">↑</button>
+                <div class="side-btns">
+                    <button class="dir-btn" id="leftBtn" aria-label="Move left">←</button>
+                    <button class="dir-btn" id="rightBtn" aria-label="Move right">→</button>
+                </div>
+                <button class="dir-btn" id="downBtn" aria-label="Move down">↓</button>
+            </div>
+        </main>
+
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+        </footer>
+    </div>
+
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Game Over!</h2>
+            <p class="final-score">Score: <span id="finalScore">0</span></p>
+            <p class="high-score">Best: <span id="finalBest">0</span></p>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

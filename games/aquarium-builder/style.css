@@ -1,0 +1,355 @@
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    overflow: hidden;
+}
+
+/* === Game Container === */
+.game-container {
+    background: linear-gradient(180deg, #87CEEB 0%, #4682B4 100%);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    position: relative;
+}
+
+/* === Header === */
+.game-header {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.game-header h1 {
+    font-size: 32px;
+    color: #003d5c;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+.stat {
+    background: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #666;
+    margin-right: 5px;
+}
+
+.stat-value {
+    font-size: 20px;
+    font-weight: bold;
+    color: #003d5c;
+}
+
+/* === Aquarium === */
+.game-area {
+    background: transparent;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.aquarium {
+    background: linear-gradient(180deg, #4da6ff 0%, #0066cc 100%);
+    border: 5px solid #003d5c;
+    border-radius: 15px;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.fish-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.fish {
+    position: absolute;
+    font-size: 36px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    user-select: none;
+    animation: swim 8s ease-in-out infinite;
+}
+
+.fish:hover {
+    transform: scale(1.2);
+}
+
+@keyframes swim {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* === Bubbles === */
+.bubbles-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.bubble {
+    position: absolute;
+    bottom: -20px;
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    animation: rise linear infinite;
+}
+
+@keyframes rise {
+    0% {
+        bottom: -20px;
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        bottom: 100%;
+        opacity: 0;
+    }
+}
+
+/* === Fish Spawner === */
+.spawner {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.spawner-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #003d5c;
+    white-space: nowrap;
+}
+
+.spawner-area {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.5);
+    border: 3px dashed #003d5c;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70px;
+}
+
+.spawn-fish {
+    font-size: 48px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: bounce 1s ease infinite;
+}
+
+.spawn-fish:hover {
+    transform: scale(1.2);
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.spawn-fish.catching {
+    animation: catch 0.5s ease forwards;
+}
+
+@keyframes catch {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5) rotate(360deg);
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+/* === Controls === */
+.game-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    flex: 1;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 188, 212, 0.4);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+    color: white;
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
+}
+
+/* === Overlays === */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.overlay-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.overlay-content h2 {
+    font-size: 32px;
+    color: #003d5c;
+    margin-bottom: 20px;
+}
+
+.instructions {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+/* === Responsive === */
+@media (max-width: 400px) {
+    .game-header h1 {
+        font-size: 24px;
+    }
+
+    .stat {
+        padding: 8px 12px;
+    }
+
+    .stat-label {
+        font-size: 12px;
+    }
+
+    .stat-value {
+        font-size: 16px;
+    }
+
+    .fish {
+        font-size: 28px;
+    }
+
+    .spawn-fish {
+        font-size: 40px;
+    }
+
+    .spawner {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .spawner-label {
+        font-size: 14px;
+    }
+}
+
+/* === Touch Optimization === */
+@media (hover: none) {
+    .fish:active {
+        transform: scale(0.95);
+    }
+
+    .spawn-fish:active {
+        transform: scale(0.95);
+    }
+
+    .btn:active {
+        transform: translateY(0);
+    }
+}
+
+/* === Decorative Elements === */
+.aquarium::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30%;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 61, 92, 0.3) 100%);
+    pointer-events: none;
+}

@@ -1,0 +1,444 @@
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    touch-action: manipulation;
+}
+
+/* === Game Container === */
+.game-container {
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 95vh;
+    max-height: 900px;
+}
+
+/* === Header === */
+.game-header {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.game-header h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-label {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* === Game Area === */
+.game-area {
+    flex: 1;
+    background: #f8f9fa;
+    position: relative;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.game-message {
+    text-align: center;
+    color: #333;
+    padding: 20px;
+}
+
+.game-message h2 {
+    font-size: 32px;
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.game-message p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* === Search Area === */
+.search-area {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.target-list {
+    background: white;
+    padding: 15px;
+    border-bottom: 2px solid #eee;
+}
+
+.target-list h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.targets {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.target-item {
+    font-size: 32px;
+    padding: 8px;
+    border-radius: 10px;
+    background: #f8f9fa;
+    border: 2px solid #ddd;
+    transition: all 0.3s ease;
+}
+
+.target-item.found {
+    opacity: 0.3;
+    text-decoration: line-through;
+    border-color: #28a745;
+    background: #d4edda;
+}
+
+/* === Scene === */
+.scene {
+    flex: 1;
+    position: relative;
+    background: linear-gradient(to bottom, #87CEEB 0%, #90EE90 50%, #8B4513 100%);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Scene decorations */
+.scene::before {
+    content: '☀️';
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 48px;
+    animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% {
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(1.3);
+    }
+}
+
+.grass {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to bottom, #90EE90, #228B22);
+}
+
+.tree {
+    position: absolute;
+    font-size: 64px;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.rock {
+    position: absolute;
+    font-size: 48px;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.flower {
+    position: absolute;
+    font-size: 32px;
+    animation: sway 3s ease-in-out infinite;
+}
+
+@keyframes sway {
+    0%, 100% {
+        transform: rotate(-5deg);
+    }
+    50% {
+        transform: rotate(5deg);
+    }
+}
+
+/* === Hidden Objects === */
+.hidden-object {
+    position: absolute;
+    font-size: 36px;
+    opacity: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.hidden-object.revealed {
+    opacity: 1;
+    animation: popIn 0.5s ease;
+}
+
+.hidden-object.hint-active {
+    opacity: 0.5;
+    animation: blink 1s ease-in-out;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.3);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* === Click Effect === */
+.click-effect {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 3px solid #667eea;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* === Game Controls === */
+.game-controls {
+    padding: 15px;
+    background: white;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    border-top: 2px solid #eee;
+    flex-wrap: wrap;
+}
+
+/* === Buttons === */
+.btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    touch-action: manipulation;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+}
+
+.btn-secondary:hover {
+    box-shadow: 0 6px 20px rgba(240, 147, 251, 0.4);
+}
+
+.btn-back {
+    background: #6c757d;
+    color: white;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-back:hover {
+    background: #5a6268;
+    box-shadow: 0 6px 20px rgba(108, 117, 125, 0.4);
+}
+
+/* === Overlay === */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.overlay-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 90%;
+    animation: slideIn 0.3s ease;
+}
+
+.overlay-content h2 {
+    font-size: 36px;
+    color: #667eea;
+    margin-bottom: 20px;
+}
+
+.final-stats {
+    font-size: 22px;
+    color: #333;
+    margin: 20px 0;
+    line-height: 1.8;
+}
+
+.message {
+    font-size: 20px;
+    color: #f5576c;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+/* === Animations === */
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+    .game-header h1 {
+        font-size: 24px;
+    }
+
+    .target-item {
+        font-size: 28px;
+    }
+
+    .hidden-object {
+        font-size: 32px;
+    }
+
+    .scene::before {
+        font-size: 36px;
+        top: 15px;
+        right: 20px;
+    }
+
+    .tree {
+        font-size: 48px;
+    }
+
+    .rock {
+        font-size: 36px;
+    }
+
+    .flower {
+        font-size: 24px;
+    }
+
+    .btn {
+        font-size: 16px;
+        padding: 12px 25px;
+        min-width: 100px;
+    }
+
+    .overlay-content h2 {
+        font-size: 28px;
+    }
+
+    .final-stats {
+        font-size: 18px;
+    }
+}
+
+/* === Accessibility === */
+.btn:focus {
+    outline: 3px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* === User Select Prevention === */
+.scene {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}

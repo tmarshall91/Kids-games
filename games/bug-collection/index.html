@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Collect different bugs and build your insect collection">
+    <title>Bug Collection Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🐛 Bug Collection 🦋</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Caught:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Types:</span>
+                    <span id="types" class="stat-value">0/10</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Game message -->
+            <div class="game-message" id="gameMessage">
+                <h2>Welcome Bug Hunter!</h2>
+                <p>Tap the bugs to catch them</p>
+                <p class="instructions">Try to collect all 10 types!</p>
+            </div>
+
+            <!-- Garden scene -->
+            <div id="gardenScene" class="garden-scene" style="display: none;"></div>
+        </main>
+
+        <!-- Collection Display -->
+        <div id="collectionDisplay" class="collection-display" style="display: none;">
+            <h3>Your Collection</h3>
+            <div id="collectionGrid" class="collection-grid"></div>
+        </div>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Collecting</button>
+            <button id="viewCollectionBtn" class="btn btn-secondary" style="display: none;">View Collection</button>
+        </footer>
+    </div>
+
+    <!-- Collection Complete Overlay -->
+    <div id="completeOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>🎉 Collection Complete! 🎉</h2>
+            <p class="final-score">You caught <span id="finalScore">0</span> bugs!</p>
+            <p class="types-info">All <span id="finalTypes">10</span> types collected!</p>
+            <div class="complete-collection" id="completeCollection"></div>
+            <button id="playAgainBtn" class="btn btn-primary">Collect Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

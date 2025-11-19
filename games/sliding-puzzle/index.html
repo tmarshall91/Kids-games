@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Sliding Picture Puzzle - Rearrange tiles to complete the image">
+    <title>Sliding Picture Puzzle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🧩 Sliding Puzzle</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Moves:</span>
+                    <span id="moves" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Time:</span>
+                    <span id="timer" class="stat-value">0:00</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <div class="difficulty-selector" id="difficultySelector">
+                <h2>Choose Difficulty</h2>
+                <button class="difficulty-btn" data-size="3">Easy (3×3)</button>
+                <button class="difficulty-btn" data-size="4">Medium (4×4)</button>
+                <button class="difficulty-btn" data-size="5">Hard (5×5)</button>
+            </div>
+
+            <div id="puzzleContainer" class="puzzle-container" style="display: none;"></div>
+
+            <div class="game-message" id="gameMessage" style="display: none;">
+                <h2>🎉 Congratulations!</h2>
+                <p>You solved the puzzle!</p>
+                <p class="stats">Moves: <span id="finalMoves">0</span> | Time: <span id="finalTime">0:00</span></p>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="shuffleBtn" class="btn btn-primary" style="display: none;">Shuffle</button>
+            <button id="newGameBtn" class="btn btn-secondary" style="display: none;">New Game</button>
+        </footer>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

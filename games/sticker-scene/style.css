@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    max-height: 95vh;
+}
+
+.game-header {
+    background: linear-gradient(135deg, #FA709A 0%, #FEE140 100%);
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+.game-header h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.game-area {
+    flex: 1;
+    padding: 15px;
+    background: linear-gradient(180deg, #87CEEB 0%, #98FB98 100%);
+    overflow: hidden;
+}
+
+.scene-canvas {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.placed-sticker {
+    position: absolute;
+    font-size: 3rem;
+    cursor: move;
+    user-select: none;
+    touch-action: none;
+    z-index: 1;
+}
+
+.placed-sticker.dragging {
+    z-index: 100;
+    opacity: 0.8;
+}
+
+.game-controls {
+    background: white;
+    padding: 10px;
+    border-top: 2px solid #e0e0e0;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.sticker-panel h3 {
+    margin-bottom: 8px;
+    color: #333;
+    font-size: 1rem;
+}
+
+.sticker-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sticker-row {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.category-label {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #666;
+    min-width: 60px;
+}
+
+.sticker-btn {
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.8rem;
+    padding: 4px;
+    min-width: 44px;
+    min-height: 44px;
+    transition: all 0.2s;
+    flex: 1;
+}
+
+.sticker-btn:active {
+    transform: scale(0.95);
+    background: #f0f0f0;
+}
+
+.control-row {
+    margin-top: 10px;
+}
+
+.btn-action {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    min-height: 48px;
+    background: #ff4757;
+    color: white;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+}
+
+.btn-action:active {
+    transform: scale(0.98);
+}
+
+@media (max-height: 600px) {
+    .game-header h1 {
+        font-size: 1.5rem;
+    }
+    .placed-sticker {
+        font-size: 2rem;
+    }
+}

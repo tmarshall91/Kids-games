@@ -1,0 +1,380 @@
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    touch-action: none;
+}
+
+/* === Game Container === */
+.game-container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* === Header === */
+.game-header {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.game-header h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.stat {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 15px;
+    border-radius: 15px;
+    font-size: 16px;
+}
+
+.stat-label {
+    font-weight: normal;
+}
+
+.stat-value {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* === Game Area === */
+.game-area {
+    position: relative;
+    background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* === Target Container === */
+.target-container {
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.target-container h3 {
+    font-size: 20px;
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+.target-canvas {
+    display: block;
+    background: #f5f5f5;
+    border-radius: 10px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* === Puzzle Container === */
+.puzzle-container {
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px;
+}
+
+.puzzle-canvas {
+    display: block;
+    background: #fafafa;
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+    cursor: grab;
+    touch-action: none;
+}
+
+.puzzle-canvas:active {
+    cursor: grabbing;
+}
+
+/* === Game Message === */
+.game-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 90%;
+    z-index: 100;
+}
+
+.game-message h2 {
+    font-size: 28px;
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.game-message p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.instructions {
+    text-align: left;
+    display: inline-block;
+    margin: 0 auto;
+    font-size: 16px;
+    color: #666;
+    line-height: 1.8;
+}
+
+.instructions li {
+    margin-bottom: 8px;
+}
+
+/* === Controls === */
+.game-controls {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    background: #f5f5f5;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+}
+
+.btn-secondary:hover {
+    box-shadow: 0 6px 20px rgba(240, 147, 251, 0.4);
+}
+
+/* === Overlay === */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.overlay-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 90%;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.overlay-content h2 {
+    font-size: 36px;
+    color: #667eea;
+    margin-bottom: 20px;
+}
+
+.success-message {
+    font-size: 20px;
+    color: #666;
+    margin: 20px 0;
+}
+
+.stars {
+    font-size: 48px;
+    margin: 20px 0;
+    animation: sparkle 1s ease infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* === Selected Piece Indicator === */
+.piece-selected {
+    outline: 3px solid #ff9800;
+    outline-offset: 2px;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    .game-header h1 {
+        font-size: 24px;
+    }
+
+    .stat {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+
+    .stat-value {
+        font-size: 16px;
+    }
+
+    .game-area {
+        min-height: 500px;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .target-container h3 {
+        font-size: 18px;
+    }
+
+    .game-message {
+        padding: 20px;
+    }
+
+    .game-message h2 {
+        font-size: 24px;
+    }
+
+    .game-message p {
+        font-size: 16px;
+    }
+
+    .instructions {
+        font-size: 14px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .overlay-content {
+        padding: 30px 20px;
+    }
+
+    .overlay-content h2 {
+        font-size: 28px;
+    }
+
+    .success-message {
+        font-size: 18px;
+    }
+
+    .stars {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 500px) {
+    .game-area {
+        min-height: 450px;
+        padding: 10px;
+    }
+
+    .target-container,
+    .puzzle-container {
+        padding: 10px;
+    }
+
+    .game-controls {
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .btn {
+        padding: 10px 15px;
+        font-size: 13px;
+    }
+}
+
+/* === Hint System === */
+.hint-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+}
+
+.hint-message {
+    background: #ff9800;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Manage a food truck business - A fun business management game for kids">
+    <title>Food Truck Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🚚 Food Truck Manager</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Money:</span>
+                    <span id="money" class="stat-value">$50</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Day:</span>
+                    <span id="day" class="stat-value">1</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Inventory -->
+            <div class="inventory-panel">
+                <h3>Your Inventory:</h3>
+                <div class="inventory-grid">
+                    <div class="inventory-item">
+                        <div class="item-icon">🍔</div>
+                        <div class="item-name">Burgers</div>
+                        <div class="item-count" id="burger-count">0</div>
+                    </div>
+                    <div class="inventory-item">
+                        <div class="item-icon">🌭</div>
+                        <div class="item-name">Hot Dogs</div>
+                        <div class="item-count" id="hotdog-count">0</div>
+                    </div>
+                    <div class="inventory-item">
+                        <div class="item-icon">🌮</div>
+                        <div class="item-name">Tacos</div>
+                        <div class="item-count" id="taco-count">0</div>
+                    </div>
+                    <div class="inventory-item">
+                        <div class="item-icon">🥤</div>
+                        <div class="item-name">Drinks</div>
+                        <div class="item-count" id="drink-count">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shop -->
+            <div class="shop-panel">
+                <h3>Buy Supplies:</h3>
+                <div class="shop-grid">
+                    <button class="shop-item" data-item="burger" data-cost="5">
+                        <div class="item-icon">🍔</div>
+                        <div class="item-price">$5</div>
+                    </button>
+                    <button class="shop-item" data-item="hotdog" data-cost="4">
+                        <div class="item-icon">🌭</div>
+                        <div class="item-price">$4</div>
+                    </button>
+                    <button class="shop-item" data-item="taco" data-cost="6">
+                        <div class="item-icon">🌮</div>
+                        <div class="item-price">$6</div>
+                    </button>
+                    <button class="shop-item" data-item="drink" data-cost="2">
+                        <div class="item-icon">🥤</div>
+                        <div class="item-price">$2</div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Customer -->
+            <div class="customer-panel" id="customerPanel" style="display: none;">
+                <div class="customer-display">
+                    <div class="customer-avatar" id="customerAvatar">👨</div>
+                    <div class="customer-request">
+                        <h4>Customer wants:</h4>
+                        <div class="request-item" id="requestItem">🍔</div>
+                        <div class="request-pay" id="requestPay">Pays: $10</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startDayBtn" class="btn btn-primary">Start Day</button>
+            <button id="serveBtn" class="btn btn-success" style="display: none;">Serve Customer</button>
+            <button id="skipBtn" class="btn btn-warning" style="display: none;">Skip Customer</button>
+            <button id="endDayBtn" class="btn btn-secondary" style="display: none;">End Day</button>
+        </footer>
+    </div>
+
+    <!-- Day Summary Overlay -->
+    <div id="summaryOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Day Complete! 🚚</h2>
+            <p class="message">Customers Served: <span id="customersServed">0</span></p>
+            <p class="message">Money Earned: $<span id="moneyEarned">0</span></p>
+            <p class="message">Total Money: $<span id="totalMoney">0</span></p>
+            <button id="nextDayBtn" class="btn btn-primary">Next Day</button>
+        </div>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Game Over! 💰</h2>
+            <p class="message">You ran out of money!</p>
+            <p class="message">You lasted <span id="daysLasted">0</span> days!</p>
+            <button id="restartBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

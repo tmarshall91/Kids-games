@@ -1,0 +1,421 @@
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background: #000;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 600px;
+    background: #0a0a2e;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+}
+
+/* === Header === */
+.game-header {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.game-header h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-label {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4ECDC4;
+}
+
+/* === Game Area === */
+.game-area {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background: linear-gradient(to bottom, #000000 0%, #0a0a2e 50%, #1e3c72 100%);
+    overflow: hidden;
+}
+
+.space-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(2px 2px at 20% 30%, white, transparent),
+        radial-gradient(2px 2px at 60% 70%, white, transparent),
+        radial-gradient(1px 1px at 50% 50%, white, transparent),
+        radial-gradient(1px 1px at 80% 10%, white, transparent),
+        radial-gradient(2px 2px at 90% 60%, white, transparent),
+        radial-gradient(1px 1px at 33% 80%, white, transparent);
+    background-size: 200% 200%;
+    animation: twinkle 4s infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.rocket {
+    position: absolute;
+    font-size: 60px;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.rocket.launching {
+    animation: launch 3s ease-in forwards;
+}
+
+@keyframes launch {
+    0% {
+        bottom: 80px;
+        transform: translateX(-50%) scale(1);
+    }
+    100% {
+        bottom: 120%;
+        transform: translateX(-50%) scale(0.3);
+    }
+}
+
+.rocket.flying {
+    animation: fly 2s ease-in-out infinite;
+}
+
+@keyframes fly {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
+.planet {
+    position: absolute;
+    font-size: 80px;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.planet.visible {
+    opacity: 1;
+}
+
+.earth {
+    bottom: -40px;
+    right: 20px;
+}
+
+.moon {
+    top: 20%;
+    right: 10%;
+}
+
+.mars {
+    top: 10%;
+    left: 15%;
+}
+
+.launch-pad {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 80px;
+}
+
+.pad-structure {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #666 0%, #333 100%);
+    border-radius: 10px 10px 0 0;
+    border: 3px solid #888;
+}
+
+.countdown {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 200;
+}
+
+.countdown-number {
+    font-size: 120px;
+    font-weight: bold;
+    color: #FFD700;
+    text-shadow: 0 0 20px #FFD700, 0 0 40px #FFD700;
+    animation: pulse 1s ease-in-out;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+.game-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    z-index: 150;
+    max-width: 80%;
+}
+
+.game-message h2 {
+    font-size: 24px;
+    color: #1e3c72;
+    margin-bottom: 15px;
+}
+
+.game-message p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+/* === Launch Controls === */
+.launch-controls {
+    background: rgba(10, 10, 46, 0.9);
+    padding: 20px;
+    border-top: 2px solid #2a5298;
+}
+
+.control-panel {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.control-btn {
+    flex: 1;
+    min-width: 120px;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.fuel-btn {
+    background: linear-gradient(135deg, #F7971E 0%, #FFD200 100%);
+    color: #333;
+}
+
+.check-btn {
+    background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+    color: white;
+}
+
+.launch-btn {
+    background: linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%);
+    color: white;
+}
+
+.control-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.control-btn:not(:disabled):hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+}
+
+.control-btn:not(:disabled):active {
+    transform: scale(0.98);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px solid #2a5298;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #F7971E 0%, #FFD200 100%);
+    transition: width 0.3s ease;
+    border-radius: 13px;
+}
+
+/* === Bottom Controls === */
+.game-controls {
+    padding: 20px;
+    text-align: center;
+    background: #0a0a2e;
+    border-top: 2px solid #2a5298;
+}
+
+.btn {
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    transition: all 0.3s ease;
+    margin: 0 10px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #FF6B6B;
+    color: white;
+}
+
+.btn-secondary:hover {
+    transform: scale(1.05);
+}
+
+/* === Overlay === */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.overlay-content {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 90%;
+    color: white;
+}
+
+.overlay-content h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.final-score {
+    font-size: 24px;
+    color: #4ECDC4;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.final-stat {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.mission-message {
+    font-size: 18px;
+    margin: 20px 0;
+    color: #FFD700;
+}
+
+/* === Responsive === */
+@media (max-width: 480px) {
+    .game-header h1 {
+        font-size: 24px;
+    }
+
+    .stat-value {
+        font-size: 20px;
+    }
+
+    .game-area {
+        height: 400px;
+    }
+
+    .rocket {
+        font-size: 50px;
+    }
+
+    .countdown-number {
+        font-size: 80px;
+    }
+
+    .control-btn {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .btn {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+}
