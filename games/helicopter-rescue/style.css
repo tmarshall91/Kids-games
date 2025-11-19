@@ -1,0 +1,444 @@
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #56CCF2 0%, #2F80ED 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+/* === Header === */
+.game-header {
+    background: linear-gradient(135deg, #F2994A 0%, #F2C94C 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.game-header h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-label {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* === Game Area === */
+.game-area {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background: linear-gradient(to bottom, #87CEEB 0%, #E0F6FF 100%);
+    overflow: hidden;
+}
+
+.sky-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.cloud {
+    position: absolute;
+    width: 80px;
+    height: 40px;
+    background: white;
+    border-radius: 50px;
+    opacity: 0.7;
+    animation: float-cloud 20s infinite linear;
+}
+
+.cloud::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 50%;
+    top: -25px;
+    left: 10px;
+}
+
+.cloud::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    top: -15px;
+    right: 10px;
+}
+
+@keyframes float-cloud {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100vw);
+    }
+}
+
+.helicopter {
+    position: absolute;
+    font-size: 60px;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.2s ease;
+    z-index: 100;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.helicopter.flying {
+    animation: hover 1s ease-in-out infinite;
+}
+
+@keyframes hover {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+.rescue-hook {
+    position: absolute;
+    width: 3px;
+    background: linear-gradient(to bottom, #666 0%, #333 100%);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
+    transition: height 0.3s ease;
+}
+
+.rescue-hook::after {
+    content: '🪝';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+}
+
+.ground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom, #90EE90 0%, #228B22 100%);
+    border-top: 3px solid #32CD32;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 20px;
+}
+
+/* === Rescue Targets === */
+.rescue-target {
+    font-size: 40px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    animation: wave 2s ease-in-out infinite;
+}
+
+.rescue-target.rescued {
+    animation: rescue-float 2s ease-out forwards;
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: rotate(-5deg);
+    }
+    50% {
+        transform: rotate(5deg);
+    }
+}
+
+@keyframes rescue-float {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-400px) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* === Rescue Message === */
+.rescue-message {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 28px;
+    font-weight: bold;
+    color: #F2994A;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    opacity: 0;
+    z-index: 200;
+}
+
+.rescue-message.show {
+    animation: rescueMessagePop 1.5s ease-out;
+}
+
+@keyframes rescueMessagePop {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -70%) scale(1);
+    }
+}
+
+.game-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    max-width: 80%;
+}
+
+.game-message h2 {
+    font-size: 24px;
+    color: #F2994A;
+    margin-bottom: 15px;
+}
+
+.game-message p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+/* === Controls === */
+.game-controls {
+    padding: 20px;
+    text-align: center;
+    background: #f5f5f5;
+}
+
+.control-pad {
+    display: flex;
+    gap: 10px;
+    max-width: 400px;
+    margin: 0 auto 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow-btn {
+    width: 80px;
+    height: 60px;
+    font-size: 24px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #56CCF2 0%, #2F80ED 100%);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+}
+
+.arrow-btn:active {
+    transform: scale(0.9);
+    box-shadow: 0 2px 10px rgba(47, 128, 237, 0.5);
+}
+
+.action-btn {
+    width: 120px;
+    height: 60px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #F2994A 0%, #F2C94C 100%);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+}
+
+.action-btn:active {
+    transform: scale(0.9);
+    box-shadow: 0 2px 10px rgba(242, 153, 74, 0.5);
+}
+
+.btn {
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    transition: all 0.3s ease;
+    margin: 5px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #FF6B6B;
+    color: white;
+}
+
+.btn-secondary:hover {
+    transform: scale(1.05);
+}
+
+/* === Overlay === */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.overlay-content {
+    background: linear-gradient(135deg, #F2994A 0%, #F2C94C 100%);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 90%;
+    color: white;
+}
+
+.overlay-content h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.final-score {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.final-stat {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.mission-rank {
+    font-size: 20px;
+    margin: 20px 0;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* === Responsive === */
+@media (max-width: 480px) {
+    .game-header h1 {
+        font-size: 24px;
+    }
+
+    .stat-value {
+        font-size: 20px;
+    }
+
+    .game-area {
+        height: 400px;
+    }
+
+    .helicopter {
+        font-size: 50px;
+    }
+
+    .rescue-target {
+        font-size: 35px;
+    }
+
+    .arrow-btn {
+        width: 70px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .action-btn {
+        width: 100px;
+        height: 50px;
+        font-size: 16px;
+    }
+
+    .btn {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+
+    .rescue-message {
+        font-size: 24px;
+    }
+}

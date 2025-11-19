@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Launch your rocket to space by completing the countdown sequence">
+    <title>Rocket Launch Sequence</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🚀 Rocket Launch</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Altitude:</span>
+                    <span id="altitude" class="stat-value">0</span>
+                    <span class="stat-label">km</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Fuel:</span>
+                    <span id="fuel" class="stat-value">100</span>
+                    <span class="stat-label">%</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Space Background -->
+            <div class="space-background">
+                <div class="stars"></div>
+                <div class="rocket" id="rocket">🚀</div>
+                <div class="planet earth" id="earth">🌍</div>
+                <div class="planet moon" id="moon" style="display: none;">🌙</div>
+                <div class="planet mars" id="mars" style="display: none;">🪐</div>
+            </div>
+
+            <!-- Launch Pad -->
+            <div class="launch-pad" id="launchPad">
+                <div class="pad-structure"></div>
+            </div>
+
+            <!-- Countdown Display -->
+            <div class="countdown" id="countdown" style="display: none;">
+                <div class="countdown-number" id="countdownNumber">10</div>
+            </div>
+
+            <!-- Welcome Message -->
+            <div class="game-message" id="gameMessage">
+                <h2>Ready for Launch!</h2>
+                <p>Complete the pre-launch sequence:</p>
+                <p>✓ Fuel the rocket</p>
+                <p>✓ Run system checks</p>
+                <p>✓ Launch to space!</p>
+            </div>
+        </main>
+
+        <!-- Launch Controls -->
+        <div class="launch-controls" id="launchControls">
+            <div class="control-panel">
+                <button id="fuelBtn" class="control-btn fuel-btn">⛽ Fuel Rocket</button>
+                <button id="systemCheckBtn" class="control-btn check-btn" disabled>🔧 System Check</button>
+                <button id="launchBtn" class="control-btn launch-btn" disabled>🚀 LAUNCH!</button>
+            </div>
+            <div class="progress-bar" id="fuelProgress">
+                <div class="progress-fill" id="fuelFill" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Mission</button>
+            <button id="restartBtn" class="btn btn-secondary" style="display: none;">New Mission</button>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2 id="gameOverTitle">Mission Complete! 🎉</h2>
+            <p class="final-score">Maximum Altitude: <span id="finalAltitude">0</span> km</p>
+            <p class="final-stat">Score: <span id="finalScore">0</span></p>
+            <p id="missionMessage" class="mission-message"></p>
+            <button id="playAgainBtn" class="btn btn-primary">New Mission</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

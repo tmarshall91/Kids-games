@@ -1,0 +1,339 @@
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #F093FB 0%, #F5576C 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+/* === Header === */
+.game-header {
+    background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.game-header h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-label {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* === Game Area === */
+.game-area {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(to bottom, #87CEEB 0%, #98D98E 70%);
+    overflow: hidden;
+}
+
+.ground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(to bottom, #8B4513 0%, #654321 100%);
+    border-top: 4px solid #A0522D;
+}
+
+.truck {
+    position: absolute;
+    bottom: 60px;
+    left: 100px;
+    font-size: 50px;
+    transition: none;
+    z-index: 100;
+    transform-origin: center center;
+}
+
+.truck.jumping {
+    animation: jump 0.8s ease-in-out;
+}
+
+.truck.crashed {
+    animation: crash 0.5s ease-in-out;
+}
+
+@keyframes jump {
+    0% {
+        bottom: 60px;
+        transform: rotate(0deg);
+    }
+    50% {
+        bottom: 200px;
+        transform: rotate(15deg);
+    }
+    100% {
+        bottom: 60px;
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes crash {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-30deg) translateY(-10px);
+    }
+    75% {
+        transform: rotate(30deg) translateY(-10px);
+    }
+}
+
+/* === Obstacles === */
+.obstacle {
+    position: absolute;
+    bottom: 60px;
+    width: 40px;
+    height: 50px;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ramp {
+    position: absolute;
+    bottom: 60px;
+    width: 80px;
+    height: 60px;
+    background: linear-gradient(135deg, #D4A574 0%, #8B7355 100%);
+    clip-path: polygon(0 100%, 100% 0, 100% 100%);
+    border: 2px solid #654321;
+}
+
+/* === Stunt Message === */
+.stunt-message {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+    font-weight: bold;
+    color: #FFD700;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 200;
+}
+
+.stunt-message.show {
+    animation: stuntPop 1s ease-out;
+}
+
+@keyframes stuntPop {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.game-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    max-width: 80%;
+}
+
+.game-message h2 {
+    font-size: 24px;
+    color: #FF6B6B;
+    margin-bottom: 15px;
+}
+
+.game-message p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+/* === Controls === */
+.game-controls {
+    padding: 20px;
+    text-align: center;
+    background: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-jump {
+    background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+    color: white;
+    font-size: 24px;
+    padding: 20px 50px;
+}
+
+.btn-jump:active {
+    transform: scale(0.95);
+}
+
+.btn-jump:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(78, 205, 196, 0.4);
+}
+
+.btn-secondary {
+    background: #FF6B6B;
+    color: white;
+}
+
+.btn-secondary:hover {
+    transform: scale(1.05);
+}
+
+/* === Overlay === */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.overlay-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 90%;
+}
+
+.overlay-content h2 {
+    font-size: 36px;
+    color: #FF6B6B;
+    margin-bottom: 20px;
+}
+
+.final-score {
+    font-size: 24px;
+    color: #667eea;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.final-stat {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* === Responsive === */
+@media (max-width: 480px) {
+    .game-header h1 {
+        font-size: 24px;
+    }
+
+    .stat-value {
+        font-size: 20px;
+    }
+
+    .game-area {
+        height: 350px;
+    }
+
+    .truck {
+        font-size: 45px;
+        left: 50px;
+    }
+
+    .btn {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+
+    .btn-jump {
+        font-size: 20px;
+        padding: 15px 40px;
+    }
+
+    .stunt-message {
+        font-size: 24px;
+    }
+}
