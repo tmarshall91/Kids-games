@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Archery Target Practice - A fun mobile-friendly game for kids">
+    <title>🎯 Archery Target Practice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🎯 Archery Target Practice</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Arrows:</span>
+                    <span id="arrows" class="stat-value">10</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Welcome Message -->
+            <div class="game-message" id="gameMessage">
+                <h2>Welcome Archer! 🏹</h2>
+                <p>Drag to aim, release to shoot</p>
+                <p class="instruction">Hit the bullseye for max points!</p>
+            </div>
+
+            <!-- Wind Indicator -->
+            <div class="wind-indicator" id="windIndicator">
+                <span class="wind-label">Wind:</span>
+                <span class="wind-value" id="windValue">None</span>
+                <span class="wind-arrow" id="windArrow"></span>
+            </div>
+
+            <!-- Target -->
+            <div class="target" id="target">
+                <div class="ring ring-10"></div>
+                <div class="ring ring-8"></div>
+                <div class="ring ring-6"></div>
+                <div class="ring ring-4"></div>
+                <div class="ring ring-2"></div>
+            </div>
+
+            <!-- Bow and Arrow (draggable) -->
+            <div class="bow-container" id="bowContainer">
+                <div class="bow" id="bow">
+                    <div class="bow-string"></div>
+                    <div class="bow-body"></div>
+                </div>
+                <div class="arrow" id="arrow">
+                    <div class="arrow-shaft"></div>
+                    <div class="arrow-head"></div>
+                    <div class="arrow-feathers"></div>
+                </div>
+                <div class="aim-guide" id="aimGuide"></div>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game 🏹</button>
+            <button id="restartBtn" class="btn btn-secondary" style="display: none;">Play Again 🎯</button>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Game Complete! 🎯</h2>
+            <p class="final-score">Final Score: <span id="finalScore">0</span></p>
+            <p class="accuracy-stats" id="accuracyStats"></p>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again 🏹</button>
+        </div>
+    </div>
+
+    <!-- Shot Result Feedback -->
+    <div id="shotFeedback" class="shot-feedback" style="display: none;">
+        <span id="shotPoints"></span>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

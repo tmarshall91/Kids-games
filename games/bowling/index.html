@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Bowling - Roll strikes and spares in this fun bowling game!">
+    <title>🎳 Bowling</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🎳 Bowling</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Frame:</span>
+                    <span id="frame" class="stat-value">1</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Ball:</span>
+                    <span id="ball" class="stat-value">1</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Game content will be dynamically added here -->
+            <div class="game-message" id="gameMessage">
+                <h2>Ready to Bowl?</h2>
+                <p>Swipe left or right to aim</p>
+                <p>Swipe up to roll the ball!</p>
+                <p>Try to knock down all 10 pins!</p>
+            </div>
+
+            <!-- Bowling Lane -->
+            <div class="bowling-lane" id="bowlingLane">
+                <!-- Pins Container -->
+                <div class="pins-container" id="pinsContainer">
+                    <!-- Pins will be dynamically added -->
+                </div>
+
+                <!-- Aiming Guide -->
+                <div class="aiming-guide" id="aimingGuide" style="display: none;">
+                    <div class="aim-line"></div>
+                </div>
+
+                <!-- Bowling Ball -->
+                <div class="bowling-ball" id="bowlingBall" style="display: none;">🟣</div>
+
+                <!-- Lane Markers -->
+                <div class="lane-markers">
+                    <div class="foul-line"></div>
+                </div>
+            </div>
+
+            <!-- Score Display Popup -->
+            <div class="result-popup" id="resultPopup" style="display: none;"></div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+            <button id="restartBtn" class="btn btn-secondary" style="display: none;">Play Again</button>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Game Over!</h2>
+            <p class="final-score">Final Score: <span id="finalScore">0</span></p>
+            <p class="final-message" id="finalMessage">Great game!</p>
+            <div id="scoreBreakdown" class="score-breakdown"></div>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

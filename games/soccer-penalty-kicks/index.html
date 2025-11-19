@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Soccer Penalty Kicks - Score goals and beat the keeper!">
+    <title>Soccer Penalty Kicks</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>⚽ Soccer Penalty Kicks</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Goals:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Shots:</span>
+                    <span id="shots" class="stat-value">0/10</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Game message -->
+            <div class="game-message" id="gameMessage">
+                <h2>Ready for Penalty Kicks?</h2>
+                <p>Tap a target to aim your shot!</p>
+                <p>Score as many goals as you can!</p>
+            </div>
+
+            <!-- Soccer field -->
+            <div class="field">
+                <!-- Goal -->
+                <div class="goal">
+                    <div class="goal-post left-post"></div>
+                    <div class="goal-post right-post"></div>
+                    <div class="goal-crossbar"></div>
+                    <div class="goal-net"></div>
+
+                    <!-- Shot targets -->
+                    <div class="target top-left" data-position="top-left"></div>
+                    <div class="target top-right" data-position="top-right"></div>
+                    <div class="target middle-left" data-position="middle-left"></div>
+                    <div class="target middle-right" data-position="middle-right"></div>
+                    <div class="target bottom-left" data-position="bottom-left"></div>
+                    <div class="target bottom-right" data-position="bottom-right"></div>
+                </div>
+
+                <!-- Goalkeeper -->
+                <div class="goalkeeper" id="goalkeeper">🧤</div>
+
+                <!-- Soccer ball -->
+                <div class="soccer-ball" id="soccerBall">⚽</div>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+            <button id="restartBtn" class="btn btn-secondary" style="display: none;">Play Again</button>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Game Over!</h2>
+            <p class="final-score">Goals: <span id="finalScore">0</span> out of 10</p>
+            <p class="final-message" id="finalMessage">Great effort!</p>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
