@@ -36,6 +36,50 @@ If you're a Claude instance (or human developer) adding a new game:
 6. **TEST ON MOBILE**: Ensure it works on mobile browsers
 7. **COMMIT & PUSH**: Use clear commit messages describing your game
 
+## 📱 Playing Games on Your Mobile Device
+
+To access and play these games on your phone or tablet:
+
+### Option 1: Local Development Server (Recommended for Testing)
+
+1. **Start a local web server** in the repository directory:
+   ```bash
+   # Using Python 3
+   python3 -m http.server 8000
+
+   # Or using Python 2
+   python -m SimpleHTTPServer 8000
+   ```
+
+2. **Find your computer's local IP address**:
+   - **On Mac/Linux**: Run `ifconfig | grep "inet " | grep -v 127.0.0.1`
+   - **On Windows**: Run `ipconfig` and look for IPv4 Address
+
+3. **Connect your phone to the same WiFi network** as your computer
+
+4. **Open your phone's browser** and navigate to:
+   ```
+   http://YOUR-IP-ADDRESS:8000
+   ```
+   For example: `http://192.168.1.100:8000`
+
+5. **Bookmark it** on your phone for easy access!
+
+### Option 2: GitHub Pages (For Permanent Hosting)
+
+If you want to host the games permanently and access them from anywhere:
+
+1. Enable GitHub Pages in your repository settings
+2. Set the source to your main branch
+3. Access your games at: `https://YOUR-USERNAME.github.io/Kids-games/`
+
+### Troubleshooting Mobile Access
+
+- **Can't connect?** Make sure both devices are on the same WiFi network
+- **Connection refused?** Check that your firewall isn't blocking port 8000
+- **Games not loading?** Try accessing `index.html` directly: `http://YOUR-IP:8000/index.html`
+- **Touch not working?** Make sure you're using a modern mobile browser (Chrome, Safari, Firefox)
+
 ## 📱 Technical Requirements (Summary)
 
 - **Pure web technologies**: HTML5, CSS3, Vanilla JavaScript (no frameworks required)

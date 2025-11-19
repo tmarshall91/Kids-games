@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Tap to the rhythm! Follow the beat and tap in time with the music.">
+    <title>Rhythm Tapping - Kids Games</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>🎵 Rhythm Tapping</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Streak:</span>
+                    <span id="streak" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <main class="game-area" id="gameArea">
+            <div class="game-message" id="gameMessage">
+                <h2>Tap to the Rhythm!</h2>
+                <p>Tap the screen when the circle is smallest</p>
+                <p>Build your streak for higher scores!</p>
+            </div>
+
+            <div id="gameBoard" class="game-board" style="display: none;">
+                <div class="rhythm-display">
+                    <div class="pulse-container" id="pulseContainer">
+                        <div class="pulse-ring pulse-ring-1"></div>
+                        <div class="pulse-ring pulse-ring-2"></div>
+                        <div class="pulse-ring pulse-ring-3"></div>
+                        <div class="center-circle" id="centerCircle">
+                            <span class="tap-text">TAP!</span>
+                        </div>
+                    </div>
+                    <div class="timing-feedback" id="timingFeedback"></div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Tapping</button>
+            <button id="restartBtn" class="btn btn-secondary" style="display: none;">Tap Again</button>
+        </footer>
+    </div>
+
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Great Rhythm! 🎶</h2>
+            <p class="final-score">Score: <span id="finalScore">0</span></p>
+            <p class="final-streak">Best Streak: <span id="finalStreak">0</span></p>
+            <button id="playAgainBtn" class="btn btn-primary">Tap Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

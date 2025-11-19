@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Copy the dance moves shown on screen! Match the rhythm and movements.">
+    <title>Dance Move Matcher - Kids Games</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>💃 Dance Move Matcher</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Combo:</span>
+                    <span id="combo" class="stat-value">0</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <div class="game-message" id="gameMessage">
+                <h2>Welcome to Dance Move Matcher!</h2>
+                <p>Copy the dance moves as they appear</p>
+                <p>Swipe or tap in the direction shown!</p>
+            </div>
+
+            <div id="gameBoard" class="game-board" style="display: none;">
+                <div class="dance-display" id="danceDisplay">
+                    <div class="move-icon" id="moveIcon">👆</div>
+                    <div class="move-name" id="moveName">Get Ready!</div>
+                </div>
+
+                <div class="direction-buttons">
+                    <div class="direction-row">
+                        <button class="direction-btn" data-direction="up">
+                            <span class="arrow">↑</span>
+                            <span class="label">Up</span>
+                        </button>
+                    </div>
+                    <div class="direction-row">
+                        <button class="direction-btn" data-direction="left">
+                            <span class="arrow">←</span>
+                            <span class="label">Left</span>
+                        </button>
+                        <button class="direction-btn" data-direction="down">
+                            <span class="arrow">↓</span>
+                            <span class="label">Down</span>
+                        </button>
+                        <button class="direction-btn" data-direction="right">
+                            <span class="arrow">→</span>
+                            <span class="label">Right</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="countdown" id="countdown" style="display: none;">3</div>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Dancing</button>
+            <button id="restartBtn" class="btn btn-secondary" style="display: none;">Dance Again</button>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Great Dancing! 🕺</h2>
+            <p class="final-score">Score: <span id="finalScore">0</span></p>
+            <p class="final-combo">Best Combo: <span id="finalCombo">0</span></p>
+            <button id="playAgainBtn" class="btn btn-primary">Dance Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
