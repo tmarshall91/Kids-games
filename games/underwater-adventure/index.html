@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Swim through the ocean and collect treasures">
+    <title>Underwater Adventure</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🌊 Underwater Adventure</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Oxygen:</span>
+                    <span id="oxygen" class="stat-value">100%</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Depth:</span>
+                    <span id="depth" class="stat-value">0m</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <div class="ocean" id="ocean">
+                <div class="diver" id="diver">🤿</div>
+                <div class="items-container" id="itemsContainer"></div>
+                <div class="bubbles-container" id="bubblesContainer"></div>
+            </div>
+            <div class="oxygen-bar-container">
+                <div class="oxygen-bar" id="oxygenBar"></div>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <div class="control-instructions">
+                Tap or swipe to swim and collect treasures!
+            </div>
+            <button id="startBtn" class="btn btn-primary">Start Diving</button>
+            <button id="restartBtn" class="btn btn-secondary" style="display: none;">Dive Again</button>
+        </footer>
+    </div>
+
+    <!-- Welcome Overlay -->
+    <div id="welcomeOverlay" class="overlay">
+        <div class="overlay-content">
+            <h2>🌊 Underwater Adventure</h2>
+            <p class="instructions">
+                <strong>How to Play:</strong><br>
+                1. Tap/click anywhere to swim the diver<br>
+                2. Collect treasures 💎 (+50 points)<br>
+                3. Grab pearls 🦪 (+30 points)<br>
+                4. Collect coins 🪙 (+10 points)<br>
+                5. Catch air bubbles 🫧 (+20% oxygen)<br>
+                6. Avoid jellyfish ☠️ (-30% oxygen)<br>
+                7. Don't run out of oxygen!
+            </p>
+            <button id="playBtn" class="btn btn-primary">Start Diving!</button>
+        </div>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Dive Complete! 🌟</h2>
+            <p class="final-score">Score: <span id="finalScore">0</span></p>
+            <p class="max-depth">Max Depth: <span id="maxDepth">0</span>m</p>
+            <button id="playAgainBtn" class="btn btn-primary">Dive Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

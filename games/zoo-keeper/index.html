@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Manage and feed hungry animals in your zoo">
+    <title>Zoo Keeper</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🦁 Zoo Keeper</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Fed:</span>
+                    <span id="fedCount" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Time:</span>
+                    <span id="timer" class="stat-value">60</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <div class="zoo-grid" id="zooGrid">
+                <!-- Animal enclosures will be dynamically added here -->
+            </div>
+        </main>
+
+        <!-- Food Selector -->
+        <div class="food-selector" id="foodSelector">
+            <div class="food-label">Select Food:</div>
+            <div class="food-buttons">
+                <button class="food-btn active" data-food="🍖" title="Meat">🍖</button>
+                <button class="food-btn" data-food="🥬" title="Vegetables">🥬</button>
+                <button class="food-btn" data-food="🐟" title="Fish">🐟</button>
+                <button class="food-btn" data-food="🍌" title="Fruit">🍌</button>
+            </div>
+        </div>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+            <button id="restartBtn" class="btn btn-secondary" style="display: none;">Play Again</button>
+        </footer>
+    </div>
+
+    <!-- Welcome Overlay -->
+    <div id="welcomeOverlay" class="overlay">
+        <div class="overlay-content">
+            <h2>🦁 Zoo Keeper</h2>
+            <p class="instructions">
+                <strong>How to Play:</strong><br>
+                1. Animals get hungry (❗appears)<br>
+                2. Select the right food:<br>
+                   • 🍖 for 🦁🐯🐻🦅<br>
+                   • 🥬 for 🦒🐘🦏🐼<br>
+                   • 🐟 for 🐧🦭<br>
+                   • 🍌 for 🐵🦍<br>
+                3. Tap hungry animals to feed<br>
+                4. Feed quickly before time runs out!
+            </p>
+            <button id="playBtn" class="btn btn-primary">Start Keeping!</button>
+        </div>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Great Zookeeping! 🌟</h2>
+            <p class="final-score">Score: <span id="finalScore">0</span></p>
+            <p class="final-fed">Animals Fed: <span id="finalFed">0</span></p>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
