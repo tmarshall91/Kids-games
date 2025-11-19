@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Kids Solitaire - Card Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>🎴 Kids Solitaire 🎴</h1>
+            <div class="game-stats">
+                <span id="moves">Moves: 0</span>
+                <span id="timer">Time: 0:00</span>
+            </div>
+        </header>
+
+        <div id="welcome-screen" class="screen">
+            <div class="welcome-content">
+                <h2>How to Play</h2>
+                <ul class="instructions">
+                    <li>🎯 Move all cards to the foundation piles (top right)</li>
+                    <li>🏠 Foundation piles build up by suit (A→2→3...→K)</li>
+                    <li>📚 Tableau piles build down, alternating colors</li>
+                    <li>🃏 Tap the deck to draw new cards</li>
+                    <li>✨ Tap a card, then tap where to move it</li>
+                    <li>🎉 Win by completing all four foundation piles!</li>
+                </ul>
+                <button id="start-btn" class="btn btn-primary">Start Game</button>
+            </div>
+        </div>
+
+        <main id="game-area" class="game-area" style="display: none;">
+            <!-- Top area: Stock, Waste, and Foundation piles -->
+            <div class="top-area">
+                <div class="stock-waste">
+                    <div id="stock" class="pile stock-pile">
+                        <div class="card-placeholder">🎴</div>
+                    </div>
+                    <div id="waste" class="pile waste-pile">
+                        <div class="card-placeholder"></div>
+                    </div>
+                </div>
+
+                <div class="foundation-piles">
+                    <div id="foundation-0" class="pile foundation-pile" data-suit="hearts">
+                        <div class="card-placeholder">❤️</div>
+                    </div>
+                    <div id="foundation-1" class="pile foundation-pile" data-suit="diamonds">
+                        <div class="card-placeholder">💎</div>
+                    </div>
+                    <div id="foundation-2" class="pile foundation-pile" data-suit="clubs">
+                        <div class="card-placeholder">♣️</div>
+                    </div>
+                    <div id="foundation-3" class="pile foundation-pile" data-suit="spades">
+                        <div class="card-placeholder">♠️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tableau piles -->
+            <div class="tableau-area">
+                <div id="tableau-0" class="pile tableau-pile"></div>
+                <div id="tableau-1" class="pile tableau-pile"></div>
+                <div id="tableau-2" class="pile tableau-pile"></div>
+                <div id="tableau-3" class="pile tableau-pile"></div>
+                <div id="tableau-4" class="pile tableau-pile"></div>
+                <div id="tableau-5" class="pile tableau-pile"></div>
+                <div id="tableau-6" class="pile tableau-pile"></div>
+            </div>
+
+            <div class="game-controls">
+                <button id="hint-btn" class="btn btn-small">💡 Hint</button>
+                <button id="restart-btn" class="btn btn-small">🔄 Restart</button>
+            </div>
+        </main>
+
+        <div id="game-over-screen" class="screen" style="display: none;">
+            <div class="game-over-content">
+                <h2 id="game-result">🎉 You Win! 🎉</h2>
+                <div class="final-score">
+                    <p>Moves: <span id="final-moves"></span></p>
+                    <p>Time: <span id="final-time"></span></p>
+                </div>
+                <button id="play-again-btn" class="btn btn-primary">Play Again</button>
+                <a href="../../index.html" class="btn btn-secondary">Back to Games</a>
+            </div>
+        </div>
+
+        <div id="message-box" class="message-box"></div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Go Fish - Card Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>🐟 Go Fish 🐟</h1>
+            <div class="game-stats">
+                <span id="player-pairs">Your Pairs: 0</span>
+                <span id="computer-pairs">Computer Pairs: 0</span>
+            </div>
+        </header>
+
+        <div id="welcome-screen" class="screen">
+            <div class="welcome-content">
+                <h2>How to Play</h2>
+                <ul class="instructions">
+                    <li>🎯 Match pairs of cards with the same rank</li>
+                    <li>🃏 Tap a card to ask the computer for that rank</li>
+                    <li>🐠 If computer has it, you get their cards!</li>
+                    <li>🎣 If not, "Go Fish!" - draw from deck</li>
+                    <li>🏆 Most pairs wins!</li>
+                </ul>
+                <button id="start-btn" class="btn btn-primary">Start Game</button>
+            </div>
+        </div>
+
+        <main id="game-area" class="game-area" style="display: none;">
+            <div class="computer-section">
+                <h3>Computer's Hand</h3>
+                <div id="computer-hand" class="card-container">
+                    <!-- Computer cards -->
+                </div>
+            </div>
+
+            <div class="deck-section">
+                <div class="deck-info">
+                    <div id="deck" class="deck">
+                        <div class="card card-back">🎴</div>
+                        <span id="deck-count">Cards: 0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="player-section">
+                <h3>Your Hand (Tap a card to ask)</h3>
+                <div id="player-hand" class="card-container">
+                    <!-- Player cards -->
+                </div>
+            </div>
+
+            <div id="message-box" class="message-box"></div>
+        </main>
+
+        <div id="game-over-screen" class="screen" style="display: none;">
+            <div class="game-over-content">
+                <h2 id="game-result"></h2>
+                <div class="final-score">
+                    <p>Your Pairs: <span id="final-player-pairs"></span></p>
+                    <p>Computer Pairs: <span id="final-computer-pairs"></span></p>
+                </div>
+                <button id="restart-btn" class="btn btn-primary">Play Again</button>
+                <a href="../../index.html" class="btn btn-secondary">Back to Games</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
