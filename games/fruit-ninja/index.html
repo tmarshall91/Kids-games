@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Fruit Ninja - Slice fruits and avoid bombs in this fun mobile game for kids">
+    <title>Fruit Ninja</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🍉 Fruit Ninja 🥝</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Lives:</span>
+                    <span id="lives" class="stat-value">3</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Game content will be dynamically added here -->
+            <div class="game-message" id="gameMessage">
+                <h2>🎯 Fruit Ninja!</h2>
+                <p>Swipe to slice the fruits</p>
+                <p>Avoid the bombs! 💣</p>
+            </div>
+            <!-- Slice trail canvas -->
+            <canvas id="sliceCanvas"></canvas>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+            <button id="restartBtn" class="btn btn-secondary" style="display: none;">Play Again</button>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Game Over!</h2>
+            <p class="final-score">Score: <span id="finalScore">0</span></p>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
