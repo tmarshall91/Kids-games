@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Catch falling objects in your basket! A fun mobile-friendly game for kids">
+    <title>Catch the Falling Objects</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>Catch the Stars!</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Time:</span>
+                    <span id="timer" class="stat-value">30</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Game message shown before game starts -->
+            <div class="game-message" id="gameMessage">
+                <h2>Welcome!</h2>
+                <p>Move the basket to catch falling stars</p>
+                <p class="instructions">Drag or tap to move the basket</p>
+            </div>
+
+            <!-- The basket (catcher) -->
+            <div id="basket" class="basket">
+                <div class="basket-body"></div>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+            <button id="restartBtn" class="btn btn-secondary" style="display: none;">Restart</button>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>Great Job!</h2>
+            <p class="final-score">Stars Caught: <span id="finalScore">0</span></p>
+            <p class="game-over-message" id="gameOverMessage"></p>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
