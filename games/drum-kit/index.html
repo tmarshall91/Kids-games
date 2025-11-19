@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Play percussion instruments! Tap drums, cymbals, and more to create beats.">
+    <title>Drum Kit - Kids Games</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🥁 Drum Kit</h1>
+            <p class="subtitle">Tap to play!</p>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <div class="drum-kit">
+                <!-- Top Row - Cymbals -->
+                <div class="drum-row top-row">
+                    <div class="drum cymbal-left" data-sound="cymbal-left">
+                        <div class="drum-label">Crash</div>
+                        <div class="drum-key">Q</div>
+                    </div>
+                    <div class="drum cymbal-right" data-sound="cymbal-right">
+                        <div class="drum-label">Ride</div>
+                        <div class="drum-key">P</div>
+                    </div>
+                </div>
+
+                <!-- Middle Row - Toms -->
+                <div class="drum-row middle-row">
+                    <div class="drum tom tom-high" data-sound="tom-high">
+                        <div class="drum-label">High Tom</div>
+                        <div class="drum-key">W</div>
+                    </div>
+                    <div class="drum tom tom-mid" data-sound="tom-mid">
+                        <div class="drum-label">Mid Tom</div>
+                        <div class="drum-key">E</div>
+                    </div>
+                    <div class="drum tom tom-low" data-sound="tom-low">
+                        <div class="drum-label">Low Tom</div>
+                        <div class="drum-key">R</div>
+                    </div>
+                </div>
+
+                <!-- Bottom Row - Snare, Hi-Hat, Kick -->
+                <div class="drum-row bottom-row">
+                    <div class="drum hihat" data-sound="hihat">
+                        <div class="drum-label">Hi-Hat</div>
+                        <div class="drum-key">A</div>
+                    </div>
+                    <div class="drum snare" data-sound="snare">
+                        <div class="drum-label">Snare</div>
+                        <div class="drum-key">S</div>
+                    </div>
+                    <div class="drum kick" data-sound="kick">
+                        <div class="drum-label">Kick</div>
+                        <div class="drum-key">Space</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <div class="instructions">
+                <p>🎵 Tap drums or use keyboard keys to play!</p>
+                <button id="recordBtn" class="btn btn-secondary">Start Recording</button>
+                <button id="playbackBtn" class="btn btn-secondary" style="display: none;">Play Recording</button>
+                <button id="clearBtn" class="btn btn-tertiary" style="display: none;">Clear</button>
+            </div>
+        </footer>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

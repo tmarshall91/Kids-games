@@ -1,0 +1,327 @@
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    touch-action: manipulation;
+}
+
+/* === Game Container === */
+.game-container {
+    width: 100%;
+    max-width: 900px;
+    background: #1a1a1a;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+/* === Header === */
+.game-header {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.game-header h1 {
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* === Game Area === */
+.game-area {
+    padding: 30px 20px;
+    background: #1a1a1a;
+}
+
+/* === Drum Kit Layout === */
+.drum-kit {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.drum-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* === Drum Elements === */
+.drum {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.1s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.drum:active {
+    transform: scale(0.95);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.drum.playing {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+}
+
+.drum-label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
+    color: white;
+}
+
+.drum-key {
+    font-size: 12px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 3px 8px;
+    border-radius: 5px;
+    margin-top: 5px;
+    color: white;
+}
+
+/* === Specific Drum Styles === */
+.cymbal-left, .cymbal-right {
+    background: linear-gradient(135deg, #f39c12 0%, #d68910 100%);
+    width: 140px;
+    height: 30px;
+    border-radius: 50% / 20%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.hihat {
+    background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+    width: 100px;
+    height: 20px;
+    border-radius: 50% / 20%;
+}
+
+.snare {
+    background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+    color: #333;
+}
+
+.snare .drum-label,
+.snare .drum-key {
+    color: #333;
+}
+
+.kick {
+    background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+    width: 150px;
+    height: 150px;
+}
+
+.tom-high {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    width: 100px;
+    height: 100px;
+}
+
+.tom-mid {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    width: 110px;
+    height: 110px;
+}
+
+.tom-low {
+    background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+    width: 120px;
+    height: 120px;
+}
+
+/* === Controls === */
+.game-controls {
+    padding: 25px;
+    text-align: center;
+    background: #2c3e50;
+}
+
+.instructions {
+    color: white;
+    margin-bottom: 15px;
+}
+
+.instructions p {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.btn {
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    transition: all 0.3s ease;
+    margin: 5px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+}
+
+.btn-tertiary {
+    background: #95a5a6;
+    color: white;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn.recording {
+    background: #e74c3c;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    .game-header h1 {
+        font-size: 28px;
+    }
+
+    .drum {
+        width: 100px;
+        height: 100px;
+    }
+
+    .cymbal-left, .cymbal-right {
+        width: 120px;
+        height: 25px;
+    }
+
+    .kick {
+        width: 130px;
+        height: 130px;
+    }
+
+    .tom-high {
+        width: 85px;
+        height: 85px;
+    }
+
+    .tom-mid {
+        width: 95px;
+        height: 95px;
+    }
+
+    .tom-low {
+        width: 105px;
+        height: 105px;
+    }
+
+    .drum-label {
+        font-size: 12px;
+    }
+
+    .drum-key {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-header h1 {
+        font-size: 24px;
+    }
+
+    .drum {
+        width: 80px;
+        height: 80px;
+    }
+
+    .cymbal-left, .cymbal-right {
+        width: 100px;
+        height: 20px;
+    }
+
+    .kick {
+        width: 110px;
+        height: 110px;
+    }
+
+    .tom-high {
+        width: 70px;
+        height: 70px;
+    }
+
+    .tom-mid {
+        width: 80px;
+        height: 80px;
+    }
+
+    .tom-low {
+        width: 90px;
+        height: 90px;
+    }
+
+    .drum-row {
+        gap: 10px;
+    }
+
+    .drum-label {
+        font-size: 11px;
+    }
+
+    .drum-key {
+        font-size: 9px;
+        padding: 2px 6px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
