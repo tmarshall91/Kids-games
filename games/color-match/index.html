@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Color Match - A fun color matching game for kids">
+    <title>Color Match</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <h1>🎨 Color Match</h1>
+            <div class="game-stats">
+                <span class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </span>
+                <span class="stat">
+                    <span class="stat-label">Time:</span>
+                    <span id="timer" class="stat-value">30</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area" id="gameArea">
+            <!-- Welcome message -->
+            <div class="game-message" id="gameMessage">
+                <h2>Welcome!</h2>
+                <p>Tap the color that matches the word shown above</p>
+                <p class="instructions">Get ready to match colors quickly!</p>
+            </div>
+
+            <!-- Color question display -->
+            <div id="questionArea" class="question-area" style="display: none;">
+                <div class="question-text">Find this color:</div>
+                <div id="colorName" class="color-name">RED</div>
+            </div>
+
+            <!-- Color options grid -->
+            <div id="colorOptions" class="color-options" style="display: none;">
+                <!-- Color buttons will be dynamically added here -->
+            </div>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+            <button id="restartBtn" class="btn btn-secondary" style="display: none;">Restart</button>
+        </footer>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="overlay" style="display: none;">
+        <div class="overlay-content">
+            <h2>🎉 Great Job!</h2>
+            <p class="final-score">Score: <span id="finalScore">0</span></p>
+            <p id="accuracyText" class="accuracy-text"></p>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
